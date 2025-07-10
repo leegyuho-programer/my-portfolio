@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/nextjs';
 import '@/app/globals.css'; // Next.js 전역 CSS 파일 경로에 맞춰서 수정
 
 const preview: Preview = {
