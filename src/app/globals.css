@@ -70,6 +70,17 @@
   }
 }
 
+@layer components {
+  ul > li {
+    color: theme(--color-text-main);
+    --link-hover-color: theme(--color-accent);
+  }
+
+  ul > li:hover {
+    color: var(--link-hover-color);
+  }
+}
+
 @layer utilities {
   .text-xs {
     font-size: theme(--font-size-xs);

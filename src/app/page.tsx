@@ -1,3 +1,5 @@
+import NavBar from '@/_components/NavBar/NavBar';
+
 export default function Home() {
-  return <h1 className='text-sm text-accent underline'>Hello world!</h1>;
+  return <NavBar />;
 }
