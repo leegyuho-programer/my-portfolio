@@ -1,30 +1,36 @@
 import Link from 'next/link';
 import { flexRowCenter } from './../../app/styles';
 
-export default function NavBar() {
+interface MenuItemProps {
+  label: string;
+  href: string;
+}
+
+interface NavBarProps {
+  menuItems: MenuItemProps[];
+}
+
+export default function NavBar({ menuItems }: NavBarProps) {
   return (
-    <header className={`fixed w-full h-72px ${flexRowCenter}`}>
-      <nav className='flex justify-between px-70'>
+    <header
+      className={`fixed top-0 left-0 w-full h-[72px] ${flexRowCenter} shadow-light-mild bg-white z-50`}
+    >
+      <nav className='flex justify-between px-[120px] w-full'>
         <Link href='/' className='text-lg hover:text-accent'>
           LEE GYU HO&#39;s Portfolio
         </Link>
 
-        <ul className='flex text-sm gap-20'>
-          <li>
-            <Link href='#about me'>About me</Link>
-          </li>
-          <li>
-            <Link href='#skills'>Skills</Link>
-          </li>
-          <li>
-            <Link href='#archiving'>Archiving</Link>
-          </li>
-          <li>
-            <Link href='#projects'>Projects</Link>
-          </li>
-          <li>
-            <Link href='#career'>Career</Link>
-          </li>
+        <ul className='flex text-sm gap-[40px]'>
+          {menuItems.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className='hover:text-accent transition-colors duration-150'
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

@@ -45,6 +45,12 @@
   --color-error: #d01e1e; /* 에러/경고 색상 (빨강) */
   --color-social: #395997; /* 소셜 아이콘 색상 (어두운 파란색) */
   --color-dark-opacity: rgba(255, 255, 255, 0.1); /* 반투명 오버레이 */
+
+  /* Box Shadow */
+  --shadow-base: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-light-mild: 0 2px 8px hsla(0, 0%, 80%, 0.8);
+  --shadow-dark-offset: 1rem 1rem 1rem 0 rgba(68, 68, 68, 0.2);
+  --shadow-dark-soft: 0 0 0.5rem 0 rgba(68, 68, 68, 0.4);
 }
 
 /* Tailwind의 기본 유틸리티 레이어에 스타일 추가 */
@@ -71,14 +77,6 @@
 }
 
 @layer components {
-  ul > li {
-    color: theme(--color-text-main);
-    --link-hover-color: theme(--color-accent);
-  }
-
-  ul > li:hover {
-    color: var(--link-hover-color);
-  }
 }
 
 @layer utilities {
@@ -116,5 +114,17 @@
     font-size: theme(--font-size-2xl);
     line-height: theme(line-height-2xl);
     font-weight: theme(--font-weight-black);
+  }
+
+  .shadow-light-mild {
+    box-shadow: var(--shadow-light-mild);
+  }
+
+  .shadow-dark-offset {
+    box-shadow: var(--shadow-dark-offset);
+  }
+
+  .shadow-dark-soft {
+    box-shadow: var(--shadow-dark-soft);
   }
 }
