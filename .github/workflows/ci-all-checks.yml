@@ -52,6 +52,9 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
+      - name: Install Playwright Browsers
+        run: npx playwright install
+
       - name: Serve and Run Accessibility Tests
         run: |
           npx concurrently -k -s first -n "SERVER,TEST" -c "magenta,blue" \
