@@ -2,8 +2,11 @@ name: CI Full Checks
 
 on:
   pull_request:
+    branches:
+      - develop
   push:
-    branches: ['main']
+    branches:
+      - main
 
 jobs:
   lint-build-typecheck:
