@@ -6,7 +6,7 @@ const config: TestRunnerConfig = {
   async preVisit(page) {
     await injectAxe(page);
   },
-  async postVisit(page, context) {
+  async postVisit(page) {
     await checkA11y(page, '#root', {
       detailedReport: true,
       detailedReportOptions: { html: true },

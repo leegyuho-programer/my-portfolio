@@ -1,6 +1,7 @@
 name: Chromatic Visual Test
 
-on: push
+on:
+  pull_request:
 
 jobs:
   chromatic:
@@ -13,7 +14,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 22.17.0
+          node-version: 20
       - name: Install dependencies
         # ⚠️ See your package manager's documentation for the correct command to install dependencies in a CI environment.
         run: npm ci
