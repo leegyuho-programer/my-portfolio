@@ -9,7 +9,8 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_30c94a3379bd35d"
+    "chromatic": "npx chromatic --project-token=chpt_30c94a3379bd35d",
+    "test-storybook": "test-storybook"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.11",
@@ -23,10 +24,12 @@
     "@storybook/addon-a11y": "^9.0.16",
     "@storybook/addon-docs": "^9.0.16",
     "@storybook/nextjs": "^9.0.16",
+    "@storybook/test-runner": "^0.23.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
+    "axe-playwright": "^2.1.0",
     "chromatic": "^13.1.2",
     "eslint": "^9",
     "eslint-config-next": "15.3.5",
