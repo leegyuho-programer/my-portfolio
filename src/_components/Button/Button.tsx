@@ -8,10 +8,10 @@ interface ButtonProps {
 export default function Button({ children }: ButtonProps) {
   return (
     <Link
-      role="button"
+      role='button'
       tabIndex={0}
       href='#about-me'
-      className={`bg-accent hover:bg-[#0069d9] w-[130px] h-[50px] text-sm text-white rounded-primary-button ${flexCenter}`}
+      className={`bg-accent hover:bg-[#002f80] w-[130px] h-[50px] text-sm text-white rounded-primary-button ${flexCenter}`}
     >
       {children}
     </Link>
