@@ -89,13 +89,13 @@
   .text-sm {
     font-size: theme(--font-size-sm);
     line-height: theme(line-height-sm);
-    font-weight: theme(--font-weight-light);
+    font-weight: theme(--font-weight-regular);
   }
 
   .text-md {
     font-size: theme(--font-size-md);
     line-height: theme(line-height-md);
-    font-weight: theme(--font-weight-light);
+    font-weight: theme(--font-weight-regular);
   }
 
   .text-lg {

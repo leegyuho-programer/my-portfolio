@@ -1,3 +1,4 @@
+import Button from '@/_components/Button/Button';
 import NavBar from '@/_components/NavBar/NavBar';
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
           { label: 'Career', href: '#career' },
         ]}
       />
+      <Button>더 알아보기 ↓</Button>
       {/* // About Me 섹션 */}
       <section
         id='about-me'
