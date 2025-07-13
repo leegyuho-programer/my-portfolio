@@ -3,9 +3,6 @@ name: CI Full Checks
 on:
   pull_request:
     branches:
-      - develop
-  push:
-    branches:
       - main
 
 jobs:
