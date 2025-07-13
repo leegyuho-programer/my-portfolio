@@ -1,4 +1,4 @@
-name: CI Full Checks
+name: CI Full Checks, accessibility-test, visual-test
 
 on:
   pull_request:
