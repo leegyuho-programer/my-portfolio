@@ -1,5 +1,6 @@
 import Button from '@/_components/Button/Button';
 import NavBar from '@/_components/NavBar/NavBar';
+import { flexCenter } from './styles';
 
 export default function Home() {
   return (
@@ -13,7 +14,9 @@ export default function Home() {
           { label: 'Career', href: '#career' },
         ]}
       />
-      <Button>더 알아보기 ↓</Button>
+      <div className={`mt-[72px] ${flexCenter}`}>
+        <Button>더 알아보기 ↓</Button>
+      </div>
       {/* // About Me 섹션 */}
       <section
         id='about-me'

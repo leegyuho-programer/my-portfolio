@@ -1,3 +1,4 @@
+import { flexCenter } from '@/app/styles';
 import Link from 'next/link';
 
 interface ButtonProps {
@@ -6,8 +7,11 @@ interface ButtonProps {
 
 export default function Button({ children }: ButtonProps) {
   return (
-    <button className='mt-[72px] bg-accent hover:bg-[#0069d9] w-[130px] h-[50px] text-sm text-white rounded-primary-button'>
-      <Link href='#about-me'>{children}</Link>
-    </button>
+    <Link
+      href='#about-me'
+      className={`bg-accent hover:bg-[#0069d9] w-[130px] h-[50px] text-sm text-white rounded-primary-button ${flexCenter}`}
+    >
+      {children}
+    </Link>
   );
 }
