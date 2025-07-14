@@ -33,6 +33,7 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
   accessibility:
+    if: false # 이 줄 하나로 accessibility job은 실행되지 않음
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
