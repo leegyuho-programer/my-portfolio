@@ -1,6 +1,7 @@
 import Button from '@/_components/Button/Button';
 import NavBar from '@/_components/NavBar/NavBar';
 import { flexCenter } from './styles';
+import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 
 export default function Home() {
   return (
@@ -33,6 +34,19 @@ export default function Home() {
       >
         {/* Skills 콘텐츠 */}
         <h2 className='text-2xl font-bold text-text-main'>SKILLS</h2>
+        <div className='flex gap-[15px]'>
+          <TechStackBadge tech='Html' />
+          <TechStackBadge tech='CSS' />
+          <TechStackBadge tech='JavaScript' />
+          <TechStackBadge tech='TypeScript' />
+          <TechStackBadge tech='StyledComponents' />
+          <TechStackBadge tech='CSSModules' />
+          <TechStackBadge tech='Tailwind' />
+          <TechStackBadge tech='Zustand' />
+          <TechStackBadge tech='React' />
+          <TechStackBadge tech='ReactQuery' />
+          <TechStackBadge tech='NextJs' />
+        </div>
         {/* ... */}
       </section>
       {/* // Archiving 섹션 */}
