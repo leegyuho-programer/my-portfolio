@@ -35,26 +35,17 @@ export default function Home() {
         {/* Skills 콘텐츠 */}
         <h2 className='text-2xl font-bold text-text-main'>SKILLS</h2>
         <div className='flex gap-[15px]'>
-          <TechStackBadge svgSrc='/ions/HtmlIcon.svg'>Html</TechStackBadge>
-          <TechStackBadge svgSrc='/ions/CSSIcon.svg'>CSS</TechStackBadge>
-          <TechStackBadge svgSrc='/ions/CSSModulesIcon.svg'>
-            CSSModules
-          </TechStackBadge>
-          <TechStackBadge svgSrc='/ions/JavaScriptIcon.svg'>
-            JavaScript
-          </TechStackBadge>
-          <TechStackBadge svgSrc='/ions/NextJsIcon.svg'>NextJs</TechStackBadge>
-          <TechStackBadge svgSrc='/ions/ReactIcon.svg'>React</TechStackBadge>
-          <TechStackBadge svgSrc='/ions/ReactQueryIcon.svg'>
-            ReactQuery
-          </TechStackBadge>
-          <TechStackBadge svgSrc='/ions/TailwindIcon.svg'>
-            Tailwind
-          </TechStackBadge>
-          <TechStackBadge svgSrc='/ions/StyledComponentsIcon.svg'>
-            StyledComponents
-          </TechStackBadge>
-          <TechStackBadge>Zustand</TechStackBadge>
+          <TechStackBadge tech='Html' />
+          <TechStackBadge tech='CSS' />
+          <TechStackBadge tech='JavaScript' />
+          <TechStackBadge tech='TypeScript' />
+          <TechStackBadge tech='StyledComponents' />
+          <TechStackBadge tech='CSSModules' />
+          <TechStackBadge tech='Tailwind' />
+          <TechStackBadge tech='Zustand' />
+          <TechStackBadge tech='React' />
+          <TechStackBadge tech='ReactQuery' />
+          <TechStackBadge tech='NextJs' />
         </div>
         {/* ... */}
       </section>

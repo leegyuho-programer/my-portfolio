@@ -1,52 +1,36 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import TechStackBadge from './TechStackBadge';
+import { TECH_MAP } from './techMap';
 
-const meta = {
-  title: 'Badges/TechStackBadge', // 경로
-  component: TechStackBadge, // 이 컴포넌트의 스토리북을 작성했다.
+const meta: Meta<typeof TechStackBadge> = {
+  title: 'Badges/TechStackBadge',
+  component: TechStackBadge,
   parameters: {
-    layout: 'centered', // 스토리북에서 어떻게 보이는지 결정 (left로 하면 왼쪽으로 감)
+    layout: 'centered',
   },
   tags: ['autodocs'],
-
   argTypes: {
-    children: {
-      control: 'text',
-      description: '뱃지 내부 텍스트',
-      defaultValue: 'React',
-    },
-    svgSrc: {
-      control: 'text',
-      description: '아이콘 svg 경로',
-    },
-    alt: {
-      control: 'text',
-      description: '이미지 대체 텍스트 (접근성)',
+    tech: {
+      control: {
+        type: 'select',
+        options: Object.keys(TECH_MAP),
+      },
+      description: '기술 스택 키워드',
     },
   },
-} satisfies Meta<typeof TechStackBadge>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof TechStackBadge>;
 
 export const Default: Story = {
   args: {
-    children: 'React',
-    svgSrc: 'ions/ReactIcon.svg',
-    alt: 'React logo',
+    tech: 'React',
   },
 };
 
-export const NoIcon: Story = {
+export const WithoutIcon: Story = {
   args: {
-    children: 'Zustand',
-  },
-};
-
-export const NextJsIcon: Story = {
-  args: {
-    children: 'NextJs',
-    svgSrc: '/ions/NextJsIcon.svg',
-    alt: 'NextJs logo',
+    tech: 'Zustand', // svg 없음
   },
 };
