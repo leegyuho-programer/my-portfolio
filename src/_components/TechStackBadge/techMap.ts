@@ -51,7 +51,6 @@ export const TECH_MAP = {
   },
   Zustand: {
     label: 'Zustand',
-    alt: 'Zustand',
   },
 } as const;
 
