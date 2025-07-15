@@ -1,7 +1,7 @@
 interface TagButtonProps {
   children: string;
   isChecked: boolean;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 export default function TagButton({
