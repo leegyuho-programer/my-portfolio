@@ -83,37 +83,31 @@
   .text-xs {
     font-size: theme(--font-size-xs);
     line-height: theme(line-height-xs);
-    font-weight: theme(--font-weight-light);
   }
 
   .text-sm {
     font-size: theme(--font-size-sm);
     line-height: theme(line-height-sm);
-    font-weight: theme(--font-weight-regular);
   }
 
   .text-md {
     font-size: theme(--font-size-md);
     line-height: theme(line-height-md);
-    font-weight: theme(--font-weight-regular);
   }
 
   .text-lg {
     font-size: theme(--font-size-lg);
     line-height: theme(line-height-lg);
-    font-weight: theme(--font-weight-bold);
   }
 
   .text-xl {
     font-size: theme(--font-size-xl);
     line-height: theme(line-height-xl);
-    font-weight: theme(--font-weight-black);
   }
 
   .text-2xl {
     font-size: theme(--font-size-2xl);
     line-height: theme(line-height-2xl);
-    font-weight: theme(--font-weight-black);
   }
 
   .shadow-light-mild {

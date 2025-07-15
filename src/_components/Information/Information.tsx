@@ -33,11 +33,11 @@ export default function Information({
         />
       </div>
       <div className='items-baseline'>
-        <div className='text-[16px] font-bold mb-[4px]'>{title}</div>
-        {content && <div className='text-sm'>{content}</div>}
+        <div className='text-sm font-bold mb-[4px]'>{title}</div>
+        {content && <div className='text-sm font-regular'>{content}</div>}
         {link && (
           <Link
-            className='text-sm text-blue-600 hover:underline'
+            className='text-sm font-regular text-blue-600 hover:underline'
             href={link}
             target='_blank'
             rel='noopener noreferrer'

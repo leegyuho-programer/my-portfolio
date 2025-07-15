@@ -23,7 +23,7 @@ export default function TechStackBadge({ tech }: TechStackBadgeProps) {
           height={25}
         />
       )}
-      <span className='text-[16px] font-medium text-[#000]'>{label}</span>
+      <span className='text-sm font-medium text-[#000]'>{label}</span>
     </div>
   );
 }
