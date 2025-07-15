@@ -3,6 +3,7 @@ import NavBar from '@/_components/NavBar/NavBar';
 import { flexCenter } from './styles';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import TagButton from '@/_components/TagButton/TagButton';
+import TagList from '@/_components/TagList/TagList';
 
 export default function Home() {
   return (
@@ -50,7 +51,7 @@ export default function Home() {
         </div>
         {/* ... */}
       </section>
-      <TagButton>All</TagButton>
+      <TagList />
       {/* // Archiving 섹션 */}
       <section
         id='archiving'
