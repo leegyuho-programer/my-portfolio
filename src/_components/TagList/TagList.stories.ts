@@ -11,7 +11,6 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     tagList: {
-      control: 'array',
       description: '태그 리스트',
       defaultValue: ['All', 'Team', 'Single'],
     },
