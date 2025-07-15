@@ -4,6 +4,7 @@ import { flexCenter } from './styles';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import TagButton from '@/_components/TagButton/TagButton';
 import TagList from '@/_components/TagList/TagList';
+import TagListWrapper from '@/_components/TagList/TagListWrapper';
 
 export default function Home() {
   return (
@@ -51,7 +52,7 @@ export default function Home() {
         </div>
         {/* ... */}
       </section>
-      <TagList />
+      <TagListWrapper />
       {/* // Archiving 섹션 */}
       <section
         id='archiving'
