@@ -34,17 +34,24 @@
   --shadow-base: 0px 4px 8px rgba(0, 0, 0, 0.1);
 
   /* Colors */
-  --color-text-main: #333333; /* 기본 텍스트 색상 (짙은 회색) */
-  --color-text-secondary: #666666; /* 보조 텍스트 색상 (중간 회색) */
-  --color-accent: #0044aa; /* 주요 강조 색상 (밝은 파란색) */
+  --color-text-main: #333333;
+  --color-text-secondary: #666666;
+  --color-accent: #0044aa;
 
-  --color-background-main: #f8f9fa; /* 주된 배경 색상 (아주 밝은 회색) */
-  --color-background-secondary: #e9ecef; /* 영역 구분 배경 색상 (연한 회색) */
-  --color-white: #ffffff; /* 순수한 흰색 */
+  --color-background-main: #f8f9fa;
+  --color-background-secondary: #e9ecef;
+  --color-white: #ffffff;
 
-  --color-error: #d01e1e; /* 에러/경고 색상 (빨강) */
-  --color-social: #395997; /* 소셜 아이콘 색상 (어두운 파란색) */
-  --color-dark-opacity: rgba(255, 255, 255, 0.1); /* 반투명 오버레이 */
+  --color-error: #d01e1e;
+  --color-social: #395997;
+  --color-dark-opacity: rgba(255, 255, 255, 0.1);
+  --color-mainBlack: #232323;
+  --color-mainGray: #efeff1;
+  --color-darkGray: #0c0c0c;
+  --color-lightGray: #373737;
+  --color-superLightGray: #f1f2f5;
+  --color-white: #fff;
+  --color-black: #000;
 
   /* Box Shadow */
   --shadow-base: 0px 4px 8px rgba(0, 0, 0, 0.1);
