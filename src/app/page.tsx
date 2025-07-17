@@ -3,6 +3,7 @@ import NavBar from '@/_components/NavBar/NavBar';
 import { flexCenter } from './styles';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import TagListWrapper from '@/_components/TagList/TagListWrapper';
+import Card from '@/_components/Card/Card';
 
 export default function Home() {
   return (
@@ -51,6 +52,23 @@ export default function Home() {
         {/* ... */}
       </section>
       <TagListWrapper />
+
+      <div className='my-5'></div>
+
+      <Card>
+        <Card.Hidden>
+          <Card.Image src='/images/WikiedImage.png' alt='Wikied 이미지' />
+          <Card.Content
+            title='Wikied'
+            description='아야어여오요우유으이이이이이이이이이아야어여오요우유으이이이이이이이이이.'
+          />
+          <Card.Tags tags={['개인', '반응형']} />
+        </Card.Hidden>
+
+        <Card.Hover title='Wikied' text='자세히 보기' />
+      </Card>
+
+      <div className='my-5'></div>
       {/* // Archiving 섹션 */}
       <section
         id='archiving'
