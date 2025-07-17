@@ -47,7 +47,7 @@ Card.Content = function CardContent({
 
 Card.Tags = function CardTags({ tags }: { tags: string[] }) {
   return (
-    <div className='flex gap-2 absolute b-[15px] l-[15px]'>
+    <div className='flex gap-2 absolute bottom-[15px] left-[15px]'>
       {tags.map((tag: string) => (
         <span
           key={tag}
