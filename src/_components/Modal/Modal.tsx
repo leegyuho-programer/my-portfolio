@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import React from 'react';
+import IconButton from '../IconButton/IconButton';
 
 interface ModalProps {
   isOpen: boolean;
@@ -59,27 +60,14 @@ export default function Modal({
     >
       <div
         className='relative bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto animate-fade-in' // 🚨 animate-fade-in 추가
-        onClick={(e) => e.stopPropagation()} // 모달 내부 클릭 시 배경 클릭 방지
+        onClick={(e) => e.stopPropagation()}
       >
-        <button
+        <IconButton
+          svgSrc='/icons/CloseIcon.svg'
+          alt='닫기 아이콘'
           onClick={onClose}
-          className='absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors z-10'
-          aria-label='모달 닫기'
-        >
-          <svg
-            className='w-6 h-6 text-gray-600'
-            fill='none'
-            stroke='currentColor'
-            viewBox='0 0 24 24'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M6 18L18 6M6 6l12 12'
-            />
-          </svg>
-        </button>
+        />
+
         {title && (
           <h3 className='text-2xl font-bold text-text-main p-6 pb-0'>
             {title}

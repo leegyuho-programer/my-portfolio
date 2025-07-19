@@ -6,6 +6,7 @@ import TagListWrapper from '@/_components/TagList/TagListWrapper';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import { flexCenter } from './styles';
 import IconButton from '@/_components/IconButton/IconButton';
+import CloseIconButton from '@/_components/CloseIconButton/CloseIconButton';
 
 export default function Home() {
   return (
@@ -73,12 +74,8 @@ export default function Home() {
           onOpenDetail={() => alert('ㅎㅇ')}
         />
       </Card> */}
-      <div className='w-[32px] h-[32px]'>
-        <IconButton
-          svgSrc='/icons/CloseIcon.svg'
-          alt='닫기 아이콘'
-          onClick={() => {}}
-        />
+      <div className='flex justify-center items-center w-[32px] h-[32px] bg-black'>
+        <CloseIconButton onClick={() => {}} />
       </div>
 
       <div className='my-5'></div>
