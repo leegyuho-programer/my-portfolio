@@ -1,8 +1,11 @@
+'use client';
+
 import Button from '@/_components/Button/Button';
 import NavBar from '@/_components/NavBar/NavBar';
 import TagListWrapper from '@/_components/TagList/TagListWrapper';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import { flexCenter } from './styles';
+import IconButton from '@/_components/IconButton/IconButton';
 
 export default function Home() {
   return (
@@ -70,6 +73,13 @@ export default function Home() {
           onOpenDetail={() => alert('ㅎㅇ')}
         />
       </Card> */}
+      <div className='w-[32px] h-[32px]'>
+        <IconButton
+          svgSrc='/icons/CloseIcon.svg'
+          alt='닫기 아이콘'
+          onClick={() => {}}
+        />
+      </div>
 
       <div className='my-5'></div>
       {/* // Archiving 섹션 */}

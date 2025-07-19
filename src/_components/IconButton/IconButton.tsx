@@ -8,8 +8,8 @@ interface IconButtonProps {
 
 export default function IconButton({ svgSrc, alt, onClick }: IconButtonProps) {
   return (
-    <button onClick={onClick}>
-      <Image src={svgSrc} alt={alt} />
+    <button onClick={onClick} className='relative w-full h-full bg-accent'>
+      <Image src={svgSrc} alt={alt} fill />
     </button>
   );
 }
