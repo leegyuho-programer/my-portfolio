@@ -64,7 +64,11 @@ export default function Home() {
           <Card.Tags tags={['개인', '반응형']} />
         </Card.Hidden>
 
-        <Card.Hover title='Wikied' text='자세히 보기' />
+        <Card.Hover
+          title='Wikied'
+          text='자세히 보기'
+          onOpenDetail={() => alert('ㅎㅇ')}
+        />
       </Card> */}
 
       <div className='my-5'></div>
