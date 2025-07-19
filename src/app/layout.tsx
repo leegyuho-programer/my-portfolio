@@ -74,17 +74,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  modal,
-}: {
+}: Readonly<{
   children: ReactNode;
-  modal: ReactNode;
-}) {
+}>) {
   return (
     <html lang='ko' className={`${notoSansKr.variable}`}>
-      <body>
-        {children}
-        {modal}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

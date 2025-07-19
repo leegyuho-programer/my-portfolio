@@ -1,10 +1,8 @@
 import Button from '@/_components/Button/Button';
 import NavBar from '@/_components/NavBar/NavBar';
-import { flexCenter } from './styles';
-import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import TagListWrapper from '@/_components/TagList/TagListWrapper';
-import Card from '@/_components/Card/Card';
-import { projectData } from '@/_data/projectData';
+import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
+import { flexCenter } from './styles';
 
 export default function Home() {
   return (
@@ -68,35 +66,6 @@ export default function Home() {
 
         <Card.Hover title='Wikied' text='자세히 보기' />
       </Card> */}
-      {/* Projects 섹션 */}
-      <section
-        id='projects'
-        className='scroll-mt-[72px] py-16 bg-background-main'
-      >
-        <h2 className='text-2xl font-bold text-text-main mb-8'>PROJECTS</h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {projectData.map((project) => (
-            <Card key={project.id} projectId={project.id}>
-              <Card.Hidden>
-                <Card.Image
-                  src={project.image || '/images/default.png'}
-                  alt={`${project.title} 이미지`}
-                />
-                <Card.Content
-                  title={project.title}
-                  description={project.description}
-                />
-                <Card.Tags tags={project.tags} />
-              </Card.Hidden>
-              <Card.Hover
-                title={project.title}
-                text='자세히 보기'
-                projectId={project.id}
-              />
-            </Card>
-          ))}
-        </div>
-      </section>
 
       <div className='my-5'></div>
       {/* // Archiving 섹션 */}
