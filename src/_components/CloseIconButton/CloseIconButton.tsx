@@ -1,4 +1,4 @@
-export default function CloseButton({
+export default function CloseIconButton({
   onClick,
 }: {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -6,7 +6,7 @@ export default function CloseButton({
   return (
     <button
       onClick={onClick}
-      className='group w-8 h-8 flex items-center justify-center'
+      className='group w-15 h-15 flex items-center justify-center'
       aria-label='Close'
     >
       <svg
@@ -19,7 +19,7 @@ export default function CloseButton({
           y1='7'
           x2='25'
           y2='25'
-          className='transition stroke-lightGray group-hover:stroke-superLightGray'
+          className='transition stroke-[#414141] group-hover:stroke-superLightGray'
           strokeWidth={4}
           strokeLinecap='round'
           strokeLinejoin='round'
@@ -29,7 +29,7 @@ export default function CloseButton({
           y1='25'
           x2='25'
           y2='7'
-          className='transition stroke-lightGray group-hover:stroke-superLightGray'
+          className='transition stroke-[#414141] group-hover:stroke-superLightGray'
           strokeWidth={4}
           strokeLinecap='round'
           strokeLinejoin='round'

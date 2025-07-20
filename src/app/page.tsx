@@ -7,6 +7,7 @@ import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import { flexCenter } from './styles';
 import IconButton from '@/_components/IconButton/IconButton';
 import CloseIconButton from '@/_components/CloseIconButton/CloseIconButton';
+import ProjectSectionClient from '@/_components/projectSection/projectSectionClient';
 
 export default function Home() {
   return (
@@ -77,6 +78,8 @@ export default function Home() {
       <div className='flex justify-center items-center w-[32px] h-[32px] bg-black'>
         <CloseIconButton onClick={() => {}} />
       </div>
+
+      <ProjectSectionClient />
 
       <div className='my-5'></div>
       {/* // Archiving 섹션 */}

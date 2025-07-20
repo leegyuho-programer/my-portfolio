@@ -2,13 +2,16 @@
 
 import { useEffect } from 'react';
 import React from 'react';
-import IconButton from '../IconButton/IconButton';
+import CloseIconButton from '../CloseIconButton/CloseIconButton';
+import { flexCenter } from '@/app/styles';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
   title?: string;
+  period: string;
+  developmentMembers: string;
 }
 
 export default function Modal({
@@ -16,6 +19,8 @@ export default function Modal({
   onClose,
   children,
   title,
+  period,
+  developmentMembers,
 }: ModalProps) {
   useEffect(() => {
     if (isOpen) {
@@ -55,24 +60,23 @@ export default function Modal({
 
   return (
     <div
-      className='fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4'
+      className='fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-10 px-50'
       onClick={handleBackdropClick}
     >
       <div
-        className='relative bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto animate-fade-in' // 🚨 animate-fade-in 추가
+        className='relative bg-white rounded-lg w-full max-h-[90vh] overflow-y-auto animate-fade-in'
         onClick={(e) => e.stopPropagation()}
       >
-        <IconButton
-          svgSrc='/icons/CloseIcon.svg'
-          alt='닫기 아이콘'
-          onClick={onClose}
-        />
-
-        {title && (
-          <h3 className='text-2xl font-bold text-text-main p-6 pb-0'>
-            {title}
-          </h3>
-        )}
+        <div
+          className={`w-full bg-black ${flexCenter} flex-col py-15 text-white gap-5`}
+        >
+          <div className='absolute top-[40px] right-[40px] w-[55px] h-[55px]'>
+            <CloseIconButton onClick={onClose} />
+          </div>
+          <h3 className='text-2xl font-bold'>{title}</h3>
+          <p className='text-sm font-regular text-blue'>{period}</p>
+          <p className='text-sm font-regular'>{developmentMembers}</p>
+        </div>
         {children}
       </div>
     </div>
