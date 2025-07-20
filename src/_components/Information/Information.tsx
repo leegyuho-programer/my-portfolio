@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 interface InformationProps {
   svgSrc: string;
@@ -7,6 +6,7 @@ interface InformationProps {
   title: string;
   content?: string;
   link?: string;
+  onClick?: React.MouseEventHandler;
 }
 
 export default function Information({
@@ -15,37 +15,28 @@ export default function Information({
   title,
   content,
   link,
+  onClick,
 }: InformationProps) {
-  const getLinkLabel = (url: string) => {
-    if (url.includes('github.com')) return 'GitHub';
-    if (url.includes('velog.io')) return 'Blog';
-    return '링크 보기';
+  const handleClick: React.MouseEventHandler = (event) => {
+    if (onClick) {
+      onClick(event);
+    } else if (link) {
+      window.open(link, '_blank');
+    }
   };
+
   return (
-    <div className='flex mx-auto w-full gap-3'>
-      <div className='w-[50px] h-[50px]'>
-        <Image
-          className='w-full h-full'
-          src={svgSrc}
-          alt={`${alt} logo`}
-          width={50}
-          height={50}
-        />
+    <button
+      className='flex mx-auto p-5 w-full gap-3 text-left cursor-pointer rounded-xl shadow-md hover:shadow-lg transition-shadow'
+      onClick={handleClick}
+    >
+      <div className='relative w-[60px] h-[60px]'>
+        <Image src={svgSrc} alt={`${alt} logo`} fill />
       </div>
       <div className='items-baseline'>
         <div className='text-sm font-bold mb-[4px]'>{title}</div>
         {content && <div className='text-sm font-regular'>{content}</div>}
-        {link && (
-          <Link
-            className='text-sm font-regular text-blue-600 hover:underline'
-            href={link}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {getLinkLabel(link)}
-          </Link>
-        )}
       </div>
-    </div>
+    </button>
   );
 }

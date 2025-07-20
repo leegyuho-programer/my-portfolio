@@ -21,7 +21,11 @@ export const Default: Story = {
         />
         <Card.Tags tags={['개인', '반응형']} />
       </Card.Hidden>
-      <Card.Hover title='Wikied' text='자세히 보기' />
+      <Card.Hover
+        title='Wikied'
+        text='자세히 보기'
+        onOpenDetail={() => alert('자세히 보기 클릭됨')}
+      />
     </Card>
   ),
 };
