@@ -5,9 +5,8 @@ import NavBar from '@/_components/NavBar/NavBar';
 import TagListWrapper from '@/_components/TagList/TagListWrapper';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import { flexCenter } from './styles';
-import IconButton from '@/_components/IconButton/IconButton';
 import CloseIconButton from '@/_components/CloseIconButton/CloseIconButton';
-import ProjectSectionClient from '@/_components/projectSection/projectSectionClient';
+import ProjectSectionClient from '@/_components/projectSection/ProjectSectionClient';
 
 export default function Home() {
   return (
