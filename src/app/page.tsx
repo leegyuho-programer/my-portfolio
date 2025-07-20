@@ -1,9 +1,12 @@
+'use client';
+
 import Button from '@/_components/Button/Button';
 import NavBar from '@/_components/NavBar/NavBar';
-import { flexCenter } from './styles';
-import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import TagListWrapper from '@/_components/TagList/TagListWrapper';
-import Card from '@/_components/Card/Card';
+import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
+import { flexCenter } from './styles';
+import CloseIconButton from '@/_components/CloseIconButton/CloseIconButton';
+import ProjectSectionClient from '@/_components/projectSection/ProjectSectionClient';
 
 export default function Home() {
   return (
@@ -55,7 +58,7 @@ export default function Home() {
 
       <div className='my-5'></div>
 
-      <Card>
+      {/* <Card>
         <Card.Hidden>
           <Card.Image src='/images/WikiedImage.png' alt='Wikied 이미지' />
           <Card.Content
@@ -65,8 +68,17 @@ export default function Home() {
           <Card.Tags tags={['개인', '반응형']} />
         </Card.Hidden>
 
-        <Card.Hover title='Wikied' text='자세히 보기' />
-      </Card>
+        <Card.Hover
+          title='Wikied'
+          text='자세히 보기'
+          onOpenDetail={() => alert('ㅎㅇ')}
+        />
+      </Card> */}
+      <div className='flex justify-center items-center w-[32px] h-[32px] bg-black'>
+        <CloseIconButton onClick={() => {}} />
+      </div>
+
+      <ProjectSectionClient />
 
       <div className='my-5'></div>
       {/* // Archiving 섹션 */}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import LocalFont from 'next/font/local';
+import { ReactNode } from 'react';
 
 // Noto Sans KR 폰트 정의
 // public 폴더를 기준으로 상대 경로를 지정합니다.
@@ -74,7 +75,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang='ko' className={`${notoSansKr.variable}`}>

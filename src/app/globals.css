@@ -40,7 +40,6 @@
 
   --color-background-main: #f8f9fa;
   --color-background-secondary: #e9ecef;
-  --color-white: #ffffff;
 
   --color-error: #d01e1e;
   --color-social: #395997;
@@ -50,8 +49,6 @@
   --color-darkGray: #0c0c0c;
   --color-lightGray: #373737;
   --color-superLightGray: #f1f2f5;
-  --color-white: #fff;
-  --color-black: #000;
 
   /* Box Shadow */
   --shadow-base: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -89,32 +86,32 @@
 @layer utilities {
   .text-xs {
     font-size: theme(--font-size-xs);
-    line-height: theme(line-height-xs);
+    line-height: theme(--line-height-xs);
   }
 
   .text-sm {
     font-size: theme(--font-size-sm);
-    line-height: theme(line-height-sm);
+    line-height: theme(--line-height-sm);
   }
 
   .text-md {
     font-size: theme(--font-size-md);
-    line-height: theme(line-height-md);
+    line-height: theme(--line-height-md);
   }
 
   .text-lg {
     font-size: theme(--font-size-lg);
-    line-height: theme(line-height-lg);
+    line-height: theme(--line-height-lg);
   }
 
   .text-xl {
     font-size: theme(--font-size-xl);
-    line-height: theme(line-height-xl);
+    line-height: theme(--line-height-xl);
   }
 
   .text-2xl {
     font-size: theme(--font-size-2xl);
-    line-height: theme(line-height-2xl);
+    line-height: theme(--line-height-2xl);
   }
 
   .shadow-light-mild {
