@@ -31,6 +31,8 @@ jobs:
       - uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          autoAcceptChanges: false
+          exitOnceUploaded: true
 
   accessibility:
     if: false # 이 줄 하나로 accessibility job은 실행되지 않음
