@@ -1,0 +1,24 @@
+<svg
+      width="64" height="64" viewBox="0 0 64 64"
+      fill="none" xmlns="http://www.w3.org/2000/svg"
+      aria-label="ArtTalkTalk Logo"
+    >
+      {/* 팔레트 본체 */}
+      <circle cx="32" cy="32" r="22" fill="#ff2049" />
+      {/* 팔레트 구멍들 */}
+      <circle cx="24" cy="26" r="4" fill="#fff" />
+      <circle cx="40" cy="24" r="3" fill="#fff" />
+      <circle cx="30" cy="40" r="3" fill="#fff" />
+      {/* 말풍선 */}
+      <path
+        d="M44 42 Q50 48 44 54 Q40 50 42 46 Z"
+        fill="#d3193a"
+        stroke="#a1132a"
+        strokeWidth="1"
+      />
+      {/* 말풍선 꼬리 */}
+      <path
+        d="M44 54 L50 58 L44 56"
+        fill="#a1132a"
+      />
+    </svg>

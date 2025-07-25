@@ -1,0 +1,37 @@
+<svg
+      width="64" height="64"
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Wikied Book Logo"
+    >
+      {/* 왼쪽 페이지 */}
+      <path
+        d="M32 12C24 10 16 12 12 16V48C16 44 24 42 32 44"
+        fill="#4cbfa4"
+        stroke="#2e8d78"
+        strokeWidth="2"
+      />
+      {/* 오른쪽 페이지 */}
+      <path
+        d="M32 12C40 10 48 12 52 16V48C48 44 40 42 32 44"
+        fill="#4cbfa4"
+        stroke="#2e8d78"
+        strokeWidth="2"
+      />
+      {/* 가운데 책 등 */}
+      <line
+        x1="32"
+        y1="12"
+        x2="32"
+        y2="44"
+        stroke="#1d6a5d"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      {/* 페이지 라인 디테일 */}
+      <line x1="20" y1="20" x2="26" y2="20" stroke="#ffffffaa" strokeWidth="1.5" />
+      <line x1="20" y1="26" x2="28" y2="26" stroke="#ffffffaa" strokeWidth="1.5" />
+      <line x1="38" y1="20" x2="44" y2="20" stroke="#ffffffaa" strokeWidth="1.5" />
+      <line x1="36" y1="26" x2="46" y2="26" stroke="#ffffffaa" strokeWidth="1.5" />
+    </svg>
