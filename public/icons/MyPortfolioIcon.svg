@@ -1,0 +1,22 @@
+<svg
+      width="64" height="64" viewBox="0 0 64 64"
+      fill="none" xmlns="http://www.w3.org/2000/svg"
+      aria-label="My Portfolio Logo"
+    >
+      {/* 서류 모양 */}
+      <rect x="14" y="10" width="36" height="44" rx="6" fill="#1F3A93" />
+      {/* 서류 상단 바 */}
+      <rect x="14" y="10" width="36" height="8" rx="3" fill="#395BB5" />
+      {/* 그래프 막대 3개 */}
+      <rect x="20" y="38" width="6" height="16" fill="#D9E1F2" rx="1" />
+      <rect x="30" y="34" width="6" height="20" fill="#D9E1F2" rx="1" />
+      <rect x="40" y="28" width="6" height="26" fill="#D9E1F2" rx="1" />
+      {/* 그래프 선 */}
+      <polyline
+        points="20,44 26,40 36,44 46,38"
+        stroke="#395BB5"
+        strokeWidth="2"
+        fill="none"
+        strokeLinecap="round"
+      />
+    </svg>

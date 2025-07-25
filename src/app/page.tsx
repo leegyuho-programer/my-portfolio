@@ -7,6 +7,7 @@ import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import { flexCenter } from './styles';
 import CloseIconButton from '@/_components/CloseIconButton/CloseIconButton';
 import ProjectSectionClient from '@/_components/projectSection/ProjectSectionClient';
+import Information from '@/_components/Information/Information';
 
 export default function Home() {
   return (
@@ -90,6 +91,22 @@ export default function Home() {
         {/* 이 섹션은 배경색이 어두우므로 텍스트 색상을 대비되게 설정 */}
         {/* Archiving 콘텐츠 */}
         <h2 className='text-2xl font-bold'>ARCHIVING</h2>
+        <div className='flex flex-row gap-5'>
+          <Information
+            svgSrc='/icons/GithubIcon.svg'
+            alt='GitHub'
+            title='GitHub 저장소'
+            content='프론트엔드 개발 프로젝트 저장소입니다.'
+            link='https://github.com/leegyuho-programer'
+          />
+          <Information
+            svgSrc='/icons/BlogIcon.svg'
+            alt='Blog'
+            title='Blog 저장소'
+            content='Blog 저장소입니다.'
+            link='https://velog.io/@j980303/posts'
+          />
+        </div>
         {/* ... */}
       </section>
       {/* // Projects 섹션 */}
