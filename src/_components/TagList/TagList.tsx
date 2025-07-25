@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import TagButton from '../TagButton/TagButton';
+import { flexCenter } from './../../app/styles';
 
 interface TagListProps<T extends string> {
   tagList: T[];
@@ -16,7 +17,7 @@ export default function TagList<T extends string>({
 
   return (
     <div
-      className='flex bg-lightGray rounded-primary-button gap-2 px-4 py-3'
+      className={`${flexCenter} bg-lightGray rounded-primary-button gap-4 px-4 py-3 w-[230px]`}
       onClick={(event) => {
         const eventTarget = event.target as HTMLButtonElement;
         // 이벤트 핸들러를 div에 달긴 하지만 실제로 이벤트를 발생시키는 건 TagButton이라는 뜻

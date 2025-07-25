@@ -13,7 +13,7 @@ export type TechStackProps =
   | 'Zustand';
 
 // 팀 여부 정의
-export type ProjectType = '개인' | '팀';
+export type ProjectType = 'Team' | 'Single';
 
 export interface MainWorkProps {
   title: string; // 작업의 제목
@@ -66,8 +66,8 @@ export const projectData: ProjectProps[] = [
       '기간: 2024.05 ~ 2024.07 (초기 개발) / 추가 작업 및 리팩토링: 2024.08 ~ 2025.03',
     serviceDescription:
       'Wikied는 사용자 정의로 위키 페이지를 생성하고 편집할 수 있는 플랫폼입니다. 생성한 위키 페이지의 링크를 복사하여 친구들과 공유할 수 있으며, 그들이 함께 작성하도록 초대할 수 있습니다. 또한, 자유게시판에서 글을 작성할 수 있으며, 많은 좋아요를 받은 글은 베스트 게시글에 오를 수 있습니다.',
-    developmentMembers: '개발 인원: 1인',
-    projectType: '개인',
+    developmentMembers: '개발 인원: 1명',
+    projectType: 'Single',
     deployLink: 'https://wikied.vercel.app/',
     githubLink: 'https://github.com/leegyuho-programer/Wikied',
     techStacksUsed: [
@@ -209,7 +209,7 @@ export const projectData: ProjectProps[] = [
     period: '기간: 2024.01 ~ 2024.02',
     serviceDescription:
       'ArtTalkTalk은 신진 작가들이 자신의 작품을 전시하고, 피드백을 받으며, 자유롭게 소통할 수 있는 온라인 플랫폼입니다. 작품 구매 및 나눔, 기부 기능도 지원하여 예술 생태계 형성을 목표로 합니다.',
-    projectType: '팀',
+    projectType: 'Team',
     developmentMembers:
       '개발 인원: 7명 (프론트엔드 4명, 백엔드 2명, 디자이너 1명)',
     myContributions:
@@ -325,8 +325,118 @@ export const projectData: ProjectProps[] = [
     period: '2023.12 ~ 2024.01',
     serviceDescription:
       'TaskyTasky는 일상의 업무를 효율적으로 계획할 수 있는 플랫폼입니다. 날짜와 시간에 따라 할 일을 간편하게 정리하고 일정을 효과적으로 관리할 수 있습니다. 칼럼을 이용해 할 일을 구분하고 카테고리로 정리할 수 있으며, 마감일, 태그, 사진 등을 이용해 다양하게 할 일을 기록할 수 있습니다.',
-    projectType: '팀',
+    projectType: 'Team',
     developmentMembers: '개발 인원: 5명',
+    myContributions:
+      '공통 컴포넌트 개발, 로그인/회원가입 페이지 구현, proxy 기능 이용하여 API 연결 함수 제공, 사이드 메뉴 무한스크롤',
+    deployLink: 'https://taskytasky.netlify.app/', // 실제 배포 주소로 변경 필요
+    githubLink: 'https://github.com/leegyuho-programer/TaskyTasky',
+    techStacksUsed: [
+      'React',
+      'TypeScript',
+      'React Query',
+      'Zustand',
+      'Next.js',
+      'Styled Components',
+    ],
+    mainWorks: [
+      {
+        title: '공통 컴포넌트 개발 및 인증 시스템 개선',
+        overview:
+          '로그인/회원가입 페이지의 중복되는 에러 메시지 관리 문제를 해결했습니다.',
+        contributions: [
+          '모든 에러 메시지와 Input 에러 처리 규칙을 상수화하여 재사용성을 높이고, 공통 컴포넌트(입력 필드, 버튼, 모달, 알림 등)를 설계했습니다.',
+          '중복 코드량을 약 30% 감소시켜 유지보수성을 향상시키고, 에러 관리의 일관성을 확보했습니다.',
+          '일관된 UI/UX를 제공하며 코드 재사용성을 극대화했습니다. 로그인/회원가입, 마이페이지, 계정 정보 페이지 등의 UI를 구현했습니다.',
+        ],
+      },
+      {
+        title: 'Zustand 도입을 통한 전역 상태 관리 및 성능 최적화',
+        overview:
+          '기존 Context API 방식에서 발생하던 상태 변경 시 불필요한 전체 컴포넌트 리렌더링 문제로 인한 성능 저하를 해결했습니다.',
+        contributions: [
+          '가볍고 효율적인 전역 상태 관리 라이브러리인 Zustand를 도입하여 전역 상태를 관리했습니다.',
+          '불필요한 렌더링을 40% 감소시키고, 전역 상태 관련 코드량을 약 25% 줄였습니다.',
+          '불필요한 prop drilling을 제거하여 컴포넌트 간 데이터 흐름을 최적화하고 유지보수성을 크게 개선했습니다.',
+        ],
+      },
+      {
+        title: 'React Infinite Scroller 기반 무한 스크롤 기능 구현',
+        overview:
+          '페이지 전환 없이 대량의 데이터를 동적으로 로드해야 하는 요구사항과 촉박한 구현 시간.',
+        contributions: [
+          'React Infinite Scroller 라이브러리를 활용하여 무한 스크롤 기능을 빠르고 효율적으로 구현했습니다.',
+          '페이지 전환 없이 연속적으로 데이터를 로드함으로써 **로딩 시간을 50% 단축(600ms → 300ms)**시켰습니다.',
+          '불필요한 네트워크 요청 감소로 성능을 최적화하고, 사용자가 자연스럽게 콘텐츠를 탐색할 수 있도록 UX를 개선했습니다.',
+        ],
+      },
+      {
+        title: 'react-query를 활용한 API 통신 및 성능 향상',
+        overview: '비효율적인 API 통신 및 데이터 로딩 문제.',
+        contributions: [
+          'react-query를 도입하여 API 요청 캐싱, 데이터 패칭, 상태 동기화 프로세스를 효율적으로 관리했습니다.',
+          '데이터 캐싱을 활용하여 불필요한 API 요청을 감소시켰고, 백그라운드에서 자동으로 최신 정보를 동기화하여 사용자에게 항상 최신 데이터를 제공했습니다.',
+          '스켈레톤 UI를 적용하여 데이터 로딩 중 사용자 경험을 향상시켰습니다.',
+        ],
+      },
+      {
+        title: '애자일 방법론 적용 및 효과적인 팀워크 관리',
+        overview:
+          '매일 데일리 스크럼을 진행하여 팀원 간 작업 상황을 공유하고 실시간 피드백을 제공했습니다.',
+        contributions: [
+          '프로젝트 종료 후 KPT(Keep, Problem, Try) 회고를 실시하여 지속적인 개선을 도모했습니다.',
+          '팀원 간 원활한 커뮤니케이션을 유지하고, 프로젝트 진행 속도를 효율적으로 관리하여 성공적인 프로젝트 완수에 기여했습니다.',
+        ],
+      },
+      {
+        title: '반응형 디자인 적용으로 최적화된 사용자 경험 제공',
+        overview:
+          '모바일, 태블릿, 데스크탑 등 다양한 디바이스에서 일관되고 최적화된 사용자 경험을 제공하기 위해 반응형 디자인을 적용했습니다.',
+        contributions: [
+          '다양한 화면 크기에 맞춰 레이아웃과 콘텐츠가 자동으로 조정되도록 구현하여, 어떤 디바이스에서도 일관되고 최적화된 UI/UX를 제공함으로써 사용자 편의성과 접근성을 개선했습니다.',
+        ],
+      },
+    ],
+    troubleShootings: [
+      {
+        title: '무한 스크롤 기능 구현 시간 제약 문제 해결',
+        background:
+          '원래 팀원 중 한 분이 무한 스크롤을 커스텀 훅으로 구현하기로 했지만, 발표 전날까지 완료하지 못해 각자가 맡은 페이지에서 직접 무한 스크롤을 구현해야 하는 상황이 되었습니다. 그러나 무한 스크롤을 처음 시도하는 상황에서 시간도 촉박해 빠르게 적용할 방법이 필요했습니다.',
+        resolutionMethod: {
+          analysis: [
+            '직접 구현 시 Intersection Observer API 또는 scroll 이벤트 활용 및 디바운싱, 최적화 작업 필요',
+            '추가적인 커스텀 훅을 만들어야 하고, 테스트 및 디버깅에 시간이 소요될 가능성이 높음',
+            '프로젝트 일정 문제와 구현 난이도를 고려해야 함',
+          ],
+          process: [
+            '직접 구현하는 방법과 라이브러리를 활용하는 방법을 비교',
+            '프로젝트 일정 문제와 구현 난이도를 고려하여 `react-infinite-scroller` 라이브러리 선택',
+            '`InfiniteScroll` 컴포넌트를 활용하여 간단하게 적용',
+            '라이브러리 내부적으로 Intersection Observer를 사용해 최적화된 동작 제공',
+            'API 요청과 로딩 상태 관리를 손쉽게 처리 가능',
+          ],
+        },
+        results: [
+          '프로젝트 일정과 안정성을 고려하여 `react-infinite-scroller` 라이브러리를 성공적으로 활용했습니다.',
+          '페이지 전환 없이 연속적으로 데이터를 로드함으로써 **로딩 시간을 50% 단축(600ms → 300ms)**시켰습니다.',
+          '불필요한 네트워크 요청 감소로 성능을 최적화하고, 사용자가 자연스럽게 콘텐츠를 탐색할 수 있도록 UX를 개선했습니다.',
+        ],
+        learnings:
+          '시간 제약이 있는 상황에서는 적절한 라이브러리를 선택해 빠르게 해결하는 것이 중요하다는 점을 배웠습니다. 처음 접하는 기능도 적절한 도구를 활용하면 효율적으로 구현할 수 있으며, 불필요한 작업을 줄여 개발 속도를 높일 수 있었습니다. 팀원 간 작업 분배와 일정 관리의 중요성을 다시 한 번 실감했으며, 일정이 지연될 경우 대체할 수 있는 대안을 빠르게 마련하는 것이 필요하다는 점을 배웠습니다.',
+      },
+    ],
+  },
+  {
+    id: 'my-portfolio',
+    title: 'MyPortfolio',
+    description: '일상의 업무를 효율적으로 계획할 수 있는 웹사이트입니다.',
+    imageSrc: '/images/TaskyTaskyImage.png', // 실제 이미지 경로로 변경 필요
+    tags: ['개인'],
+    period: '2023.12 ~ 2024.01',
+    serviceDescription:
+      'TaskyTasky는 일상의 업무를 효율적으로 계획할 수 있는 플랫폼입니다. 날짜와 시간에 따라 할 일을 간편하게 정리하고 일정을 효과적으로 관리할 수 있습니다. 칼럼을 이용해 할 일을 구분하고 카테고리로 정리할 수 있으며, 마감일, 태그, 사진 등을 이용해 다양하게 할 일을 기록할 수 있습니다.',
+    projectType: 'Single',
+    developmentMembers: '개발 인원: 1명',
     myContributions:
       '공통 컴포넌트 개발, 로그인/회원가입 페이지 구현, proxy 기능 이용하여 API 연결 함수 제공, 사이드 메뉴 무한스크롤',
     deployLink: 'https://taskytasky.netlify.app/', // 실제 배포 주소로 변경 필요

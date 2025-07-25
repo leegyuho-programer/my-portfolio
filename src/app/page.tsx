@@ -4,14 +4,14 @@ import Button from '@/_components/Button/Button';
 import NavBar from '@/_components/NavBar/NavBar';
 import TagListWrapper from '@/_components/TagList/TagListWrapper';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
-import { flexCenter } from './styles';
+import { flexCenter, flexColCenter } from './styles';
 import CloseIconButton from '@/_components/CloseIconButton/CloseIconButton';
 import ProjectSectionClient from '@/_components/projectSection/ProjectSectionClient';
 import Information from '@/_components/Information/Information';
 
 export default function Home() {
   return (
-    <div>
+    <div className='bg-mainBlack'>
       <NavBar
         menuItems={[
           { label: 'About me', href: '#about-me' },
@@ -21,25 +21,27 @@ export default function Home() {
           { label: 'Career', href: '#career' },
         ]}
       />
-      <div className={`mt-[72px] ${flexCenter}`}>
-        <Button>더 알아보기 ↓</Button>
-      </div>
       {/* // About Me 섹션 */}
       <section
         id='about-me'
-        className='scroll-mt-[72px] py-16 md:py-24 bg-[#333] mt-[72px]'
+        className={`scroll-mt-[72px] py-16 mt-[72px] ${flexColCenter}`}
       >
-        {/* About Me 콘텐츠 */}
         <h2 className='text-2xl font-bold text-white'>ABOUT ME</h2>
-        {/* ... */}
+        <h2 className='text-xl font-bold text-white'>-이규호-</h2>
+        <h2 className='text-xl font-bold text-white mb-5'>
+          프론트 엔드 개발자 포트폴리오
+        </h2>
+        <p className='text-md font-medium text-white my-10'>
+          안녕하세요 ~~~~~ 이규호입니다.
+        </p>
+
+        <Button>더 알아보기 ↓</Button>
       </section>
+
       {/* // Skills 섹션 */}
-      <section
-        id='skills'
-        className='scroll-mt-[72px] py-16 bg-background-secondary'
-      >
+      <section id='skills' className={`py-16 mx-auto ${flexColCenter}`}>
         {/* Skills 콘텐츠 */}
-        <h2 className='text-2xl font-bold text-text-main'>SKILLS</h2>
+        <h2 className='text-2xl font-bold text-white'>SKILLS</h2>
         <div className='flex gap-[15px]'>
           <TechStackBadge tech='Html' />
           <TechStackBadge tech='CSS' />
@@ -55,42 +57,21 @@ export default function Home() {
         </div>
         {/* ... */}
       </section>
-      <TagListWrapper />
 
-      <div className='my-5'></div>
-
-      {/* <Card>
-        <Card.Hidden>
-          <Card.Image src='/images/WikiedImage.png' alt='Wikied 이미지' />
-          <Card.Content
-            title='Wikied'
-            description='아야어여오요우유으이이이이이이이이이아야어여오요우유으이이이이이이이이이.'
-          />
-          <Card.Tags tags={['개인', '반응형']} />
-        </Card.Hidden>
-
-        <Card.Hover
-          title='Wikied'
-          text='자세히 보기'
-          onOpenDetail={() => alert('ㅎㅇ')}
-        />
-      </Card> */}
-      <div className='flex justify-center items-center w-[32px] h-[32px] bg-black'>
-        <CloseIconButton onClick={() => {}} />
-      </div>
-
-      <ProjectSectionClient />
+      {/* // Projects 섹션 */}
+      <section id='projects' className={`py-16 mx-auto ${flexColCenter}`}>
+        {/* Projects 콘텐츠 */}
+        <h2 className='text-2xl font-bold text-white'>PROJECTS</h2>
+        <TagListWrapper />
+      </section>
 
       <div className='my-5'></div>
       {/* // Archiving 섹션 */}
-      <section
-        id='archiving'
-        className='scroll-mt-[72px] py-16 bg-gray-800 text-white'
-      >
+      <section id='archiving' className={`py-16 mx-auto ${flexColCenter}`}>
         {' '}
         {/* 이 섹션은 배경색이 어두우므로 텍스트 색상을 대비되게 설정 */}
         {/* Archiving 콘텐츠 */}
-        <h2 className='text-2xl font-bold'>ARCHIVING</h2>
+        <h2 className='text-2xl font-bold text-white'>ARCHIVING</h2>
         <div className='flex flex-row gap-5'>
           <Information
             svgSrc='/icons/GithubIcon.svg'
@@ -107,15 +88,6 @@ export default function Home() {
             link='https://velog.io/@j980303/posts'
           />
         </div>
-        {/* ... */}
-      </section>
-      {/* // Projects 섹션 */}
-      <section
-        id='projects'
-        className='scroll-mt-[72px] py-16 bg-background-main'
-      >
-        {/* Projects 콘텐츠 */}
-        <h2 className='text-2xl font-bold text-text-main'>PROJECTS</h2>
         {/* ... */}
       </section>
       {/* // Career 섹션 (예시) */}
