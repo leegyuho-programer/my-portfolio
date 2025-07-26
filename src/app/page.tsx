@@ -67,9 +67,7 @@ export default function Home() {
 
       <div className='my-5'></div>
       {/* // Archiving 섹션 */}
-      <section id='archiving' className={`py-16 mx-auto ${flexColCenter}`}>
-        {' '}
-        {/* 이 섹션은 배경색이 어두우므로 텍스트 색상을 대비되게 설정 */}
+      <section id='archiving' className={`py-16 ${flexColCenter}`}>
         {/* Archiving 콘텐츠 */}
         <h2 className='text-2xl font-bold text-white'>ARCHIVING</h2>
         <div className='flex flex-row gap-5'>

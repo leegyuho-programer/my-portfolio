@@ -27,7 +27,7 @@ export default function Information({
 
   return (
     <button
-      className='flex mx-auto p-5 w-full gap-3 text-left cursor-pointer rounded-xl shadow-md hover:shadow-lg transition-shadow'
+      className='flex max-w-[400px] p-5 w-full gap-3 text-left cursor-pointer rounded-xl text-white bg-lightGray overflow-hidden hover:shadow-black hover:shadow-2xl'
       onClick={handleClick}
     >
       <div className='relative w-[60px] h-[60px]'>
