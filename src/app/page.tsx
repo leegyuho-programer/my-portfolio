@@ -5,7 +5,7 @@ import Information from '@/_components/Information/Information';
 import NavBar from '@/_components/NavBar/NavBar';
 import TagListWrapper from '@/_components/TagList/TagListWrapper';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
-import { flexColCenter, flexRowCenter } from './styles';
+import { sectionStyle, flexRowCenter, sectionTitle } from './styles';
 
 export default function Home() {
   return (
@@ -20,11 +20,8 @@ export default function Home() {
         ]}
       />
       {/* // About Me 섹션 */}
-      <section
-        id='about-me'
-        className={`scroll-mt-[72px] py-16 mt-[72px] ${flexColCenter}`}
-      >
-        <h2 className='text-2xl font-bold text-white'>ABOUT ME</h2>
+      <section id='about-me' className={`${sectionStyle} mt-[72px]`}>
+        <h2 className={`${sectionTitle}`}>ABOUT ME</h2>
         <h2 className='text-xl font-bold text-white'>-이규호-</h2>
         <h2 className='text-xl font-bold text-white mb-5'>
           프론트 엔드 개발자 포트폴리오
@@ -37,8 +34,8 @@ export default function Home() {
       </section>
 
       {/* // Skills 섹션 */}
-      <section id='skills' className={`py-16 mx-auto ${flexColCenter}`}>
-        <h2 className='text-2xl font-bold text-white'>SKILLS</h2>
+      <section id='skills' className={`${sectionStyle}`}>
+        <h2 className={`${sectionTitle}`}>SKILLS</h2>
         <div className='flex gap-[15px]'>
           <TechStackBadge tech='Html' />
           <TechStackBadge tech='CSS' />
@@ -55,15 +52,15 @@ export default function Home() {
       </section>
 
       {/* // Projects 섹션 */}
-      <section id='projects' className={`py-16 mx-auto ${flexColCenter}`}>
-        <h2 className='text-2xl font-bold text-white'>PROJECTS</h2>
+      <section id='projects' className={`${sectionStyle}`}>
+        <h2 className={`${sectionTitle}`}>PROJECTS</h2>
         <TagListWrapper />
       </section>
 
       <div className='my-5'></div>
       {/* // Archiving 섹션 */}
-      <section id='archiving' className={`py-16 mx-auto ${flexColCenter}`}>
-        <h2 className='text-2xl font-bold text-white'>ARCHIVING</h2>
+      <section id='archiving' className={`${sectionStyle}`}>
+        <h2 className={`${sectionTitle}`}>ARCHIVING</h2>
         <div className={`${flexRowCenter} gap-5 w-full`}>
           <Information
             svgSrc='/icons/GithubIcon.svg'
@@ -83,16 +80,13 @@ export default function Home() {
       </section>
 
       {/* // Career 섹션 */}
-      <section id='career' className='scroll-mt-[72px] py-16 bg-[#333]'>
-        <h2 className='text-2xl font-bold text-white'>CAREER</h2>
+      <section id='career' className={`${flexRowCenter}`}>
+        <h2 className={`${sectionTitle}`}>CAREER</h2>
       </section>
 
-      <section
-        id='career'
-        className='scroll-mt-[72px] py-16 bg-[#333] h-[1000px]'
-      >
+      <section id='career' className={`${flexRowCenter} h-[1000px]`}>
         {/* Career 콘텐츠 */}
-        <h2 className='text-2xl font-bold text-white'>CAREER</h2>
+        <h2 className={`${sectionTitle}`}>CAREER</h2>
         {/* ... */}
       </section>
     </div>
