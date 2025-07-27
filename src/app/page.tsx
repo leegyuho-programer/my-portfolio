@@ -1,13 +1,11 @@
 'use client';
 
 import Button from '@/_components/Button/Button';
+import Information from '@/_components/Information/Information';
 import NavBar from '@/_components/NavBar/NavBar';
 import TagListWrapper from '@/_components/TagList/TagListWrapper';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
-import { flexCenter, flexColCenter } from './styles';
-import CloseIconButton from '@/_components/CloseIconButton/CloseIconButton';
-import ProjectSectionClient from '@/_components/projectSection/ProjectSectionClient';
-import Information from '@/_components/Information/Information';
+import { flexColCenter, flexRowCenter } from './styles';
 
 export default function Home() {
   return (
@@ -40,7 +38,6 @@ export default function Home() {
 
       {/* // Skills 섹션 */}
       <section id='skills' className={`py-16 mx-auto ${flexColCenter}`}>
-        {/* Skills 콘텐츠 */}
         <h2 className='text-2xl font-bold text-white'>SKILLS</h2>
         <div className='flex gap-[15px]'>
           <TechStackBadge tech='Html' />
@@ -55,22 +52,19 @@ export default function Home() {
           <TechStackBadge tech='ReactQuery' />
           <TechStackBadge tech='NextJs' />
         </div>
-        {/* ... */}
       </section>
 
       {/* // Projects 섹션 */}
       <section id='projects' className={`py-16 mx-auto ${flexColCenter}`}>
-        {/* Projects 콘텐츠 */}
         <h2 className='text-2xl font-bold text-white'>PROJECTS</h2>
         <TagListWrapper />
       </section>
 
       <div className='my-5'></div>
       {/* // Archiving 섹션 */}
-      <section id='archiving' className={`py-16 ${flexColCenter}`}>
-        {/* Archiving 콘텐츠 */}
+      <section id='archiving' className={`py-16 mx-auto ${flexColCenter}`}>
         <h2 className='text-2xl font-bold text-white'>ARCHIVING</h2>
-        <div className='flex flex-row gap-5'>
+        <div className={`${flexRowCenter} gap-5 w-full`}>
           <Information
             svgSrc='/icons/GithubIcon.svg'
             alt='GitHub'
@@ -86,14 +80,13 @@ export default function Home() {
             link='https://velog.io/@j980303/posts'
           />
         </div>
-        {/* ... */}
       </section>
-      {/* // Career 섹션 (예시) */}
+
+      {/* // Career 섹션 */}
       <section id='career' className='scroll-mt-[72px] py-16 bg-[#333]'>
-        {/* Career 콘텐츠 */}
         <h2 className='text-2xl font-bold text-white'>CAREER</h2>
-        {/* ... */}
       </section>
+
       <section
         id='career'
         className='scroll-mt-[72px] py-16 bg-[#333] h-[1000px]'
