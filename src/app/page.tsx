@@ -5,7 +5,13 @@ import Information from '@/_components/Information/Information';
 import NavBar from '@/_components/NavBar/NavBar';
 import TagListWrapper from '@/_components/TagList/TagListWrapper';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
-import { sectionStyle, flexRowCenter, sectionTitle } from './styles';
+import {
+  sectionStyle,
+  flexRowCenter,
+  sectionTitle,
+  flexCenter,
+  flexColCenter,
+} from './styles';
 
 export default function Home() {
   return (
@@ -19,48 +25,25 @@ export default function Home() {
           { label: 'Career', href: '#career' },
         ]}
       />
+
       {/* // About Me 섹션 */}
       <section id='about-me' className={`${sectionStyle} mt-[72px]`}>
-        <h2 className={`${sectionTitle}`}>ABOUT ME</h2>
-        <h2 className='text-xl font-bold text-white'>-이규호-</h2>
-        <h2 className='text-xl font-bold text-white mb-5'>
-          프론트 엔드 개발자 포트폴리오
-        </h2>
-        <p className='text-md font-medium text-white my-10'>
-          안녕하세요 ~~~~~ 이규호입니다.
-        </p>
-
-        <Button>더 알아보기 ↓</Button>
-      </section>
-
-      {/* // Skills 섹션 */}
-      <section id='skills' className={`${sectionStyle}`}>
-        <h2 className={`${sectionTitle}`}>SKILLS</h2>
-        <div className='flex gap-[15px]'>
-          <TechStackBadge tech='Html' />
-          <TechStackBadge tech='CSS' />
-          <TechStackBadge tech='JavaScript' />
-          <TechStackBadge tech='TypeScript' />
-          <TechStackBadge tech='StyledComponents' />
-          <TechStackBadge tech='CSSModules' />
-          <TechStackBadge tech='Tailwind' />
-          <TechStackBadge tech='Zustand' />
-          <TechStackBadge tech='React' />
-          <TechStackBadge tech='ReactQuery' />
-          <TechStackBadge tech='NextJs' />
+        <h2 className={`flex flex-row ${sectionTitle}`}>ABOUT ME</h2>
+        <div className={flexColCenter}>
+          <h2 className='text-xl font-bold text-white'>-이규호-</h2>
+          <h2 className='text-xl font-bold text-white mb-5'>
+            프론트 엔드 개발자 포트폴리오
+          </h2>
+          <p className='text-md font-medium text-white my-10'>
+            안녕하세요 ~~~~~ 이규호입니다.
+          </p>
+          <Button>더 알아보기 ↓</Button>
         </div>
       </section>
 
-      {/* // Projects 섹션 */}
-      <section id='projects' className={`${sectionStyle}`}>
-        <h2 className={`${sectionTitle}`}>PROJECTS</h2>
-        <TagListWrapper />
-      </section>
-
-      <div className='my-5'></div>
       {/* // Archiving 섹션 */}
-      <section id='archiving' className={`${sectionStyle}`}>
-        <h2 className={`${sectionTitle}`}>ARCHIVING</h2>
+      <section id='archiving' className={sectionStyle}>
+        <h2 className={sectionTitle}>ARCHIVING</h2>
         <div className={`${flexRowCenter} gap-5 w-full`}>
           <Information
             svgSrc='/icons/GithubIcon.svg'
@@ -79,14 +62,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* // Skills 섹션 */}
+      <section id='skills' className={`${sectionStyle}`}>
+        <h2 className={sectionTitle}>SKILLS</h2>
+        <div className={`gap-[15px] ${flexRowCenter}`}>
+          <TechStackBadge tech='Html' />
+          <TechStackBadge tech='CSS' />
+          <TechStackBadge tech='JavaScript' />
+          <TechStackBadge tech='TypeScript' />
+          <TechStackBadge tech='StyledComponents' />
+          <TechStackBadge tech='CSSModules' />
+          <TechStackBadge tech='Tailwind' />
+          <TechStackBadge tech='Zustand' />
+          <TechStackBadge tech='React' />
+          <TechStackBadge tech='ReactQuery' />
+          <TechStackBadge tech='NextJs' />
+        </div>
+      </section>
+
+      {/* // Projects 섹션 */}
+      <section id='projects' className={`${sectionStyle}`}>
+        <h2 className={sectionTitle}>PROJECTS</h2>
+        <div className={flexCenter}>
+          <TagListWrapper />
+        </div>
+      </section>
+
       {/* // Career 섹션 */}
       <section id='career' className={`${flexRowCenter}`}>
-        <h2 className={`${sectionTitle}`}>CAREER</h2>
+        <h2 className={sectionTitle}>CAREER</h2>
       </section>
 
       <section id='career' className={`${flexRowCenter} h-[1000px]`}>
         {/* Career 콘텐츠 */}
-        <h2 className={`${sectionTitle}`}>CAREER</h2>
+        <h2 className={sectionTitle}>CAREER</h2>
         {/* ... */}
       </section>
     </div>
