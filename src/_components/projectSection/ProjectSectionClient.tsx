@@ -3,10 +3,14 @@
 import { useState } from 'react';
 import Card from '@/_components/Card/Card';
 import Modal from '@/_components/Modal/Modal';
-import { projectData } from '@/_data/projectData'; // Project, TechStack 타입은 ProjectDetailContent에서 필요하므로 여기서 제거
+import { projectData } from '@/_data/projectData';
 import ProjectDetailContent from './ProjectDetailContent';
 
-export default function ProjectSectionClient() {
+interface ProjectProps {
+  selectedTag: 'All' | 'Team' | 'Single';
+}
+
+export default function ProjectSectionClient({ selectedTag }: ProjectProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
     null
@@ -24,10 +28,16 @@ export default function ProjectSectionClient() {
 
   const selectedProject = projectData.find((p) => p.id === selectedProjectId);
 
+  const filteredProjects = projectData.filter((project) => {
+    if (selectedTag === 'All') return true;
+    return project.projectType.includes(selectedTag);
+  });
+
   return (
     <>
-      <div className='flex flex-wrap justify-center gap-8 py-8'>
-        {projectData.map((project) => (
+      {/* <div className='flex flex-wrap justify-center gap-8 py-8'> */}
+      <div className='grid grid-cols-3 gap-8 py-8 mx-auto'>
+        {filteredProjects.map((project) => (
           <Card key={project.id}>
             <Card.Hidden>
               <Card.Image

@@ -1,17 +1,21 @@
 'use client';
 
 import Button from '@/_components/Button/Button';
+import Information from '@/_components/Information/Information';
 import NavBar from '@/_components/NavBar/NavBar';
 import TagListWrapper from '@/_components/TagList/TagListWrapper';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
-import { flexCenter } from './styles';
-import CloseIconButton from '@/_components/CloseIconButton/CloseIconButton';
-import ProjectSectionClient from '@/_components/projectSection/ProjectSectionClient';
-import Information from '@/_components/Information/Information';
+import {
+  sectionStyle,
+  flexRowCenter,
+  sectionTitle,
+  flexCenter,
+  flexColCenter,
+} from './styles';
 
 export default function Home() {
   return (
-    <div>
+    <div className='bg-mainBlack'>
       <NavBar
         menuItems={[
           { label: 'About me', href: '#about-me' },
@@ -21,77 +25,26 @@ export default function Home() {
           { label: 'Career', href: '#career' },
         ]}
       />
-      <div className={`mt-[72px] ${flexCenter}`}>
-        <Button>더 알아보기 ↓</Button>
-      </div>
+
       {/* // About Me 섹션 */}
-      <section
-        id='about-me'
-        className='scroll-mt-[72px] py-16 md:py-24 bg-[#333] mt-[72px]'
-      >
-        {/* About Me 콘텐츠 */}
-        <h2 className='text-2xl font-bold text-white'>ABOUT ME</h2>
-        {/* ... */}
-      </section>
-      {/* // Skills 섹션 */}
-      <section
-        id='skills'
-        className='scroll-mt-[72px] py-16 bg-background-secondary'
-      >
-        {/* Skills 콘텐츠 */}
-        <h2 className='text-2xl font-bold text-text-main'>SKILLS</h2>
-        <div className='flex gap-[15px]'>
-          <TechStackBadge tech='Html' />
-          <TechStackBadge tech='CSS' />
-          <TechStackBadge tech='JavaScript' />
-          <TechStackBadge tech='TypeScript' />
-          <TechStackBadge tech='StyledComponents' />
-          <TechStackBadge tech='CSSModules' />
-          <TechStackBadge tech='Tailwind' />
-          <TechStackBadge tech='Zustand' />
-          <TechStackBadge tech='React' />
-          <TechStackBadge tech='ReactQuery' />
-          <TechStackBadge tech='NextJs' />
+      <section id='about-me' className={`${sectionStyle} mt-[72px]`}>
+        <h2 className={`flex flex-row ${sectionTitle}`}>ABOUT ME</h2>
+        <div className={flexColCenter}>
+          <h2 className='text-xl font-bold text-white'>-이규호-</h2>
+          <h2 className='text-xl font-bold text-white mb-5'>
+            프론트 엔드 개발자 포트폴리오
+          </h2>
+          <p className='text-md font-medium text-white my-10'>
+            안녕하세요 ~~~~~ 이규호입니다.
+          </p>
+          <Button>더 알아보기 ↓</Button>
         </div>
-        {/* ... */}
       </section>
-      <TagListWrapper />
 
-      <div className='my-5'></div>
-
-      {/* <Card>
-        <Card.Hidden>
-          <Card.Image src='/images/WikiedImage.png' alt='Wikied 이미지' />
-          <Card.Content
-            title='Wikied'
-            description='아야어여오요우유으이이이이이이이이이아야어여오요우유으이이이이이이이이이.'
-          />
-          <Card.Tags tags={['개인', '반응형']} />
-        </Card.Hidden>
-
-        <Card.Hover
-          title='Wikied'
-          text='자세히 보기'
-          onOpenDetail={() => alert('ㅎㅇ')}
-        />
-      </Card> */}
-      <div className='flex justify-center items-center w-[32px] h-[32px] bg-black'>
-        <CloseIconButton onClick={() => {}} />
-      </div>
-
-      <ProjectSectionClient />
-
-      <div className='my-5'></div>
       {/* // Archiving 섹션 */}
-      <section
-        id='archiving'
-        className='scroll-mt-[72px] py-16 bg-gray-800 text-white'
-      >
-        {' '}
-        {/* 이 섹션은 배경색이 어두우므로 텍스트 색상을 대비되게 설정 */}
-        {/* Archiving 콘텐츠 */}
-        <h2 className='text-2xl font-bold'>ARCHIVING</h2>
-        <div className='flex flex-row gap-5'>
+      <section id='archiving' className={sectionStyle}>
+        <h2 className={sectionTitle}>ARCHIVING</h2>
+        <div className={`${flexRowCenter} gap-5 w-full`}>
           <Information
             svgSrc='/icons/GithubIcon.svg'
             alt='GitHub'
@@ -107,29 +60,42 @@ export default function Home() {
             link='https://velog.io/@j980303/posts'
           />
         </div>
-        {/* ... */}
       </section>
+
+      {/* // Skills 섹션 */}
+      <section id='skills' className={`${sectionStyle}`}>
+        <h2 className={sectionTitle}>SKILLS</h2>
+        <div className={`gap-[15px] ${flexRowCenter}`}>
+          <TechStackBadge tech='Html' />
+          <TechStackBadge tech='CSS' />
+          <TechStackBadge tech='JavaScript' />
+          <TechStackBadge tech='TypeScript' />
+          <TechStackBadge tech='StyledComponents' />
+          <TechStackBadge tech='CSSModules' />
+          <TechStackBadge tech='Tailwind' />
+          <TechStackBadge tech='Zustand' />
+          <TechStackBadge tech='React' />
+          <TechStackBadge tech='ReactQuery' />
+          <TechStackBadge tech='NextJs' />
+        </div>
+      </section>
+
       {/* // Projects 섹션 */}
-      <section
-        id='projects'
-        className='scroll-mt-[72px] py-16 bg-background-main'
-      >
-        {/* Projects 콘텐츠 */}
-        <h2 className='text-2xl font-bold text-text-main'>PROJECTS</h2>
-        {/* ... */}
+      <section id='projects' className={`${sectionStyle}`}>
+        <h2 className={sectionTitle}>PROJECTS</h2>
+        <div className={flexCenter}>
+          <TagListWrapper />
+        </div>
       </section>
-      {/* // Career 섹션 (예시) */}
-      <section id='career' className='scroll-mt-[72px] py-16 bg-[#333]'>
-        {/* Career 콘텐츠 */}
-        <h2 className='text-2xl font-bold text-white'>CAREER</h2>
-        {/* ... */}
+
+      {/* // Career 섹션 */}
+      <section id='career' className={`${flexRowCenter}`}>
+        <h2 className={sectionTitle}>CAREER</h2>
       </section>
-      <section
-        id='career'
-        className='scroll-mt-[72px] py-16 bg-[#333] h-[1000px]'
-      >
+
+      <section id='career' className={`${flexRowCenter} h-[1000px]`}>
         {/* Career 콘텐츠 */}
-        <h2 className='text-2xl font-bold text-white'>CAREER</h2>
+        <h2 className={sectionTitle}>CAREER</h2>
         {/* ... */}
       </section>
     </div>

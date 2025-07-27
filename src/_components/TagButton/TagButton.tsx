@@ -15,7 +15,7 @@ export default function TagButton({
 
   return (
     <button
-      className={`text-sm font-bold rounded-primary-button px-[10px] h-[33px] ${buttonStyle}`}
+      className={`text-sm font-bold rounded-primary-button p-5 py-3 ${buttonStyle}`}
       onClick={onClick}
     >
       {children}

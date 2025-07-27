@@ -27,13 +27,13 @@ export default function Information({
 
   return (
     <button
-      className='flex mx-auto p-5 w-full gap-3 text-left cursor-pointer rounded-xl shadow-md hover:shadow-lg transition-shadow'
+      className='flex items-center p-5 max-w-[400px] w-full gap-8 text-left cursor-pointer rounded-xl text-white bg-lightGray overflow-hidden hover:shadow-black hover:shadow-2xl'
       onClick={handleClick}
     >
       <div className='relative w-[60px] h-[60px]'>
         <Image src={svgSrc} alt={`${alt} logo`} fill />
       </div>
-      <div className='items-baseline'>
+      <div>
         <div className='text-sm font-bold mb-[4px]'>{title}</div>
         {content && <div className='text-sm font-regular'>{content}</div>}
       </div>
