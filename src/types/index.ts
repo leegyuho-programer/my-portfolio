@@ -23,7 +23,3 @@ export type TechSkillProps =
   | 'React'
   | 'ReactQuery'
   | 'NextJs';
-
-export interface SectionProps {
-  className?: string;
-}
