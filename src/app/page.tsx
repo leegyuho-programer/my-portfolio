@@ -18,7 +18,7 @@ export default function Home() {
     <div className='bg-mainBlack'>
       <NavBar
         menuItems={[
-          { label: 'About me', href: '#about-me' },
+          { label: 'About me', href: '#aboutMe' },
           { label: 'Skills', href: '#skills' },
           { label: 'Archiving', href: '#archiving' },
           { label: 'Projects', href: '#projects' },
@@ -27,7 +27,7 @@ export default function Home() {
       />
 
       {/* // About Me 섹션 */}
-      <section id='about-me' className={`${sectionStyle} mt-[72px]`}>
+      <section id='aboutMe' className={`${sectionStyle} mt-[72px]`}>
         <h2 className={`flex flex-row ${sectionTitle}`}>ABOUT ME</h2>
         <div className={flexColCenter}>
           <h2 className='text-xl font-bold text-white'>-이규호-</h2>
