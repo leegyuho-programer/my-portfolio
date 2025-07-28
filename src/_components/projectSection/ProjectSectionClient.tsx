@@ -35,7 +35,6 @@ export default function ProjectSectionClient({ selectedTag }: ProjectProps) {
 
   return (
     <>
-      {/* <div className='flex flex-wrap justify-center gap-8 py-8'> */}
       <div className='grid grid-cols-3 gap-8 py-8 mx-auto'>
         {filteredProjects.map((project) => (
           <Card key={project.id}>

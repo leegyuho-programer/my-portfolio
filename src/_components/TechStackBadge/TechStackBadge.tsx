@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { TECH_MAP, TechStackType } from './techMap';
+import { flexCenter } from './../../app/styles';
 
 interface TechStackBadgeProps {
   tech: TechStackType;
@@ -13,7 +14,9 @@ export default function TechStackBadge({ tech }: TechStackBadgeProps) {
   };
 
   return (
-    <div className='flex items-center gap-[5px] bg-[#f3f4f6 ] rounded-[10px] border border-black px-[10px] py-[5px]'>
+    <div
+      className={`${flexCenter} gap-[8px] bg-lightGray rounded-[10px] px-[10px] py-[5px]`}
+    >
       {svgSrc && (
         <Image
           className='right-[10px]'
@@ -23,7 +26,7 @@ export default function TechStackBadge({ tech }: TechStackBadgeProps) {
           height={25}
         />
       )}
-      <span className='text-sm font-medium text-[#000]'>{label}</span>
+      <span className='text-sm font-medium text-white'>{label}</span>
     </div>
   );
 }
