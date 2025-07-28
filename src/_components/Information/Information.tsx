@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-interface InformationProps {
+export interface InformationProps {
   svgSrc: string;
   alt: string;
   title: string;
@@ -25,16 +25,31 @@ export default function Information({
     }
   };
 
+  const aboutMe = 'p-5';
+  const archiving = 'cursor-pointer p-15 hover:shadow-black hover:shadow-2xl';
+
   return (
     <button
-      className='flex items-center p-5 max-w-[400px] w-full gap-8 text-left cursor-pointer rounded-xl text-white bg-lightGray overflow-hidden hover:shadow-black hover:shadow-2xl'
+      className={`flex items-center gap-8 text-left rounded-xl text-white bg-lightGray overflow-hidden ${
+        link ? archiving : aboutMe
+      }`}
       onClick={handleClick}
     >
-      <div className='relative w-[60px] h-[60px]'>
+      <div
+        className={`relative ${
+          link ? 'w-[80px] h-[80px]' : 'w-[60px] h-[60px]'
+        }`}
+      >
         <Image src={svgSrc} alt={`${alt} logo`} fill />
       </div>
       <div>
-        <div className='text-sm font-bold mb-[4px]'>{title}</div>
+        <div
+          className={`mb-[4px] ${
+            link ? 'text-md font-bold' : 'text-sm font-bold'
+          }`}
+        >
+          {title}
+        </div>
         {content && <div className='text-sm font-regular'>{content}</div>}
       </div>
     </button>

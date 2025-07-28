@@ -1,20 +1,24 @@
-import Button from '@/_components/Button/Button';
-import { flexColCenter, sectionStyle, sectionTitle } from '@/app/styles';
-import React from 'react';
+'use client';
+
+import { sectionStyle, sectionTitle } from '@/app/styles';
+import { INFORMATION_DATA } from '@/constants';
+import Information from '../Information/Information';
 
 export function AboutMeSection() {
   return (
-    <section id='aboutMe' className={`${sectionStyle} mt-[72px]`}>
+    <section id='aboutMe' className={sectionStyle}>
       <h2 className={`flex flex-row ${sectionTitle}`}>ABOUT ME</h2>
-      <div className={flexColCenter}>
-        <h2 className='text-xl font-bold text-white'>-이규호-</h2>
-        <h2 className='text-xl font-bold text-white mb-5'>
-          프론트 엔드 개발자 포트폴리오
-        </h2>
-        <p className='text-md font-medium text-white my-10'>
-          안녕하세요 ~~~~~ 이규호입니다.
-        </p>
-        <Button>더 알아보기 ↓</Button>
+      <div className='grid grid-cols-3 gap-[15px] w-fit mx-auto'>
+        {INFORMATION_DATA.map((item, index) => (
+          <Information
+            key={`archiving-${index}`}
+            svgSrc={item.svgSrc}
+            alt={item.alt}
+            title={item.title}
+            content={item.content}
+            link={item.link}
+          />
+        ))}
       </div>
     </section>
   );

@@ -14,7 +14,8 @@ const meta = {
       description: '메뉴 항목 목록. 각 항목은 label과 href를 포함합니다.',
       control: 'object',
       defaultValue: [
-        { label: 'About me', href: '#about-me' },
+        { label: 'Introduce', href: '#introduce' },
+        { label: 'About me', href: '#aboutMe' },
         { label: 'Skills', href: '#skills' },
         { label: 'Archiving', href: '#archiving' },
         { label: 'Projects', href: '#projects' },
@@ -36,7 +37,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     menuItems: [
-      { label: 'About me', href: '#about-me' },
+      { label: 'Introduce', href: '#introduce' },
+      { label: 'About me', href: '#aboutMe' },
       { label: 'Skills', href: '#skills' },
       { label: 'Archiving', href: '#archiving' },
       { label: 'Projects', href: '#projects' },
