@@ -1,8 +1,8 @@
-import React from 'react';
 import Information from '@/_components/Information/Information';
 import { flexRowCenter, sectionStyle, sectionTitle } from '@/app/styles';
 import { ARCHIVING_DATA } from '@/constants';
 import { SectionProps } from '@/types';
+import React from 'react';
 
 export const ArchivingSection: React.FC<SectionProps> = ({ className }) => (
   <section id='archiving' className={`${sectionStyle} ${className || ''}`}>

@@ -1,7 +1,7 @@
-import React from 'react';
 import Button from '@/_components/Button/Button';
 import { flexColCenter, sectionStyle, sectionTitle } from '@/app/styles';
 import { SectionProps } from '@/types';
+import React from 'react';
 
 export const AboutMeSection: React.FC<SectionProps> = ({ className }) => (
   <section

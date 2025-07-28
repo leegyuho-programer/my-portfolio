@@ -1,8 +1,8 @@
-import React from 'react';
 import TechStackBadge from '@/_components/TechStackBadge/TechStackBadge';
 import { flexRowCenter, sectionStyle, sectionTitle } from '@/app/styles';
-import { SectionProps } from '@/types';
 import { TECH_SKILLS } from '@/constants';
+import { SectionProps } from '@/types';
+import React from 'react';
 
 export const SkillsSection: React.FC<SectionProps> = ({ className }) => (
   <section id='skills' className={`${sectionStyle} ${className || ''}`}>
