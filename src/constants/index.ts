@@ -1,12 +1,14 @@
-export const MENU_ITEMS = [
+import { MenuItemProps, ArchivingItemProps, TechSkillProps } from '@/types';
+
+export const MENU_ITEMS: MenuItemProps[] = [
   { label: 'About me', href: '#aboutMe' },
   { label: 'Skills', href: '#skills' },
   { label: 'Archiving', href: '#archiving' },
   { label: 'Projects', href: '#projects' },
   { label: 'Career', href: '#career' },
-];
+] as const;
 
-export const ARCHIVING_DATA = [
+export const ARCHIVING_DATA: ArchivingItemProps[] = [
   {
     svgSrc: '/icons/GithubIcon.svg',
     alt: 'GitHub',
@@ -21,9 +23,9 @@ export const ARCHIVING_DATA = [
     content: 'Blog 저장소입니다.',
     link: 'https://velog.io/@j980303/posts',
   },
-];
+] as const;
 
-export const TECH_SKILLS = [
+export const TECH_SKILLS: TechSkillProps[] = [
   'Html',
   'CSS',
   'JavaScript',
@@ -35,4 +37,4 @@ export const TECH_SKILLS = [
   'React',
   'ReactQuery',
   'NextJs',
-];
+] as const;
