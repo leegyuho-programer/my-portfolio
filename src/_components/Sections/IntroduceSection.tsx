@@ -10,9 +10,7 @@ export function IntroduceSection() {
           프론트엔드 개발자 이규호입니다.
         </h2>
 
-        <div
-          className={`text-sm text-gray-200 leading-loose my-10 px-4 text-left`}
-        >
+        <div className={`text-sm text-gray-200 leading-loose my-10 text-left`}>
           <p className='mb-4'>
             사용자가 웹에서 숨 쉬는 공기처럼{' '}
             <span className='font-black text-md'>자연스럽고 쾌적한 경험</span>을
@@ -22,16 +20,17 @@ export function IntroduceSection() {
             <span className='font-black text-md'>
               찰나의 로딩도 허락하지 않기 위해
             </span>
-            , 렌더링 최적화, 불필요한 리렌더링 방지, 이미지 최적화 등 다양한
-            성능 개선 기법을 꾸준히 파고듭니다.
+            , 렌더링 최적화, 불필요한 리렌더링 방지, 이미지 최적화 등
           </p>
+          <p>다양한 성능 개선 기법을 꾸준히 파고듭니다.</p>
           <p className='mb-4'>
             마치 건축가가 견고하고 아름다운 공간을 설계하듯, 코드 한 줄 한 줄에{' '}
             <span className='font-black text-md'>사용자 경험이라는 가치</span>를
             심어 넣고자 합니다.
           </p>
           <p className='mb-4'>
-            배움을 멈추지 않는 자세로 블로그를 통해 지식을 체계화하고 공유하며,
+            <span className='font-black text-md'>배움을 멈추지 않는 자세</span>
+            로 블로그를 통해 지식을 체계화하고 공유하며,
           </p>
           <p className='mb-6'>
             끊임없이 진화하는 웹 생태계에서{' '}
@@ -40,7 +39,7 @@ export function IntroduceSection() {
           </p>
         </div>
 
-        <div className='mt-'>
+        <div className='mt-20'>
           <Button>더 알아보기 ↓</Button>
         </div>
       </div>
