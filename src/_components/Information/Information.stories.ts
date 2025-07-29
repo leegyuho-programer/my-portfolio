@@ -37,7 +37,7 @@ const meta: Meta<typeof Information> = {
     onClick: { action: 'clicked' },
     isModal: {
       control: 'boolean',
-      description: '모달에서 사용되었는지 아닌지에 따른 색상 변경',
+      description: '모달 내 표시 여부 (배경색, 폰트 색상 변경)',
       defaultValue: false,
     },
   },
