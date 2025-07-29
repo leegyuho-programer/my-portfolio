@@ -8,7 +8,7 @@ export function ArchivingSection() {
   return (
     <section id='archiving' className={sectionStyle}>
       <h2 className={sectionTitle}>ARCHIVING</h2>
-      <div className={`grid grid-cols-2 gap-5 w-fit mx-auto`}>
+      <div className='grid grid-cols-2 gap-5 w-fit mx-auto'>
         {ARCHIVING_DATA.map((item, index) => (
           <Information
             key={`archiving-${index}`}

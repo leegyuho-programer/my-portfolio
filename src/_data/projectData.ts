@@ -47,7 +47,7 @@ export interface ProjectProps {
   developmentMembers: string; // 개발 인원
   myContributions?: string; // 내가 맡은 역할 간단 요약
   deployLink?: string; // 배포 주소 (선택 사항)
-  demoLink?: string; // 데모 영상 (선택 사항항)
+  demoLink?: string; // 데모 영상 (선택 사항)
   githubLink: string; // 깃허브 주소
   techStacksUsed: TechStackProps[]; // 사용 기술 스택
   mainWorks: MainWorkProps[]; // 주요 작업들

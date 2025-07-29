@@ -7,6 +7,7 @@ export interface InformationProps {
   content?: string;
   link?: string;
   onClick?: React.MouseEventHandler;
+  isModal?: boolean;
 }
 
 export default function Information({
@@ -16,6 +17,7 @@ export default function Information({
   content,
   link,
   onClick,
+  isModal,
 }: InformationProps) {
   const handleClick: React.MouseEventHandler = (event) => {
     if (onClick) {
@@ -25,12 +27,18 @@ export default function Information({
     }
   };
 
+  const baseStyle =
+    'flex items-center gap-8 text-left rounded-xl overflow-hidden';
   const aboutMe = 'p-5';
   const archiving = 'cursor-pointer p-15 hover:shadow-black hover:shadow-2xl';
 
+  const backgroundColor = isModal
+    ? 'bg-white text-black border border-neutral-200'
+    : 'bg-lightGray text-white';
+
   return (
     <button
-      className={`flex items-center gap-8 text-left rounded-xl text-white bg-lightGray overflow-hidden ${
+      className={`${baseStyle} ${backgroundColor} ${
         link ? archiving : aboutMe
       }`}
       onClick={handleClick}
