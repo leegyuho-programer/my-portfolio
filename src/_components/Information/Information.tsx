@@ -33,8 +33,8 @@ export default function Information({
   const archiving = 'cursor-pointer p-15 hover:shadow-black hover:shadow-2xl';
 
   const backgroundColor = isModal
-    ? 'bg-white text-black border border-neutral-200'
-    : 'bg-lightGray text-white';
+    ? 'bg-white text-black border border-neutral-200 shadow-md hover:shadow-lg transition-shadow duration-200'
+    : 'bg-lightGray text-white shadow-md hover:shadow-lg transition-shadow duration-200';
 
   return (
     <button
