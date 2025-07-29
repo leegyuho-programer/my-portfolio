@@ -4,18 +4,23 @@ import { flexCenter } from './../../app/styles';
 
 interface TechStackBadgeProps {
   tech: TechStackType;
+  isModal?: boolean;
 }
 
-export default function TechStackBadge({ tech }: TechStackBadgeProps) {
+export default function TechStackBadge({ tech, isModal }: TechStackBadgeProps) {
   const { label, svgSrc, alt } = TECH_MAP[tech] as {
     label: string;
     svgSrc?: string;
     alt?: string;
   };
 
+  const backgroundColor = isModal
+    ? 'bg-white text-black border border-neutral-200'
+    : 'bg-lightGray text-white';
+
   return (
     <div
-      className={`${flexCenter} gap-[8px] bg-lightGray rounded-[10px] px-[10px] py-[5px]`}
+      className={`${flexCenter} ${backgroundColor} gap-[8px] rounded-[10px] px-[10px] py-[5px]`}
     >
       {svgSrc && (
         <Image
@@ -26,7 +31,7 @@ export default function TechStackBadge({ tech }: TechStackBadgeProps) {
           height={25}
         />
       )}
-      <span className='text-sm font-medium text-white'>{label}</span>
+      <span className='text-sm font-medium'>{label}</span>
     </div>
   );
 }

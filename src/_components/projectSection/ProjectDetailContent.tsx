@@ -59,15 +59,9 @@ export default function ProjectDetailContent({
       <section className='pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
         <h2 className='text-xl font-semibold mb-2'>기술 스택</h2>
         <div className='flex flex-row gap-5 flex-wrap'>
-          {/* {project.techStacksUsed.map((tech, index) => (
-            <TechStackBadge key={index} tech={tech} />
-          ))} */}
-          <TechStackBadge tech='React' />
-          <TechStackBadge tech='CSSModules' />
-          <TechStackBadge tech='TypeScript' />
-          <TechStackBadge tech='NextJs' />
-          <TechStackBadge tech='ReactQuery' />
-          <TechStackBadge tech='Zustand' />
+          {project.techStacksUsed.map((tech, index) => (
+            <TechStackBadge key={index} tech={tech} isModal={true} />
+          ))}
         </div>
       </section>
 
