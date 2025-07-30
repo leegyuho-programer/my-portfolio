@@ -81,6 +81,9 @@
 }
 
 @layer components {
+  .relative > p {
+    @apply absolute;
+  }
 }
 
 @layer utilities {

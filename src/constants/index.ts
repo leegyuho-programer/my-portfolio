@@ -7,6 +7,7 @@ export const MENU_ITEMS: MenuItemProps[] = [
   { label: 'Archiving', href: '#archiving' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
   // { label: 'Career', href: '#career' },
 ] as const;
 
