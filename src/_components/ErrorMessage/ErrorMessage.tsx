@@ -1,5 +1,5 @@
 interface ErrorMessageProps {
-  children: string;
+  children: React.ReactNode;
 }
 
 export default function ErrorMessage({ children }: ErrorMessageProps) {

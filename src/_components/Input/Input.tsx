@@ -3,16 +3,18 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 interface InputProps {
   id: string;
+  name: string;
   type?: 'text' | 'textarea';
   placeholder: string;
   value: string;
-  errorMessage: string;
-  isError: boolean;
+  errorMessage?: string;
+  isError?: boolean;
   onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
 }
 
 export default function Input({
   id,
+  name,
   type = 'text',
   placeholder,
   value,
@@ -38,7 +40,7 @@ export default function Input({
         {type === 'textarea' ? (
           <textarea
             id={id}
-            name={id}
+            name={name}
             placeholder={placeholder}
             value={value}
             onChange={onChange}
@@ -47,7 +49,7 @@ export default function Input({
         ) : (
           <input
             id={id}
-            name={id}
+            name={name}
             type='text'
             placeholder={placeholder}
             value={value}
