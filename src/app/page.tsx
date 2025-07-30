@@ -1,14 +1,13 @@
 import NavBar from '@/_components/NavBar/NavBar';
 import { MENU_ITEMS } from '@/constants';
 import {
-  IntroduceSection,
   AboutMeSection,
   ArchivingSection,
-  SkillsSection,
+  IntroduceSection,
   ProjectsSection,
-  // CareerSection,
+  SkillsSection,
+  ContactSection,
 } from '../_components/Sections';
-import PostCard from '@/_components/PostCard/PostCard';
 
 export default function Home() {
   return (
@@ -19,8 +18,8 @@ export default function Home() {
       <ArchivingSection />
       <SkillsSection />
       <ProjectsSection />
+      <ContactSection />
       {/* <CareerSection /> */}
-      <PostCard />
     </div>
   );
 }
