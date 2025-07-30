@@ -8,6 +8,7 @@ import {
   ProjectsSection,
   // CareerSection,
 } from '../_components/Sections';
+import PostCard from '@/_components/PostCard/PostCard';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <SkillsSection />
       <ProjectsSection />
       {/* <CareerSection /> */}
+      <PostCard />
     </div>
   );
 }
