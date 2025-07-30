@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Input from '../Input/Input';
 import { flexColCenter } from './../../app/styles';
 
 export default function ContactSection() {
@@ -11,52 +12,66 @@ export default function ContactSection() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
+    const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
     // 실제 전송 로직 추가
     alert('Message sent!');
   };
 
+  const nameError = !formData.name.trim();
+  const titleError = !formData.title.trim();
+  const messageError = !formData.message.trim();
+  const hasError = nameError || titleError || messageError;
+
   return (
     <form
       onSubmit={handleSubmit}
-      className={`${flexColCenter} max-w-[500px] w-full mx-auto gap-4 bg-white`}
+      className={`${flexColCenter} max-w-[500px] w-full mx-auto p-10 gap-10 bg-white shadow-[1px_1px_20px_1px_rgba(0,0,0,0.08)]`}
     >
-      <input
+      <Input
+        id='name'
         type='text'
-        name='name'
         placeholder='Name'
-        className='border border-gray-300 p-3 text-sm w-full'
         value={formData.name}
+        errorMessage='이름을 입력해주세요.'
+        isError={!formData.name.trim()}
         onChange={handleChange}
-        required
       />
-      <input
+      <Input
+        id='title'
         type='text'
-        name='title'
         placeholder='Title'
-        className='border border-gray-300 p-3 text-sm w-full'
         value={formData.title}
+        errorMessage='제목을 입력해주세요.'
+        isError={!formData.title.trim()}
         onChange={handleChange}
-        required
       />
-      <textarea
-        name='message'
+      <Input
+        id='message'
+        type='textarea'
         placeholder='Message'
-        className='border border-gray-300 p-3 text-sm h-48 resize-none w-full'
         value={formData.message}
+        errorMessage='내용을 입력해주세요.'
+        isError={!formData.message.trim()}
         onChange={handleChange}
-        required
       />
       <button
         type='submit'
-        className='mt-4 bg-accent text-white py-3 px-4 text-sm font-semibold w-full hover:bg-[#002f80] transition rounded-sm'
+        disabled={hasError}
+        className={`mt-4 text-white py-3 px-4 text-sm font-semibold w-full transition rounded-sm
+            ${
+              hasError
+                ? 'bg-gray-300 cursor-not-allowed'
+                : 'bg-accent hover:bg-[#002f80] cursor-pointer'
+            }
+          `}
       >
         SEND
       </button>
