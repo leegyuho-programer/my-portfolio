@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Input from '../Input/Input';
 import { flexColCenter } from './../../app/styles';
 
-export default function ContactSection() {
+export default function PostCard() {
   const [formData, setFormData] = useState({
     name: '',
     title: '',
