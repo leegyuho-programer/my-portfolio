@@ -4,10 +4,10 @@ import { TechStackType } from '@/_components/TechStackBadge/techMap';
 
 export const MENU_ITEMS: MenuItemProps[] = [
   { label: 'About me', href: '#aboutMe' },
-  { label: 'Skills', href: '#skills' },
   { label: 'Archiving', href: '#archiving' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Career', href: '#career' },
+  // { label: 'Career', href: '#career' },
 ] as const;
 
 export const INFORMATION_DATA: InformationProps[] = [

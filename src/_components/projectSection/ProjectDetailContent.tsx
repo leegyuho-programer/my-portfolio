@@ -3,6 +3,7 @@
 import { ProjectProps } from '@/_data/projectData';
 import Information from '../Information/Information';
 import TechStackBadge from '../TechStackBadge/TechStackBadge';
+import { modalSectionTitle } from '@/app/styles';
 
 interface ProjectDetailContentProps {
   project: ProjectProps;
@@ -15,11 +16,11 @@ export default function ProjectDetailContent({
     <div className='w-full px-[250px] py-8 text-text-main flex flex-col gap-10'>
       {/* 프로젝트 소개 */}
       <section className='flex flex-col gap-5 pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
-        <h2 className='text-xl font-semibold mb-2'>프로젝트 소개</h2>
+        <h2 className={modalSectionTitle}>프로젝트 소개</h2>
         <p className='text-sm font-normal'>{project.serviceDescription}</p>
         {project.myContributions && (
           <div className='my-4'>
-            <p className='text-md font-medium mb-1'>담당한 기능</p>
+            <p className='text-lg font-medium mb-1'>담당한 기능</p>
             <p className='text-sm text-gray-700'>{project.myContributions}</p>
           </div>
         )}
@@ -57,7 +58,7 @@ export default function ProjectDetailContent({
 
       {/* 기술 스택 */}
       <section className='pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
-        <h2 className='text-xl font-semibold mb-2'>기술 스택</h2>
+        <h2 className={modalSectionTitle}>기술 스택</h2>
         <div className='flex flex-row gap-5 flex-wrap'>
           {project.techStacksUsed.map((tech, index) => (
             <TechStackBadge key={index} tech={tech} isModal={true} />
@@ -67,7 +68,7 @@ export default function ProjectDetailContent({
 
       {/* 주요 작업들 */}
       <section className='pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
-        <h2 className='text-xl font-semibold mb-2'>주요 작업</h2>
+        <h2 className={modalSectionTitle}>주요 작업</h2>
         <div className='space-y-4'>
           {project.mainWorks.map((work, index) => (
             <div key={index} className='p-4'>
@@ -93,7 +94,7 @@ export default function ProjectDetailContent({
 
       {/* 트러블슈팅 */}
       <section className='pb-20'>
-        <h2 className='text-xl font-semibold mb-2'>트러블슈팅</h2>
+        <h2 className={modalSectionTitle}>트러블슈팅</h2>
         <div className='space-y-8'>
           {project.troubleShootings.map((item, index) => (
             <div key={index}>
