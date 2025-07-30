@@ -15,6 +15,17 @@ const meta = {
       description: '텍스트 필드의 id',
       defaultValue: '',
     },
+    name: {
+      control: 'text',
+      description: 'input name 속성',
+      defaultValue: '',
+    },
+    type: {
+      control: { type: 'radio' },
+      options: ['text', 'textarea'],
+      description: `'text' 또는 'textarea' 타입 선택`,
+      defaultValue: 'text',
+    },
     placeholder: {
       control: 'text',
       description: '텍스트 필드의 placeholder',
@@ -42,12 +53,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const TextInput: Story = {
   args: {
-    id: 'email',
-    placeholder: '텍스트를 입력해주세요',
+    id: 'name',
+    name: 'name',
+    type: 'text',
+    placeholder: '이름을 입력해주세요',
     value: '',
-    errorMessage: '텍스트를 확인해주세요',
+    errorMessage: '이름을 입력해주세요',
+    isError: false,
+    onChange: fn(),
+  },
+};
+
+export const TextareaInput: Story = {
+  args: {
+    id: 'message',
+    name: 'message',
+    type: 'textarea',
+    placeholder: '내용을 입력해주세요',
+    value: '',
+    errorMessage: '내용을 입력해주세요',
     isError: false,
     onChange: fn(),
   },
