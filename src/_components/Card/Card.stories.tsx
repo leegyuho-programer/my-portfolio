@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs';
 import Card from './Card';
 
 const meta: Meta<typeof Card> = {
-  title: 'Card/Card',
+  title: 'Cards/Card',
   component: Card,
   tags: ['autodocs'],
 };
