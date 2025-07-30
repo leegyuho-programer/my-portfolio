@@ -6,7 +6,7 @@ import {
   ArchivingSection,
   SkillsSection,
   ProjectsSection,
-  CareerSection,
+  // CareerSection,
 } from '../_components/Sections';
 
 export default function Home() {
