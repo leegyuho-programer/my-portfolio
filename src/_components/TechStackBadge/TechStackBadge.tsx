@@ -1,19 +1,27 @@
 import Image from 'next/image';
 import { TECH_MAP, TechStackType } from './techMap';
+import { flexCenter } from './../../app/styles';
 
 interface TechStackBadgeProps {
   tech: TechStackType;
+  isModal?: boolean;
 }
 
-export default function TechStackBadge({ tech }: TechStackBadgeProps) {
+export default function TechStackBadge({ tech, isModal }: TechStackBadgeProps) {
   const { label, svgSrc, alt } = TECH_MAP[tech] as {
     label: string;
     svgSrc?: string;
     alt?: string;
   };
 
+  const backgroundColor = isModal
+    ? 'bg-white text-black'
+    : 'bg-lightGray text-white';
+
+  const baseStyle = 'shadow-md gap-[8px] rounded-[10px] px-[10px] py-[5px]';
+
   return (
-    <div className='flex items-center gap-[5px] bg-[#f3f4f6 ] rounded-[10px] border border-black px-[10px] py-[5px]'>
+    <div className={`${baseStyle} ${flexCenter} ${backgroundColor}`}>
       {svgSrc && (
         <Image
           className='right-[10px]'
@@ -23,7 +31,7 @@ export default function TechStackBadge({ tech }: TechStackBadgeProps) {
           height={25}
         />
       )}
-      <span className='text-sm font-medium text-[#000]'>{label}</span>
+      <span className='text-sm font-medium'>{label}</span>
     </div>
   );
 }

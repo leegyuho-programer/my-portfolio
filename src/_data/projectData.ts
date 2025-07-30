@@ -1,15 +1,15 @@
 // 기술 스택 타입을 정의하여 자동완성 및 타입 안정성 확보
 export type TechStackProps =
-  | 'HTML'
+  | 'Html'
   | 'CSS'
   | 'CSSModules'
-  | 'Styled Components'
+  | 'StyledComponents'
   | 'Tailwind'
   | 'JavaScript'
   | 'TypeScript'
   | 'React'
-  | 'Next.js'
-  | 'React Query'
+  | 'NextJs'
+  | 'ReactQuery'
   | 'Zustand';
 
 // 팀 여부 정의
@@ -47,7 +47,7 @@ export interface ProjectProps {
   developmentMembers: string; // 개발 인원
   myContributions?: string; // 내가 맡은 역할 간단 요약
   deployLink?: string; // 배포 주소 (선택 사항)
-  demoLink?: string; // 데모 영상 (선택 사항항)
+  demoLink?: string; // 데모 영상 (선택 사항)
   githubLink: string; // 깃허브 주소
   techStacksUsed: TechStackProps[]; // 사용 기술 스택
   mainWorks: MainWorkProps[]; // 주요 작업들
@@ -73,8 +73,8 @@ export const projectData: ProjectProps[] = [
     techStacksUsed: [
       'React',
       'TypeScript',
-      'Next.js',
-      'React Query',
+      'NextJs',
+      'ReactQuery',
       'CSSModules',
       'Zustand',
     ],
@@ -219,9 +219,9 @@ export const projectData: ProjectProps[] = [
     techStacksUsed: [
       'React',
       'TypeScript',
-      'React Query',
+      'ReactQuery',
       'Zustand',
-      'Next.js',
+      'NextJs',
       'Tailwind',
     ],
     mainWorks: [
@@ -320,7 +320,7 @@ export const projectData: ProjectProps[] = [
     id: 'taskytasky',
     title: 'TaskyTasky',
     description: '일상의 업무를 효율적으로 계획할 수 있는 웹사이트입니다.',
-    imageSrc: '/images/TaskyTaskyImage.png', // 실제 이미지 경로로 변경 필요
+    imageSrc: '/images/TaskyTaskyImage.png',
     tags: ['팀', '반응형'],
     period: '2023.12 ~ 2024.01',
     serviceDescription:
@@ -329,15 +329,15 @@ export const projectData: ProjectProps[] = [
     developmentMembers: '개발 인원: 5명',
     myContributions:
       '공통 컴포넌트 개발, 로그인/회원가입 페이지 구현, proxy 기능 이용하여 API 연결 함수 제공, 사이드 메뉴 무한스크롤',
-    deployLink: 'https://taskytasky.netlify.app/', // 실제 배포 주소로 변경 필요
+    deployLink: 'https://taskytasky.netlify.app/',
     githubLink: 'https://github.com/leegyuho-programer/TaskyTasky',
     techStacksUsed: [
       'React',
       'TypeScript',
-      'React Query',
+      'ReactQuery',
       'Zustand',
-      'Next.js',
-      'Styled Components',
+      'NextJs',
+      'StyledComponents',
     ],
     mainWorks: [
       {
@@ -430,7 +430,7 @@ export const projectData: ProjectProps[] = [
     id: 'my-portfolio',
     title: 'MyPortfolio',
     description: '일상의 업무를 효율적으로 계획할 수 있는 웹사이트입니다.',
-    imageSrc: '/images/TaskyTaskyImage.png', // 실제 이미지 경로로 변경 필요
+    imageSrc: '/images/TaskyTaskyImage.png',
     tags: ['개인'],
     period: '2023.12 ~ 2024.01',
     serviceDescription:
@@ -439,15 +439,15 @@ export const projectData: ProjectProps[] = [
     developmentMembers: '개발 인원: 1명',
     myContributions:
       '공통 컴포넌트 개발, 로그인/회원가입 페이지 구현, proxy 기능 이용하여 API 연결 함수 제공, 사이드 메뉴 무한스크롤',
-    deployLink: 'https://taskytasky.netlify.app/', // 실제 배포 주소로 변경 필요
+    deployLink: 'https://taskytasky.netlify.app/',
     githubLink: 'https://github.com/leegyuho-programer/TaskyTasky',
     techStacksUsed: [
       'React',
       'TypeScript',
-      'React Query',
+      'ReactQuery',
       'Zustand',
-      'Next.js',
-      'Styled Components',
+      'NextJs',
+      'StyledComponents',
     ],
     mainWorks: [
       {

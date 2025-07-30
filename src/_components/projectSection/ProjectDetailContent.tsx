@@ -3,6 +3,7 @@
 import { ProjectProps } from '@/_data/projectData';
 import Information from '../Information/Information';
 import TechStackBadge from '../TechStackBadge/TechStackBadge';
+import { modalSectionTitle } from '@/app/styles';
 
 interface ProjectDetailContentProps {
   project: ProjectProps;
@@ -15,29 +16,31 @@ export default function ProjectDetailContent({
     <div className='w-full px-[250px] py-8 text-text-main flex flex-col gap-10'>
       {/* 프로젝트 소개 */}
       <section className='flex flex-col gap-5 pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
-        <h2 className='text-xl font-semibold mb-2'>프로젝트 소개</h2>
+        <h2 className={modalSectionTitle}>프로젝트 소개</h2>
         <p className='text-sm font-normal'>{project.serviceDescription}</p>
         {project.myContributions && (
           <div className='my-4'>
-            <p className='text-md font-medium mb-1'>담당한 기능</p>
+            <p className='text-lg font-medium mb-1'>담당한 기능</p>
             <p className='text-sm text-gray-700'>{project.myContributions}</p>
           </div>
         )}
-        <div className='flex flex-row gap-5'>
+        <div className='grid grid-cols-2 gap-5 mx-auto w-fit'>
           <Information
             svgSrc='/icons/GithubIcon.svg'
             alt='GitHub'
             title='GitHub 저장소'
             content='프론트엔드 개발 프로젝트 저장소입니다.'
             link={project.githubLink}
+            isModal={true}
           />
           {project.deployLink && (
             <Information
-              svgSrc='/icons/YouTubeIcon.svg'
+              svgSrc={`/icons/${project.title}Icon.svg`}
               alt='Deploy'
               title='배포 주소'
-              content='프로젝트 배포 주소입니다.'
+              content={`${project.title} 프로젝트 배포 주소입니다.`}
               link={project.deployLink}
+              isModal={true}
             />
           )}
           {project.demoLink && (
@@ -47,6 +50,7 @@ export default function ProjectDetailContent({
               title='데모 영상'
               content='프로젝트 데모 영상입니다.'
               link={project.demoLink}
+              isModal={true}
             />
           )}
         </div>
@@ -54,23 +58,17 @@ export default function ProjectDetailContent({
 
       {/* 기술 스택 */}
       <section className='pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
-        <h2 className='text-xl font-semibold mb-2'>기술 스택</h2>
+        <h2 className={modalSectionTitle}>기술 스택</h2>
         <div className='flex flex-row gap-5 flex-wrap'>
-          {/* {project.techStacksUsed.map((tech, index) => (
-            <TechStackBadge key={index} tech={tech} />
-          ))} */}
-          <TechStackBadge tech='React' />
-          <TechStackBadge tech='CSSModules' />
-          <TechStackBadge tech='TypeScript' />
-          <TechStackBadge tech='NextJs' />
-          <TechStackBadge tech='ReactQuery' />
-          <TechStackBadge tech='Zustand' />
+          {project.techStacksUsed.map((tech, index) => (
+            <TechStackBadge key={index} tech={tech} isModal={true} />
+          ))}
         </div>
       </section>
 
       {/* 주요 작업들 */}
       <section className='pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
-        <h2 className='text-xl font-semibold mb-2'>주요 작업</h2>
+        <h2 className={modalSectionTitle}>주요 작업</h2>
         <div className='space-y-4'>
           {project.mainWorks.map((work, index) => (
             <div key={index} className='p-4'>
@@ -96,7 +94,7 @@ export default function ProjectDetailContent({
 
       {/* 트러블슈팅 */}
       <section className='pb-20'>
-        <h2 className='text-xl font-semibold mb-2'>트러블슈팅</h2>
+        <h2 className={modalSectionTitle}>트러블슈팅</h2>
         <div className='space-y-8'>
           {project.troubleShootings.map((item, index) => (
             <div key={index}>

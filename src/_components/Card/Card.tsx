@@ -8,7 +8,7 @@ interface CardProps {
 
 export default function Card({ children }: CardProps) {
   return (
-    <div className='group relative rounded-lg max-w-[400px] w-full h-[410px] bg-lightGray overflow-hidden hover:shadow-black hover:shadow-2xl hover:translate-y-[-5px] hover:bg-[#32323]'>
+    <div className='group cursor-pointer relative rounded-lg max-w-[400px] w-full h-[410px] bg-lightGray overflow-hidden hover:shadow-black hover:shadow-2xl hover:translate-y-[-5px] hover:bg-[#32323]'>
       {children}
     </div>
   );
@@ -86,7 +86,7 @@ Card.Hover = function CardHover({ title, text, onOpenDetail }: CardHoverProps) {
       <h3 className='text-xl font-bold text-white'>{title}</h3>
       <button
         onClick={onOpenDetail}
-        className='py-3 px-8 border-[1px] border-solid border-white text-sm text-white rounded-lg transition hover:bg-white hover:text-text-main' // text-mainBlack -> text-text-main (globals.css 참조)
+        className='py-3 px-8 border-[1px] cursor-pointer border-solid border-white text-sm text-white rounded-lg transition hover:bg-white hover:text-text-main' // text-mainBlack -> text-text-main (globals.css 참조)
       >
         {text}
       </button>

@@ -34,6 +34,12 @@ const meta: Meta<typeof Information> = {
       description: '링크 주소',
       defaultValue: 'https://github.com/leegyuho-programer',
     },
+    onClick: { action: 'clicked' },
+    isModal: {
+      control: 'boolean',
+      description: '모달 내 표시 여부 (배경색, 폰트 색상 변경)',
+      defaultValue: false,
+    },
   },
 };
 
@@ -72,7 +78,9 @@ export const Github: Story = {
     svgSrc: '/icons/GithubIcon.svg',
     alt: 'Github',
     title: '깃허브',
+    content: '프론트엔드 개발 프로젝트 저장소입니다.',
     link: 'https://github.com/leegyuho-programer',
+    isModal: true,
   },
 };
 
@@ -81,6 +89,8 @@ export const Blog: Story = {
     svgSrc: '/icons/BlogIcon.svg',
     alt: 'Blog',
     title: '블로그',
+    content: '블로그 입니다.',
     link: 'https://velog.io/@j980303/posts',
+    isModal: false,
   },
 };

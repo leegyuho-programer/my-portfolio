@@ -1,12 +1,13 @@
 import Image from 'next/image';
 
-interface InformationProps {
+export interface InformationProps {
   svgSrc: string;
   alt: string;
   title: string;
   content?: string;
   link?: string;
   onClick?: React.MouseEventHandler;
+  isModal?: boolean;
 }
 
 export default function Information({
@@ -16,6 +17,7 @@ export default function Information({
   content,
   link,
   onClick,
+  isModal,
 }: InformationProps) {
   const handleClick: React.MouseEventHandler = (event) => {
     if (onClick) {
@@ -25,16 +27,37 @@ export default function Information({
     }
   };
 
+  const baseStyle =
+    'flex items-center gap-8 text-left rounded-xl overflow-hidden';
+  const aboutMe = 'p-5';
+  const archiving = 'cursor-pointer p-15 hover:shadow-black hover:shadow-2xl';
+
+  const backgroundColor = isModal
+    ? 'bg-white text-black border border-neutral-200 shadow-md hover:shadow-lg transition-shadow duration-200'
+    : 'bg-lightGray text-white shadow-md hover:shadow-lg transition-shadow duration-200';
+
   return (
     <button
-      className='flex items-center p-5 max-w-[400px] w-full gap-8 text-left cursor-pointer rounded-xl text-white bg-lightGray overflow-hidden hover:shadow-black hover:shadow-2xl'
+      className={`${baseStyle} ${backgroundColor} ${
+        link ? archiving : aboutMe
+      }`}
       onClick={handleClick}
     >
-      <div className='relative w-[60px] h-[60px]'>
+      <div
+        className={`relative ${
+          link ? 'w-[80px] h-[80px]' : 'w-[60px] h-[60px]'
+        }`}
+      >
         <Image src={svgSrc} alt={`${alt} logo`} fill />
       </div>
       <div>
-        <div className='text-sm font-bold mb-[4px]'>{title}</div>
+        <div
+          className={`mb-[4px] ${
+            link ? 'text-md font-bold' : 'text-sm font-bold'
+          }`}
+        >
+          {title}
+        </div>
         {content && <div className='text-sm font-regular'>{content}</div>}
       </div>
     </button>
