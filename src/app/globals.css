@@ -71,6 +71,8 @@
     /* 기타 기본 스타일 (선택 사항) */
     line-height: 1.5; /* 웹 접근성을 위해 기본 라인 하이트 설정 */
     -webkit-font-smoothing: antialiased; /* 폰트 렌더링 부드럽게 */
+
+    scroll-behavior: smooth;
   }
 
   body {

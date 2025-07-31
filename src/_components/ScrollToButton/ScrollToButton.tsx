@@ -27,9 +27,9 @@ export default function ScrollToButton() {
     if (typeof window === 'undefined') return;
 
     if (atBottom) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0 });
     } else {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      window.scrollTo({ top: document.body.scrollHeight });
     }
   };
 
