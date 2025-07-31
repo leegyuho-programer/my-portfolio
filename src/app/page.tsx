@@ -8,6 +8,7 @@ import {
   SkillsSection,
   ContactSection,
 } from '../_components/Sections';
+import ScrollToButton from '@/_components/ScrollToButton/ScrollToButton';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <ProjectsSection />
       <ContactSection />
       {/* <CareerSection /> */}
+      <ScrollToButton />
     </div>
   );
 }
