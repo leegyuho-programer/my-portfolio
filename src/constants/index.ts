@@ -46,9 +46,9 @@ export const INFORMATION_DATA: InformationProps[] = [
 
 export const ARCHIVING_DATA: InformationProps[] = [
   {
-    svgSrc: '/icons/GithubIcon.svg',
-    alt: 'Github',
-    title: 'Github 저장소',
+    svgSrc: '/icons/GitHubIcon.svg',
+    alt: 'GitHub',
+    title: 'GitHub 저장소',
     content: '프론트엔드 개발 프로젝트 저장소입니다.',
     link: 'https://github.com/leegyuho-programer',
   },
