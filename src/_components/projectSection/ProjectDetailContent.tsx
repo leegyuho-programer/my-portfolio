@@ -9,6 +9,36 @@ interface ProjectDetailContentProps {
   project: ProjectProps;
 }
 
+// **text**와 `code` 형태의 마크다운 스타일을 HTML로 변환하는 함수
+const renderBoldText = (text: string): React.ReactNode => {
+  // **bold** 와 `code` 패턴을 모두 찾기 위한 정규식
+  const parts = text.split(/(\*\*.*?\*\*|`.*?`)/g);
+
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      // **를 제거하고 bold 처리
+      const boldText = part.slice(2, -2);
+      return (
+        <strong key={index} className='font-bold text-black'>
+          {boldText}
+        </strong>
+      );
+    } else if (part.startsWith('`') && part.endsWith('`')) {
+      // `를 제거하고 code 스타일 처리
+      const codeText = part.slice(1, -1);
+      return (
+        <code
+          key={index}
+          className='bg-gray-200 font-bold text-black px-1 py-0.5 rounded'
+        >
+          {codeText}
+        </code>
+      );
+    }
+    return part;
+  });
+};
+
 export default function ProjectDetailContent({
   project,
 }: ProjectDetailContentProps) {
@@ -17,11 +47,15 @@ export default function ProjectDetailContent({
       {/* 프로젝트 소개 */}
       <section className='flex flex-col gap-5 pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
         <h2 className={modalSectionTitle}>프로젝트 소개</h2>
-        <p className='text-sm font-normal'>{project.serviceDescription}</p>
+        <p className='text-sm font-normal'>
+          {renderBoldText(project.serviceDescription)}
+        </p>
         {project.myContributions && (
           <div className='my-4'>
             <p className='text-lg font-medium mb-1'>담당한 기능</p>
-            <p className='text-sm text-gray-700'>{project.myContributions}</p>
+            <p className='text-sm text-gray-700'>
+              {renderBoldText(project.myContributions)}
+            </p>
           </div>
         )}
         <div className='grid grid-cols-2 gap-5 mx-auto w-fit'>
@@ -73,16 +107,18 @@ export default function ProjectDetailContent({
           {project.mainWorks.map((work, index) => (
             <div key={index} className='p-4'>
               <h3 className='text-lg font-bold text-text-main mb-2 bg-mainGray p-3'>
-                {work.title}
+                {renderBoldText(work.title)}
               </h3>
               {work.overview && (
-                <p className='text-sm mb-3 text-gray-700'>{work.overview}</p>
+                <p className='text-sm mb-3 text-gray-700'>
+                  {renderBoldText(work.overview)}
+                </p>
               )}
               {work.contributions && (
                 <div>
                   <ul className='list-disc list-inside text-sm pl-4 text-gray-800'>
                     {work.contributions.map((item, idx) => (
-                      <li key={idx}>{item}</li>
+                      <li key={idx}>{renderBoldText(item)}</li>
                     ))}
                   </ul>
                 </div>
@@ -99,19 +135,21 @@ export default function ProjectDetailContent({
           {project.troubleShootings.map((item, index) => (
             <div key={index}>
               <h3 className='text-lg font-bold text-text-main mb-3 bg-[#f5f5f5] p-3'>
-                {item.title}
+                {renderBoldText(item.title)}
               </h3>
 
               <div className='mb-5'>
                 <p className='text-lg font-medium mb-1'>📌 문제 배경</p>
-                <p className='text-sm text-gray-700'>{item.background}</p>
+                <p className='text-sm text-gray-700'>
+                  {renderBoldText(item.background)}
+                </p>
               </div>
 
               <div className='mb-5'>
                 <p className='text-lg font-medium mb-1'>🔍 원인 분석</p>
                 <ul className='list-disc list-inside text-sm pl-4 text-gray-800'>
                   {item.resolutionMethod.analysis.map((a, idx) => (
-                    <li key={idx}>{a}</li>
+                    <li key={idx}>{renderBoldText(a)}</li>
                   ))}
                 </ul>
               </div>
@@ -120,7 +158,7 @@ export default function ProjectDetailContent({
                 <p className='text-lg font-medium mb-1'>🛠 해결 과정</p>
                 <ul className='list-disc list-inside text-sm pl-4 text-gray-800'>
                   {item.resolutionMethod.process.map((p, idx) => (
-                    <li key={idx}>{p}</li>
+                    <li key={idx}>{renderBoldText(p)}</li>
                   ))}
                 </ul>
               </div>
@@ -129,14 +167,16 @@ export default function ProjectDetailContent({
                 <p className='text-lg font-medium mb-1'>✅ 결과</p>
                 <ul className='list-disc list-inside text-sm pl-4 text-gray-800'>
                   {item.results.map((r, idx) => (
-                    <li key={idx}>{r}</li>
+                    <li key={idx}>{renderBoldText(r)}</li>
                   ))}
                 </ul>
               </div>
 
               <div>
                 <p className='text-lg font-medium mb-1'>🧠 배운 점</p>
-                <p className='text-sm text-gray-700'>{item.learnings}</p>
+                <p className='text-sm text-gray-700'>
+                  {renderBoldText(item.learnings)}
+                </p>
               </div>
             </div>
           ))}
