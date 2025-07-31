@@ -5,9 +5,9 @@ import {
   borderBottom,
   modalSectionSubTitle,
   modalSectionTitle,
-  orderListStyle,
-  subTitle,
   unOrderListStyle,
+  subTitle,
+  orderListStyle,
 } from '@/app/styles';
 import Information from '../Information/Information';
 import TechStackBadge from '../TechStackBadge/TechStackBadge';
@@ -123,7 +123,7 @@ export default function ProjectDetailContent({
               )}
               {work.contributions && (
                 <div>
-                  <ul className={orderListStyle}>
+                  <ul className={unOrderListStyle}>
                     {work.contributions.map((item, idx) => (
                       <li key={idx}>{renderBoldText(item)}</li>
                     ))}
@@ -154,7 +154,7 @@ export default function ProjectDetailContent({
 
               <div className='mb-5'>
                 <p className={subTitle}>🔍 원인 분석</p>
-                <ul className={orderListStyle}>
+                <ul className={unOrderListStyle}>
                   {item.resolutionMethod.analysis.map((a, idx) => (
                     <li key={idx}>{renderBoldText(a)}</li>
                   ))}
@@ -163,16 +163,25 @@ export default function ProjectDetailContent({
 
               <div className='mb-5'>
                 <p className={subTitle}>🛠 해결 과정</p>
-                <ol className={unOrderListStyle}>
-                  {item.resolutionMethod.process.map((p, idx) => (
-                    <li key={idx}>{renderBoldText(p)}</li>
+                <ol className={orderListStyle}>
+                  {item.resolutionMethod.process.map((step, idx) => (
+                    <li key={idx} className='mb-3'>
+                      {renderBoldText(step.title)}
+                      {step.content && (
+                        <ul className={unOrderListStyle}>
+                          {step.content.map((c, cIdx) => (
+                            <li key={cIdx}>{renderBoldText(c.description)}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
                   ))}
                 </ol>
               </div>
 
               <div className='mb-5'>
                 <p className={subTitle}>✅ 결과</p>
-                <ul className={orderListStyle}>
+                <ul className={unOrderListStyle}>
                   {item.results.map((r, idx) => (
                     <li key={idx}>{renderBoldText(r)}</li>
                   ))}
