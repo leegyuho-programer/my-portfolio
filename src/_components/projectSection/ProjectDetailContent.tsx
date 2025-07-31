@@ -68,8 +68,8 @@ export default function ProjectDetailContent({
         <div className='grid grid-cols-2 gap-5 mx-auto w-fit'>
           <Information
             svgSrc='/icons/GithubIcon.svg'
-            alt='GitHub'
-            title='GitHub 저장소'
+            alt='Github'
+            title='Github 저장소'
             content='프론트엔드 개발 프로젝트 저장소입니다.'
             link={project.githubLink}
             isModal={true}
@@ -89,7 +89,7 @@ export default function ProjectDetailContent({
               svgSrc='/icons/YoutubeIcon.svg'
               alt='Demo Video'
               title='데모 영상'
-              content='프로젝트 데모 영상입니다.'
+              content='현재 서버 비용 문제로 서비스가 중단되어 데모 영상을 첨부합니다.'
               link={project.demoLink}
               isModal={true}
             />
