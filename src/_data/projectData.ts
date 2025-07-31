@@ -60,7 +60,7 @@ export const projectData: ProjectProps[] = [
     title: 'Wikied',
     description:
       'Wikied는 위키 페이지를 만들고 친구들과 실시간으로 공유·편집할 수 있는 협업 기반 문서 플랫폼입니다.',
-    imageSrc: '/Images/WikiedImage.png', // 실제 이미지 경로로 변경
+    imageSrc: '/Images/WikiedImage.png',
     tags: ['개인', '반응형'],
     period:
       '기간: 2024.05 ~ 2024.07 (초기 개발) / 추가 작업 및 리팩토링: 2024.08 ~ 2025.03',
