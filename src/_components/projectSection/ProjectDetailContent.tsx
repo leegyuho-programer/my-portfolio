@@ -67,9 +67,9 @@ export default function ProjectDetailContent({
         )}
         <div className='grid grid-cols-2 gap-5 mx-auto w-fit'>
           <Information
-            svgSrc='/icons/GithubIcon.svg'
-            alt='Github'
-            title='Github 저장소'
+            svgSrc='/icons/GitHubIcon.svg'
+            alt='GitHub'
+            title='GitHub 저장소'
             content='프론트엔드 개발 프로젝트 저장소입니다.'
             link={project.githubLink}
             isModal={true}

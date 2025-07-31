@@ -12,12 +12,12 @@ const meta: Meta<typeof Information> = {
     svgSrc: {
       control: 'text',
       description: '아이콘 이미지 경로',
-      defaultValue: '/icons/GithubIcon.svg',
+      defaultValue: '/icons/GitHubIcon.svg',
     },
     alt: {
       control: 'text',
       description: '이미지 대체 텍스트',
-      defaultValue: 'Github',
+      defaultValue: 'GitHub',
     },
     title: {
       control: 'text',
@@ -73,10 +73,10 @@ export const Email: Story = {
   },
 };
 
-export const Github: Story = {
+export const GitHub: Story = {
   args: {
-    svgSrc: '/icons/GithubIcon.svg',
-    alt: 'Github',
+    svgSrc: '/icons/GitHubIcon.svg',
+    alt: 'GitHub',
     title: '깃허브',
     content: '프론트엔드 개발 프로젝트 저장소입니다.',
     link: 'https://github.com/leegyuho-programer',
