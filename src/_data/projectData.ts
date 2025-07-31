@@ -323,7 +323,7 @@ export const projectData: ProjectProps[] = [
     developmentMembers:
       '개발 인원: 7명 (프론트엔드 4명, 백엔드 2명, 디자이너 1명)',
     myContributions:
-      '**공통 컴포넌트 개발**, **마이 페이지** / **프로필 수정 페이지** / **계정 정보 페이지 구현**, **탈퇴 기능 구현**, **댓글 CRUD 구현**',
+      '공통 컴포넌트 개발, 마이 페이지 / 프로필 수정 페이지 / 계정 정보 페이지 구현, 탈퇴 기능 구현, 댓글 CRUD 구현',
     demoLink: 'https://www.youtube.com/watch?v=JJ74mI6L7LE',
     githubLink: 'https://github.com/leegyuho-programer/ArtTalkTalk_frontend',
     techStacksUsed: [
@@ -337,7 +337,7 @@ export const projectData: ProjectProps[] = [
 
     mainWorks: [
       {
-        title: '`react-hook-form` 기반 입력 필드 상태 관리 최적화',
+        title: 'react-hook-form 기반 입력 필드 상태 관리 최적화',
         overview:
           '**복잡한 입력 필드 상태 관리**를 단순화하고 **성능을 개선**했습니다.',
         contributions: [
@@ -346,7 +346,7 @@ export const projectData: ProjectProps[] = [
         ],
       },
       {
-        title: '이미지 최적화를 통한 **페이지 로드 성능 개선**',
+        title: '이미지 최적화를 통한 페이지 로드 성능 개선',
         overview:
           '**고화질 이미지**로 인한 **페이지 성능 저하**를 개선했습니다.',
         contributions: [
@@ -355,7 +355,7 @@ export const projectData: ProjectProps[] = [
         ],
       },
       {
-        title: '`react-query`로 API 통신 최적화',
+        title: 'react-query로 API 통신 최적화',
         overview:
           'API 요청 최적화를 통해 **성능 향상** 및 **데이터 동기화 효율화**',
         contributions: [
@@ -364,7 +364,7 @@ export const projectData: ProjectProps[] = [
         ],
       },
       {
-        title: '공통 컴포넌트 및 **사용자 계정 관련 페이지 구현**',
+        title: '공통 컴포넌트 및 사용자 계정 관련 페이지 구현',
         overview:
           '**계정 관련 핵심 페이지**(Mypage, 프로필 수정 등)를 **일관된 UI/UX**로 구축했습니다.',
         contributions: [
@@ -373,7 +373,7 @@ export const projectData: ProjectProps[] = [
         ],
       },
       {
-        title: '**반응형 디자인 적용**으로 다양한 디바이스 대응',
+        title: '반응형 디자인 적용으로 다양한 디바이스 대응',
         overview:
           '모바일, 태블릿, 데스크탑에서 **최적의 사용자 경험 제공**을 위한 UI 대응 작업',
         contributions: [
@@ -386,7 +386,7 @@ export const projectData: ProjectProps[] = [
     troubleShootings: [
       {
         title:
-          '**복잡한 입력 필드 상태 관리** 및 **유효성 검사**로 인한 코드 복잡도 증가',
+          '복잡한 입력 필드 상태 관리 및 유효성 검사로 인한 코드 복잡도 증가',
         background:
           '`useState`로 개별 관리하던 폼 상태와 유효성 로직이 **중복**되며 **유지보수성 저하**, **리렌더링 성능 문제** 발생',
         resolutionMethod: {
@@ -407,7 +407,7 @@ export const projectData: ProjectProps[] = [
           '**폼 상태 관리**를 효과적으로 설계하면 **성능** 및 **유지보수** 모두에 긍정적이며, `react-hook-form`은 폼 유효성 검사에 **매우 적합한 도구**임을 알게 됐습니다.',
       },
       {
-        title: '**팀 간 소통 미흡**으로 인한 **작업 병목 발생**',
+        title: '팀 간 소통 미흡으로 인한 작업 병목 발생',
         background:
           '**프론트/백엔드/디자이너 간 커뮤니케이션 부족**으로 인해 **요구사항 전달 오류**와 **타임라인 지연** 발생',
         resolutionMethod: {
@@ -441,7 +441,7 @@ export const projectData: ProjectProps[] = [
     projectType: 'Team',
     developmentMembers: '개발 인원: 5명',
     myContributions:
-      '**공통 컴포넌트 개발**, **로그인/회원가입 페이지 구현**, `proxy` **기능 이용하여 API 연결 함수 제공**, **사이드 메뉴 무한스크롤**',
+      '공통 컴포넌트 개발, 로그인/회원가입 페이지 구현, `proxy` 기능 이용하여 API 연결 함수 제공, 사이드 메뉴 무한스크롤',
     deployLink: 'https://taskytasky.netlify.app/',
     githubLink: 'https://github.com/leegyuho-programer/TaskyTasky',
     techStacksUsed: [

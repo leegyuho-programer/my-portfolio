@@ -6,3 +6,11 @@ export const flexColCenter = `${flexCol} items-center justify-center`;
 export const sectionStyle = 'scroll-py-16 p-32 mx-auto';
 export const sectionTitle = 'text-xl font-bold text-white mb-50';
 export const modalSectionTitle = 'text-xl font-semibold mb-10';
+export const modalSectionSubTitle =
+  'text-lg font-bold text-text-main mb-2 bg-mainGray p-3';
+export const subTitle = 'text-lg font-medium mb-2';
+export const orderListStyle =
+  'list-disc list-inside text-sm pl-4 text-gray-800';
+export const unOrderListStyle =
+  'list-decimal list-inside text-sm pl-4 text-gray-800';
+export const borderBottom = 'border-solid border-b-[1px] border-[#dcdcdc]';

@@ -1,9 +1,16 @@
 'use client';
 
 import { ProjectProps } from '@/_data/projectData';
+import {
+  borderBottom,
+  modalSectionSubTitle,
+  modalSectionTitle,
+  orderListStyle,
+  subTitle,
+  unOrderListStyle,
+} from '@/app/styles';
 import Information from '../Information/Information';
 import TechStackBadge from '../TechStackBadge/TechStackBadge';
-import { modalSectionTitle } from '@/app/styles';
 
 interface ProjectDetailContentProps {
   project: ProjectProps;
@@ -45,15 +52,15 @@ export default function ProjectDetailContent({
   return (
     <div className='w-full px-[250px] py-8 text-text-main flex flex-col gap-10'>
       {/* 프로젝트 소개 */}
-      <section className='flex flex-col gap-5 pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
+      <section className={`flex flex-col gap-5 pb-20 ${borderBottom}`}>
         <h2 className={modalSectionTitle}>프로젝트 소개</h2>
         <p className='text-sm font-normal'>
           {renderBoldText(project.serviceDescription)}
         </p>
         {project.myContributions && (
           <div className='my-4'>
-            <p className='text-lg font-medium mb-1'>담당한 기능</p>
-            <p className='text-sm text-gray-700'>
+            <p className={subTitle}>담당한 기능</p>
+            <p className='text-sm font-bold text-black'>
               {renderBoldText(project.myContributions)}
             </p>
           </div>
@@ -91,7 +98,7 @@ export default function ProjectDetailContent({
       </section>
 
       {/* 기술 스택 */}
-      <section className='pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
+      <section className={`pb-20 ${borderBottom}`}>
         <h2 className={modalSectionTitle}>기술 스택</h2>
         <div className='flex flex-row gap-5 flex-wrap'>
           {project.techStacksUsed.map((tech, index) => (
@@ -101,12 +108,12 @@ export default function ProjectDetailContent({
       </section>
 
       {/* 주요 작업들 */}
-      <section className='pb-20 border-solid border-b-[1px] border-[#dcdcdc]'>
+      <section className={`pb-20 ${borderBottom}`}>
         <h2 className={modalSectionTitle}>주요 작업</h2>
         <div className='space-y-4'>
           {project.mainWorks.map((work, index) => (
             <div key={index} className='p-4'>
-              <h3 className='text-lg font-bold text-text-main mb-2 bg-mainGray p-3'>
+              <h3 className={modalSectionSubTitle}>
                 {renderBoldText(work.title)}
               </h3>
               {work.overview && (
@@ -116,7 +123,7 @@ export default function ProjectDetailContent({
               )}
               {work.contributions && (
                 <div>
-                  <ul className='list-disc list-inside text-sm pl-4 text-gray-800'>
+                  <ul className={orderListStyle}>
                     {work.contributions.map((item, idx) => (
                       <li key={idx}>{renderBoldText(item)}</li>
                     ))}
@@ -134,20 +141,20 @@ export default function ProjectDetailContent({
         <div className='space-y-8'>
           {project.troubleShootings.map((item, index) => (
             <div key={index}>
-              <h3 className='text-lg font-bold text-text-main mb-3 bg-[#f5f5f5] p-3'>
+              <h3 className={modalSectionSubTitle}>
                 {renderBoldText(item.title)}
               </h3>
 
               <div className='mb-5'>
-                <p className='text-lg font-medium mb-1'>📌 문제 배경</p>
+                <p className={subTitle}>📌 문제 배경</p>
                 <p className='text-sm text-gray-700'>
                   {renderBoldText(item.background)}
                 </p>
               </div>
 
               <div className='mb-5'>
-                <p className='text-lg font-medium mb-1'>🔍 원인 분석</p>
-                <ul className='list-disc list-inside text-sm pl-4 text-gray-800'>
+                <p className={subTitle}>🔍 원인 분석</p>
+                <ul className={orderListStyle}>
                   {item.resolutionMethod.analysis.map((a, idx) => (
                     <li key={idx}>{renderBoldText(a)}</li>
                   ))}
@@ -155,17 +162,17 @@ export default function ProjectDetailContent({
               </div>
 
               <div className='mb-5'>
-                <p className='text-lg font-medium mb-1'>🛠 해결 과정</p>
-                <ul className='list-disc list-inside text-sm pl-4 text-gray-800'>
+                <p className={subTitle}>🛠 해결 과정</p>
+                <ol className={unOrderListStyle}>
                   {item.resolutionMethod.process.map((p, idx) => (
                     <li key={idx}>{renderBoldText(p)}</li>
                   ))}
-                </ul>
+                </ol>
               </div>
 
               <div className='mb-5'>
-                <p className='text-lg font-medium mb-1'>✅ 결과</p>
-                <ul className='list-disc list-inside text-sm pl-4 text-gray-800'>
+                <p className={subTitle}>✅ 결과</p>
+                <ul className={orderListStyle}>
                   {item.results.map((r, idx) => (
                     <li key={idx}>{renderBoldText(r)}</li>
                   ))}
@@ -173,7 +180,7 @@ export default function ProjectDetailContent({
               </div>
 
               <div>
-                <p className='text-lg font-medium mb-1'>🧠 배운 점</p>
+                <p className={subTitle}>🧠 배운 점</p>
                 <p className='text-sm text-gray-700'>
                   {renderBoldText(item.learnings)}
                 </p>
