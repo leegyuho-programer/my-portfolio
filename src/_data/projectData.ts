@@ -1,16 +1,4 @@
-// 기술 스택 타입을 정의하여 자동완성 및 타입 안정성 확보
-export type TechStackProps =
-  | 'Html'
-  | 'CSS'
-  | 'CSSModules'
-  | 'StyledComponents'
-  | 'Tailwind'
-  | 'JavaScript'
-  | 'TypeScript'
-  | 'React'
-  | 'NextJs'
-  | 'ReactQuery'
-  | 'Zustand';
+import { TechStackType } from '@/_components/TechStackBadge/techMap';
 
 // 팀 여부 정의
 export type ProjectType = 'Team' | 'Single';
@@ -56,12 +44,13 @@ export interface ProjectProps {
   deployLink?: string; // 배포 주소 (선택 사항)
   demoLink?: string; // 데모 영상 (선택 사항)
   githubLink: string; // 깃허브 주소
-  techStacksUsed: TechStackProps[]; // 사용 기술 스택
+  techStacksUsed: TechStackType[]; // 사용 기술 스택
   mainWorks: MainWorkProps[]; // 주요 작업들
-  troubleShootings: TroubleShootingProps[];
+  troubleShootings: TroubleShootingProps[]; // 트러블 슈팅들
 }
 
 export const projectData: ProjectProps[] = [
+  // Wikied
   {
     id: 'wikied',
     title: 'Wikied',
@@ -73,18 +62,19 @@ export const projectData: ProjectProps[] = [
       '기간: 2024.05 ~ 2024.07 (초기 개발) / 추가 작업 및 리팩토링: 2024.08 ~ 2025.03',
     serviceDescription:
       '**Wikied**는 **사용자 정의로 위키 페이지를 생성하고 편집할 수 있는 플랫폼**입니다. 생성한 위키 페이지의 링크를 복사하여 친구들과 공유할 수 있으며, 그들이 함께 작성하도록 초대할 수 있습니다. 또한, 자유게시판에서 글을 작성할 수 있으며, 많은 좋아요를 받은 글은 베스트 게시글에 오를 수 있습니다.',
-    developmentMembers: '개발 인원: 1명',
     projectType: 'Single',
+    developmentMembers: '개발 인원: 1명',
     deployLink: 'https://wikied.vercel.app/',
     githubLink: 'https://github.com/leegyuho-programer/Wikied',
     techStacksUsed: [
-      'React',
+      'CSSModules',
       'TypeScript',
+      'React',
       'NextJs',
       'ReactQuery',
-      'CSSModules',
       'Zustand',
     ],
+
     mainWorks: [
       {
         title: '낙관적 업데이트 적용으로 UI 반응 속도 개선',
@@ -134,6 +124,7 @@ export const projectData: ProjectProps[] = [
         ],
       },
     ],
+
     troubleShootings: [
       {
         title: 'Streaming SSR 적용으로 초기 렌더링 속도 개선',
@@ -262,6 +253,8 @@ export const projectData: ProjectProps[] = [
       },
     ],
   },
+
+  // MyPortfolio
   {
     id: 'my-portfolio',
     title: 'MyPortfolio',
@@ -273,18 +266,10 @@ export const projectData: ProjectProps[] = [
       'TaskyTasky는 일상의 업무를 효율적으로 계획할 수 있는 플랫폼입니다. 날짜와 시간에 따라 할 일을 간편하게 정리하고 일정을 효과적으로 관리할 수 있습니다. 칼럼을 이용해 할 일을 구분하고 카테고리로 정리할 수 있으며, 마감일, 태그, 사진 등을 이용해 다양하게 할 일을 기록할 수 있습니다.',
     projectType: 'Single',
     developmentMembers: '개발 인원: 1명',
-    myContributions:
-      '공통 컴포넌트 개발, 로그인/회원가입 페이지 구현, proxy 기능 이용하여 API 연결 함수 제공, 사이드 메뉴 무한스크롤',
     deployLink: 'https://leegyuho-portfolio.vercel.app/',
     githubLink: 'https://github.com/leegyuho-programer/my-portfolio',
-    techStacksUsed: [
-      'React',
-      'TypeScript',
-      'ReactQuery',
-      'Zustand',
-      'NextJs',
-      'StyledComponents',
-    ],
+    techStacksUsed: ['Tailwind', 'TypeScript', 'React', 'NextJs'],
+
     mainWorks: [
       {
         title: '공통 컴포넌트 개발 및 인증 시스템 개선',
@@ -343,6 +328,7 @@ export const projectData: ProjectProps[] = [
         ],
       },
     ],
+
     troubleShootings: [
       {
         title: '무한 스크롤 기능 구현 시간 제약 문제 해결',
@@ -393,6 +379,8 @@ export const projectData: ProjectProps[] = [
       },
     ],
   },
+
+  // ArtTalkTalk
   {
     id: 'arttalktalk',
     title: 'ArtTalkTalk',
@@ -411,12 +399,12 @@ export const projectData: ProjectProps[] = [
     demoLink: 'https://www.youtube.com/watch?v=JJ74mI6L7LE',
     githubLink: 'https://github.com/leegyuho-programer/ArtTalkTalk_frontend',
     techStacksUsed: [
-      'React',
+      'Tailwind',
       'TypeScript',
+      'React',
+      'NextJs',
       'ReactQuery',
       'Zustand',
-      'NextJs',
-      'Tailwind',
     ],
 
     mainWorks: [
@@ -567,6 +555,8 @@ export const projectData: ProjectProps[] = [
       },
     ],
   },
+
+  // TaskyTasky
   {
     id: 'taskytasky',
     title: 'TaskyTasky',
@@ -583,13 +573,14 @@ export const projectData: ProjectProps[] = [
     deployLink: 'https://taskytasky.netlify.app/',
     githubLink: 'https://github.com/leegyuho-programer/TaskyTasky',
     techStacksUsed: [
-      'React',
+      'StyledComponents',
       'TypeScript',
+      'React',
+      'NextJs',
       'ReactQuery',
       'Zustand',
-      'NextJs',
-      'StyledComponents',
     ],
+
     mainWorks: [
       {
         title: '공통 컴포넌트 개발 및 인증 시스템 개선',
@@ -649,6 +640,7 @@ export const projectData: ProjectProps[] = [
         ],
       },
     ],
+
     troubleShootings: [
       {
         title: '무한 스크롤 기능 구현 시간 제약 문제 해결',
