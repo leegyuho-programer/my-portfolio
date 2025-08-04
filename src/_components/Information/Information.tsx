@@ -6,7 +6,6 @@ export interface InformationProps {
   title: string;
   content?: string;
   link?: string;
-  onClick?: React.MouseEventHandler;
   isModal?: boolean;
 }
 
@@ -16,48 +15,44 @@ export default function Information({
   title,
   content,
   link,
-  onClick,
   isModal,
 }: InformationProps) {
-  const handleClick: React.MouseEventHandler = (event) => {
-    if (onClick) {
-      onClick(event);
-    } else if (link) {
-      window.open(link, '_blank');
-    }
+  const handleClick: React.MouseEventHandler = () => {
+    window.open(link, '_blank');
   };
 
-  const baseStyle =
-    'flex items-center gap-8 text-left rounded-xl overflow-hidden';
-  const aboutMe = 'p-5';
-  const archiving = 'cursor-pointer p-15 hover:shadow-black hover:shadow-2xl';
+  const isArchiving = !!link;
 
-  const backgroundColor = isModal
-    ? 'bg-white text-black border border-neutral-200 shadow-md hover:shadow-lg transition-shadow duration-200'
-    : 'bg-lightGray text-white shadow-md hover:shadow-lg transition-shadow duration-200';
+  const containerStyle = [
+    // 기본 스타일
+    'flex items-center gap-8 text-left rounded-xl overflow-hidden',
+    'hover:shadow-lg transition-shadow duration-200',
+
+    // 패딩
+    isArchiving ? 'cursor-pointer p-15' : 'p-5',
+
+    // 모달 여부에 따른 스타일
+    isModal
+      ? 'bg-white text-black border border-neutral-200 shadow-md'
+      : 'bg-lightGray text-white shadow-md',
+
+    // 아카이빙일 때 그림자 강조
+    isArchiving && 'hover:shadow-black hover:shadow-2xl',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const imageSize = isArchiving ? 'w-[80px] h-[80px]' : 'w-[60px] h-[60px]';
+
+  const titleStyle = isArchiving ? 'text-md font-bold' : 'text-sm font-bold';
 
   return (
-    <button
-      className={`${baseStyle} ${backgroundColor} ${
-        link ? archiving : aboutMe
-      }`}
-      onClick={handleClick}
-    >
-      <div
-        className={`relative ${
-          link ? 'w-[80px] h-[80px]' : 'w-[60px] h-[60px]'
-        }`}
-      >
+    <button className={containerStyle} onClick={handleClick}>
+      <div className={`relative ${imageSize}`}>
         <Image src={svgSrc} alt={`${alt} logo`} fill />
       </div>
       <div>
-        <div
-          className={`mb-[4px] ${
-            link ? 'text-md font-bold' : 'text-sm font-bold'
-          }`}
-        >
-          {title}
-        </div>
+        <div className={`mb-[4px] ${titleStyle}`}>{title}</div>
         {content && <div className='text-sm font-regular'>{content}</div>}
       </div>
     </button>

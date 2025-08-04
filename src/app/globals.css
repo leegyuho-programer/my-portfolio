@@ -130,4 +130,29 @@
   .shadow-dark-soft {
     box-shadow: var(--shadow-dark-soft);
   }
+
+  .mobile-safe-area {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .mobile-container {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .mobile-grid {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* 모바일에서 기본 폰트 크기 조정 */
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+  }
 }

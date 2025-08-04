@@ -34,7 +34,6 @@ const meta: Meta<typeof Information> = {
       description: '링크 주소',
       defaultValue: 'https://github.com/leegyuho-programer',
     },
-    onClick: { action: 'clicked' },
     isModal: {
       control: 'boolean',
       description: '모달 내 표시 여부 (배경색, 폰트 색상 변경)',

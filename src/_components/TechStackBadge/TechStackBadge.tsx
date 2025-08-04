@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { TECH_MAP, TechStackType } from './techMap';
 import { flexCenter } from './../../app/styles';
@@ -5,9 +7,14 @@ import { flexCenter } from './../../app/styles';
 interface TechStackBadgeProps {
   tech: TechStackType;
   isModal?: boolean;
+  onClick?: (tech: TechStackType) => void;
 }
 
-export default function TechStackBadge({ tech, isModal }: TechStackBadgeProps) {
+export default function TechStackBadge({
+  tech,
+  isModal,
+  onClick,
+}: TechStackBadgeProps) {
   const { label, svgSrc, alt } = TECH_MAP[tech] as {
     label: string;
     svgSrc?: string;
@@ -15,13 +22,16 @@ export default function TechStackBadge({ tech, isModal }: TechStackBadgeProps) {
   };
 
   const backgroundColor = isModal
-    ? 'bg-white text-black'
+    ? 'bg-white text-black cursor-pointer border border-neutral-200 hover:shadow-sm hover:translate-y-[2px]'
     : 'bg-lightGray text-white';
 
   const baseStyle = 'shadow-md gap-[8px] rounded-[10px] px-[10px] py-[5px]';
 
   return (
-    <div className={`${baseStyle} ${flexCenter} ${backgroundColor}`}>
+    <div
+      className={`${baseStyle} ${flexCenter} ${backgroundColor}`}
+      onClick={() => onClick?.(tech)}
+    >
       {svgSrc && (
         <Image
           className='right-[10px]'
@@ -35,3 +45,4 @@ export default function TechStackBadge({ tech, isModal }: TechStackBadgeProps) {
     </div>
   );
 }
+

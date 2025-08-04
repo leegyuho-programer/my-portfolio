@@ -1,27 +1,21 @@
 'use client';
 
-import { useEffect } from 'react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import CloseIconButton from '../CloseIconButton/CloseIconButton';
-import { flexCenter } from '@/app/styles';
 
-interface ModalProps {
+interface TechModalProps {
   isOpen: boolean;
   onClose: () => void;
-  children: React.ReactNode;
   title?: string;
-  period: string;
-  developmentMembers: string;
+  children: React.ReactNode;
 }
 
-export default function Modal({
+export default function TechModal({
   isOpen,
   onClose,
-  children,
   title,
-  period,
-  developmentMembers,
-}: ModalProps) {
+  children,
+}: TechModalProps) {
   useEffect(() => {
     if (isOpen) {
       // 모달이 열릴 때 배경 스크롤 방지
@@ -60,24 +54,28 @@ export default function Modal({
 
   return (
     <div
-      className='fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-10 px-50'
+      className='fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4'
       onClick={handleBackdropClick}
     >
       <div
-        className='relative bg-white rounded-lg w-full max-h-[90vh] overflow-y-auto'
+        className='relative bg-white rounded-2xl w-full max-w-3xl max-h-[80vh] overflow-y-auto shadow-xl'
         onClick={(e) => e.stopPropagation()}
       >
-        <div
-          className={`w-full bg-black ${flexCenter} flex-col py-15 text-white gap-5`}
-        >
-          <div className='absolute top-[40px] right-[40px] w-[55px] h-[55px]'>
+        {/* Header */}
+        <div className='relative bg-black text-white px-5 py-2'>
+          <h3 className='text-xl font-medium'>{title}</h3>
+          <div className='absolute top-4 right-4'>
             <CloseIconButton onClick={onClose} />
           </div>
-          <h3 className='text-2xl font-bold'>{title}</h3>
-          <p className='text-sm'>{period}</p>
-          <p className='text-sm'>{developmentMembers}</p>
         </div>
-        {children}
+
+        {/* Content */}
+        <div className='px-8 py-6 space-y-6 text-black'>
+          <section>
+            <h4 className='text-md font-bold mb-2'>🛠 선택한 이유</h4>
+            <p className='text-sm leading-relaxed'>{children}</p>
+          </section>
+        </div>
       </div>
     </div>
   );
