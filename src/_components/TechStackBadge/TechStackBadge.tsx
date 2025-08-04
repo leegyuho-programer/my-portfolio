@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { TECH_MAP, TechStackType } from './techMap';
 import { flexCenter } from './../../app/styles';
@@ -43,3 +45,4 @@ export default function TechStackBadge({
     </div>
   );
 }
+
