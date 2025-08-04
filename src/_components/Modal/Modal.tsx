@@ -74,8 +74,8 @@ export default function Modal({
             <CloseIconButton onClick={onClose} />
           </div>
           <h3 className='text-2xl font-bold'>{title}</h3>
-          <p className='text-sm font-regular text-blue'>{period}</p>
-          <p className='text-sm font-regular'>{developmentMembers}</p>
+          <p className='text-sm'>{period}</p>
+          <p className='text-sm'>{developmentMembers}</p>
         </div>
         {children}
       </div>
