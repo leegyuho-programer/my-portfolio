@@ -15,7 +15,7 @@ interface InterceptedProjectPageProps {
 export default function InterceptedProjectPage({
   params,
 }: InterceptedProjectPageProps) {
-  const { id } = use(params); // ✅ use()로 언랩
+  const { id } = use(params);
   const router = useRouter();
 
   const project = projectData.find((p) => p.id === id);
