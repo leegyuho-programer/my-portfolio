@@ -1,16 +1,4 @@
-// 기술 스택 타입을 정의하여 자동완성 및 타입 안정성 확보
-export type TechStackProps =
-  | 'Html'
-  | 'CSS'
-  | 'CSSModules'
-  | 'StyledComponents'
-  | 'Tailwind'
-  | 'JavaScript'
-  | 'TypeScript'
-  | 'React'
-  | 'NextJs'
-  | 'ReactQuery'
-  | 'Zustand';
+import { TechStackType } from '@/_components/TechStackBadge/techMap';
 
 // 팀 여부 정의
 export type ProjectType = 'Team' | 'Single';
@@ -56,12 +44,13 @@ export interface ProjectProps {
   deployLink?: string; // 배포 주소 (선택 사항)
   demoLink?: string; // 데모 영상 (선택 사항)
   githubLink: string; // 깃허브 주소
-  techStacksUsed: TechStackProps[]; // 사용 기술 스택
+  techStacksUsed: TechStackType[]; // 사용 기술 스택
   mainWorks: MainWorkProps[]; // 주요 작업들
-  troubleShootings: TroubleShootingProps[];
+  troubleShootings: TroubleShootingProps[]; // 트러블 슈팅들
 }
 
 export const projectData: ProjectProps[] = [
+  // Wikied
   {
     id: 'wikied',
     title: 'Wikied',
@@ -73,23 +62,24 @@ export const projectData: ProjectProps[] = [
       '기간: 2024.05 ~ 2024.07 (초기 개발) / 추가 작업 및 리팩토링: 2024.08 ~ 2025.03',
     serviceDescription:
       '**Wikied**는 **사용자 정의로 위키 페이지를 생성하고 편집할 수 있는 플랫폼**입니다. 생성한 위키 페이지의 링크를 복사하여 친구들과 공유할 수 있으며, 그들이 함께 작성하도록 초대할 수 있습니다. 또한, 자유게시판에서 글을 작성할 수 있으며, 많은 좋아요를 받은 글은 베스트 게시글에 오를 수 있습니다.',
-    developmentMembers: '개발 인원: 1명',
     projectType: 'Single',
+    developmentMembers: '개발 인원: 1명',
     deployLink: 'https://wikied.vercel.app/',
     githubLink: 'https://github.com/leegyuho-programer/Wikied',
     techStacksUsed: [
-      'React',
+      'CSSModules',
       'TypeScript',
+      'React',
       'NextJs',
       'ReactQuery',
-      'CSSModules',
       'Zustand',
     ],
+
     mainWorks: [
       {
         title: '낙관적 업데이트 적용으로 UI 반응 속도 개선',
         overview:
-          'API 응답 대기 시간으로 인해 발생할 수 있는 **UI 반응 속도 저하 문제**를 해결했습니다.',
+          'API 응답 대기 시간으로 인한 **UI 반응 속도 저하 문제**를 낙관적 업데이트 적용으로 해결',
         contributions: [
           '**React Query**의 `useMutation` 훅을 활용한 **낙관적 업데이트**를 적용하여, 데이터 변경 요청 시 UI를 즉시 변경하고 응답 실패 시 롤백하는 기능을 구현',
           '**UI 반응 속도를 60% 개선**하여 사용자 인터랙션에 대한 즉각적인 피드백 제공 및 데이터 정합성 유지',
@@ -98,7 +88,7 @@ export const projectData: ProjectProps[] = [
       {
         title: '검색 기능 성능 최적화',
         overview:
-          '사용자 입력 중복으로 인한 불필요한 API 호출 및 서버 부하를 줄이기 위한 **검색 기능 성능 최적화**를 진행했습니다.',
+          '사용자 입력 중복으로 인한 불필요한 API 호출 및 서버 부하를 줄이기 위한 **검색 기능 성능 최적화**를 진행',
         contributions: [
           '`lodash`의 `debounce` 기능을 활용하여 **사용자 최종 입력 500ms 후에만 검색 API가 트리거**되도록 구현',
           '**엔터키 입력**이나 **검색 버튼 클릭 시 대기 중인** `debounce` **작업을 즉시 취소**하는 로직 추가',
@@ -108,7 +98,7 @@ export const projectData: ProjectProps[] = [
       {
         title: '페이지네이션 성능 최적화',
         overview:
-          '페이지 전환 시 데이터 중복 요청으로 인한 **로딩 시간 증가 및 사용자 경험 저하**를 해결했습니다.',
+          '페이지 전환 시 데이터 중복 요청으로 인한 **로딩 시간 증가 및 사용자 경험 저하**를 해결',
         contributions: [
           '**React Query**의 `useQuery` 훅과 `placeholderData` 옵션을 사용하여 **페이지 전환 시 이전 데이터를 즉시 표시**하며 새로운 데이터를 백그라운드에서 요청하는 방식 적용',
           '**로딩 시간을 44% 단축**, **화면 깜빡임을 84% 감소**, **최대 지연 시간을 51% 개선**하여 사용자에게 부드러운 페이지 전환 경험 제공',
@@ -127,13 +117,14 @@ export const projectData: ProjectProps[] = [
       {
         title: '반응형 디자인 적용으로 최적화된 사용자 경험 제공',
         overview:
-          '모바일, 태블릿, 데스크탑 등 **다양한 디바이스에서 일관되고 최적화된 사용자 경험**을 제공하기 위해 **반응형 디자인**을 적용했습니다.',
+          '모바일, 태블릿, 데스크탑 등 **다양한 디바이스에서 일관되고 최적화된 사용자 경험**을 제공하기 위해 **반응형 디자인**을 적용',
         contributions: [
           '**다양한 화면 크기에 맞춰 레이아웃과 콘텐츠가 자동으로 조정**되도록 구현',
           '어떤 디바이스에서도 **일관되고 최적화된 UI/UX**를 제공하여 사용자 편의성과 접근성을 개선',
         ],
       },
     ],
+
     troubleShootings: [
       {
         title: 'Streaming SSR 적용으로 초기 렌더링 속도 개선',
@@ -239,17 +230,17 @@ export const projectData: ProjectProps[] = [
           'Next.js**의 내장 모달 라우팅**을 사용하여 모달을 열고 닫는 기능을 구현할 때, **URL 변경이 계속 발생**하면서 `Params`와 배경 상태를 일관되게 관리해야 하는 문제가 생겼습니다. 모달 상태를 라우팅과 동기화하려다 보니 코드가 복잡해지고, **URL과 UI 상태를 일관되게 유지하는 데 추가적인 관리가 필요**해졌습니다. 이러한 과정에서 라우팅 의존성이 과도하게 커지는 점이 불편함을 느꼈습니다.',
         resolutionMethod: {
           analysis: [
-            'Next.js 내장 모달 라우팅을 사용한 방식에서는, **URL 상태와 모달의 상태를 동기화하려면 복잡한 코드가 필요**했습니다.',
-            'URL이 변경되는 특성상, **모달 상태와 UI를 관리하는 과정이 번거로워졌습니다.**',
+            'Next.js 내장 모달 라우팅을 사용한 방식에서는, **URL 상태와 모달의 상태를 동기화하려면 복잡한 코드가 필요**',
+            'URL이 변경되는 특성상, **모달 상태와 UI를 관리하는 과정이 번거로움**',
           ],
           process: [
             {
               title:
-                '**Next.js 내장 모달 라우팅**을 사용한 방식에서는, **URL 상태와 모달의 상태를 동기화**하려면 **복잡한 코드가 필요**했습니다. 하지만, URL이 변경되는 특성상, 모달 상태와 UI를 관리하는 과정이 번거로워졌습니다.',
+                '**Next.js 내장 모달 라우팅**을 사용한 방식에서는, **URL 상태와 모달의 상태를 동기화**하려면 **복잡한 코드가 필요**했지만, URL이 변경되는 특성상, 모달 상태와 UI를 관리하는 과정이 번거로워짐',
             },
             {
               title:
-                '이를 해결하기 위해, **Root Layout**에서 **React 포털**을 사용하여 모달을 **URL과 독립적인 상태로 관리**하게 되었습니다. 이렇게 하면 URL 변경 없이 **모달의 상태를 간단하게 관리**할 수 있었고, UI와 라우팅의 복잡성을 줄일 수 있었습니다.',
+                '이를 해결하기 위해, **Root Layout**에서 **React 포털**을 사용하여 모달을 **URL과 독립적인 상태로 관리**했으며 이렇게 하면 URL 변경 없이 **모달의 상태를 간단하게 관리**할 수 있었고, UI와 라우팅의 복잡성을 줄일 수 있게됨',
             },
           ],
         },
@@ -262,6 +253,8 @@ export const projectData: ProjectProps[] = [
       },
     ],
   },
+
+  // MyPortfolio
   {
     id: 'my-portfolio',
     title: 'MyPortfolio',
@@ -273,18 +266,10 @@ export const projectData: ProjectProps[] = [
       'TaskyTasky는 일상의 업무를 효율적으로 계획할 수 있는 플랫폼입니다. 날짜와 시간에 따라 할 일을 간편하게 정리하고 일정을 효과적으로 관리할 수 있습니다. 칼럼을 이용해 할 일을 구분하고 카테고리로 정리할 수 있으며, 마감일, 태그, 사진 등을 이용해 다양하게 할 일을 기록할 수 있습니다.',
     projectType: 'Single',
     developmentMembers: '개발 인원: 1명',
-    myContributions:
-      '공통 컴포넌트 개발, 로그인/회원가입 페이지 구현, proxy 기능 이용하여 API 연결 함수 제공, 사이드 메뉴 무한스크롤',
     deployLink: 'https://leegyuho-portfolio.vercel.app/',
     githubLink: 'https://github.com/leegyuho-programer/my-portfolio',
-    techStacksUsed: [
-      'React',
-      'TypeScript',
-      'ReactQuery',
-      'Zustand',
-      'NextJs',
-      'StyledComponents',
-    ],
+    techStacksUsed: ['Tailwind', 'TypeScript', 'React', 'NextJs'],
+
     mainWorks: [
       {
         title: '공통 컴포넌트 개발 및 인증 시스템 개선',
@@ -343,6 +328,7 @@ export const projectData: ProjectProps[] = [
         ],
       },
     ],
+
     troubleShootings: [
       {
         title: '무한 스크롤 기능 구현 시간 제약 문제 해결',
@@ -393,6 +379,8 @@ export const projectData: ProjectProps[] = [
       },
     ],
   },
+
+  // ArtTalkTalk
   {
     id: 'arttalktalk',
     title: 'ArtTalkTalk',
@@ -411,58 +399,69 @@ export const projectData: ProjectProps[] = [
     demoLink: 'https://www.youtube.com/watch?v=JJ74mI6L7LE',
     githubLink: 'https://github.com/leegyuho-programer/ArtTalkTalk_frontend',
     techStacksUsed: [
-      'React',
+      'Tailwind',
       'TypeScript',
+      'React',
+      'NextJs',
       'ReactQuery',
       'Zustand',
-      'NextJs',
-      'Tailwind',
     ],
 
     mainWorks: [
       {
-        title: 'react-hook-form 기반 입력 필드 상태 관리 최적화',
+        title: 'Controller를 활용한 react-hook-form 입력 필드 최적화',
         overview:
-          '**복잡한 입력 필드 상태 관리**를 단순화하고 **성능을 개선**했습니다.',
+          '`react-hook-form`의 `Controller`를 사용해 **입력 상태 관리와 유효성 검사**를 통합하고, **성능을 개선**했습니다.',
         contributions: [
-          '`react-hook-form`의 `Controller`를 사용하여 **폼 상태**와 **유효성 검사 로직 통합**',
-          '**불필요한 리렌더링 제거** 및 **코드 재사용성 향상**',
+          '`Controller`를 통해 **외부 컴포넌트와의 폼 연동 로직 간소화**',
+          '**불필요한 리렌더링 제거**로 **렌더링 성능 최적화**',
+          '**입력 필드 재사용성 향상** 및 **폼 코드 유지 보수성 개선**',
+        ],
+      },
+      {
+        title: 'Next.js의 Parallel Routes를 활용한 내 계정 페이지 탭 구조 구현',
+        overview:
+          '**Next.js의 Parallel Routes** 기능을 활용하여 내 계정 페이지 내에서 **계정 편집/계정 삭제 탭 전환 UI를 구현**했습니다. URL은 유지하면서, 각 탭에 대응하는 페이지 컴포넌트를 병렬로 렌더링할 수 있도록 구성했습니다.',
+        contributions: [
+          '`@editProfile`, `@deleteProfile` 구조를 통해 **서로 다른 페이지 컴포넌트를 독립적으로 병렬 구성**할 수 있도록 디렉토리 구조를 설계',
+          '`layout.tsx`에서 `editProfile`, `deleteProfile`을 props로 받아 **탭 전환 시 필요한 컴포넌트만 조건 렌더링**되도록 구현하여, **라우팅 성능과 사용자 경험을 향상**시킴',
+          '**React의 상태 기반 탭 전환 로직**과 **Next.js 병렬 라우팅 기능**을 결합하여 **불필요한 리렌더링 없이 빠른 탭 전환**이 가능한 구조를 설계',
         ],
       },
       {
         title: '이미지 최적화를 통한 페이지 로드 성능 개선',
         overview:
-          '**고화질 이미지**로 인한 **페이지 성능 저하**를 개선했습니다.',
+          '**고화질 PNG 이미지**로 인해 느려졌던 **초기 페이지 로드 성능**을 최적화했습니다.',
         contributions: [
-          '`AVIF` 포맷 도입 및 Next.js `Image` 컴포넌트를 활용한 **lazy loading 적용**',
-          '**이미지 품질 유지**와 함께 **로딩 시간 최적화**',
+          "Next.js의 `Image` 컴포넌트에 `formats: ['image/avif', 'image/webp']` 옵션을 적용하여 **자동 포맷 변환** 및 **브라우저 최적 형식 제공**",
+          '`lazy loading`, `placeholder` 기능을 함께 사용해 **사용자 체감 성능 향상**',
         ],
       },
       {
-        title: 'react-query로 API 통신 최적화',
+        title: 'React Query 기반 API 통신 최적화',
         overview:
-          'API 요청 최적화를 통해 **성능 향상** 및 **데이터 동기화 효율화**',
+          'API 요청 최적화를 통해 **성능 향상** 및 **데이터 동기화 효율화했습니다.**',
         contributions: [
-          '`react-query`를 도입하여 **API 응답 캐싱** 및 **중복 요청 방지**',
-          '**비동기 상태 관리 일관성 확보** 및 **UX 향상**',
+          '`React Query`를 도입하여 **API 응답 캐싱**, **중복 요청 방지**, **자동 리페칭 구현**',
+          '**비동기 상태 관리 일관성 확보** 및 **UX 지연 최소화를 통한 사용자 만족도 향상**',
         ],
       },
       {
         title: '공통 컴포넌트 및 사용자 계정 관련 페이지 구현',
         overview:
-          '**계정 관련 핵심 페이지**(Mypage, 프로필 수정 등)를 **일관된 UI/UX**로 구축했습니다.',
+          '**계정 관련 핵심 페이지**(Mypage, 프로필 수정, 회원 탈퇴 등 사용자 계정 기능)를 **일관된 UI/UX**로 구축했습니다.',
         contributions: [
           '**공통 컴포넌트 설계** 및 **재사용 구조 구현**',
-          '**탈퇴 기능 포함** 계정 관련 핵심 페이지 완성',
+          '**계정 관련 주요 페이지 개발** 및 **탈퇴 기능 포함 전체 흐름 완성**',
         ],
       },
       {
-        title: '반응형 디자인 적용으로 다양한 디바이스 대응',
+        title: '반응형 UI 구현으로 다양한 디바이스 지원',
         overview:
-          '모바일, 태블릿, 데스크탑에서 **최적의 사용자 경험 제공**을 위한 UI 대응 작업',
+          '**모바일, 태블릿, 데스크탑** 환경에서도 **일관된 사용자 경험을 제공하는 반응형 UI를 구현**했습니다.',
         contributions: [
-          '`Tailwind CSS`로 **반응형 레이아웃 구현**',
-          '**접근성**과 **편의성**을 고려한 디바이스 **호환성 확보**',
+          '`Tailwind CSS`를 활용한 **반응형 레이아웃 및 유연한 그리드 시스템 구축**',
+          '**접근성과 사용 편의성을 고려한 뷰포트별 최적화 작업 수행**',
         ],
       },
     ],
@@ -556,6 +555,8 @@ export const projectData: ProjectProps[] = [
       },
     ],
   },
+
+  // TaskyTasky
   {
     id: 'taskytasky',
     title: 'TaskyTasky',
@@ -572,22 +573,24 @@ export const projectData: ProjectProps[] = [
     deployLink: 'https://taskytasky.netlify.app/',
     githubLink: 'https://github.com/leegyuho-programer/TaskyTasky',
     techStacksUsed: [
-      'React',
+      'StyledComponents',
       'TypeScript',
+      'React',
+      'NextJs',
       'ReactQuery',
       'Zustand',
-      'NextJs',
-      'StyledComponents',
     ],
+
     mainWorks: [
       {
         title: '공통 컴포넌트 개발 및 인증 시스템 개선',
         overview:
           '로그인/회원가입 페이지의 **중복되는 에러 메시지 관리 문제**를 해결했습니다.',
         contributions: [
-          '모든 에러 메시지와 `Input` 에러 처리 규칙을 **상수화하여 재사용성을 높이고**, **공통 컴포넌트** (입력 필드, 버튼, 모달, 알림 등)를 설계했습니다.',
-          '**중복 코드량을 약 30% 감소**시켜 유지보수성을 향상시키고, 에러 관리의 일관성을 확보했습니다.',
-          '일관된 UI/UX를 제공하며 **코드 재사용성**을 극대화했습니다. 로그인/회원가입, 마이페이지, 계정 정보 페이지 등의 UI를 구현했습니다.',
+          '모든 에러 메시지와 `Input` 에러 처리 규칙을 **상수화하여 재사용성을 높이고**, **공통 컴포넌트** (입력 필드, 버튼, 모달, 알림 등)를 설계',
+          '**중복 코드량을 약 30% 감소**시켜 유지보수성을 향상시키고, 에러 관리의 일관성을 확보',
+          '일관된 UI/UX를 제공하며 **코드 재사용성**을 극대화',
+          '로그인/회원가입, 마이페이지, 계정 정보 페이지 등의 UI를 구현',
         ],
       },
       {
@@ -595,27 +598,28 @@ export const projectData: ProjectProps[] = [
         overview:
           '기존 `Context API` 방식에서 발생하던 **상태 변경 시 불필요한 전체 컴포넌트 리렌더링 문제**로 인한 성능 저하를 해결했습니다.',
         contributions: [
-          '**가볍고 효율적인 전역 상태 관리 라이브러리인** `Zustand`**를 도입**하여 전역 상태를 관리했습니다.',
-          '**불필요한 렌더링을 40% 감소**시키고, 전역 상태 관련 코드량을 약 25% 줄였습니다.',
-          '**불필요한** `prop drilling`**을 제거**하여 컴포넌트 간 데이터 흐름을 최적화하고 유지보수성을 크게 개선했습니다.',
+          '**가볍고 효율적인 전역 상태 관리 라이브러리인** `Zustand`**를 도입**하여 전역 상태를 관리',
+          '**불필요한 렌더링을 40% 감소**시키고, 전역 상태 관련 코드량을 약 25% 감소시킴',
+          '**불필요한** `prop drilling`**을 제거**하여 컴포넌트 간 데이터 흐름을 최적화하고 유지보수성을 크게 개선',
         ],
       },
       {
         title: 'React Infinite Scroller 기반 무한 스크롤 기능 구현',
         overview:
-          '**페이지 전환 없이 대량의 데이터를 동적으로 로드**해야 하는 요구사항과 촉박한 구현 시간.',
+          '**페이지 전환 없이 대량의 데이터를 동적으로 로드**해야 하는 요구사항과 촉박한 구현 시간 문제를 해결하기 위해 라이브러리를 활용하여 무한 스크롤을 구현했습니다.',
         contributions: [
-          '`React Infinite Scroller` 라이브러리를 활용하여 **무한 스크롤 기능을 빠르고 효율적으로 구현**했습니다.',
-          '**불필요한 네트워크 요청 감소**로 성능을 최적화하고, 사용자가 자연스럽게 콘텐츠를 탐색할 수 있도록 UX를 개선했습니다.',
+          '`React Infinite Scroller` 라이브러리를 활용하여 **무한 스크롤 기능을 빠르고 효율적으로 구현**',
+          '**불필요한 네트워크 요청 감소**로 성능을 최적화하고, 사용자가 자연스럽게 콘텐츠를 탐색할 수 있도록 UX를 개선',
         ],
       },
       {
-        title: 'react-query를 활용한 API 통신 및 성능 향상',
-        overview: '**비효율적인 API 통신 및 데이터 로딩 문제**.',
+        title: 'React Query를 활용한 API 통신 및 성능 향상',
+        overview:
+          '**비효율적인 API 통신 및 데이터 로딩 문제를 React Query를 통해 성능을 향상시켰습니다.**.',
         contributions: [
-          '`react-query`를 도입하여 **API 요청 캐싱**, **데이터 패칭**, **상태 동기화 프로세스**를 효율적으로 관리했습니다.',
-          '**데이터 캐싱**을 활용하여 불필요한 API 요청을 감소시켰고, **백그라운드에서 자동으로 최신 정보를 동기화**하여 사용자에게 항상 최신 데이터를 제공했습니다.',
-          '**스켈레톤 UI**를 적용하여 데이터 로딩 중 사용자 경험을 향상시켰습니다.',
+          '`React Query`를 도입하여 **API 요청 캐싱**, **데이터 패칭**, **상태 동기화 프로세스**를 효율적으로 관리',
+          '**데이터 캐싱**을 활용하여 불필요한 API 요청을 감소시켰고, **백그라운드에서 자동으로 최신 정보를 동기화**하여 사용자에게 항상 최신 데이터를 제공',
+          '**스켈레톤 UI**를 적용하여 데이터 로딩 중 사용자 경험을 향상',
         ],
       },
       {
@@ -623,8 +627,8 @@ export const projectData: ProjectProps[] = [
         overview:
           '매일 **데일리 스크럼**을 진행하여 팀원 간 작업 상황을 공유하고 실시간 피드백을 제공했습니다.',
         contributions: [
-          '프로젝트 종료 후 **KPT(**`Keep`**, **`Problem`**, **`Try`**) 회고**를 실시하여 지속적인 개선을 도모했습니다.',
-          '**팀원 간 원활한 커뮤니케이션**을 유지하고, **프로젝트 진행 속도를 효율적으로 관리**하여 성공적인 프로젝트 완수에 기여했습니다.',
+          '프로젝트 종료 후 **KPT(**`Keep`**, **`Problem`**, **`Try`**) 회고**를 실시하여 지속적인 개선을 도모',
+          '**팀원 간 원활한 커뮤니케이션**을 유지하고, **프로젝트 진행 속도를 효율적으로 관리**하여 성공적인 프로젝트 완수에 기여',
         ],
       },
       {
@@ -632,10 +636,11 @@ export const projectData: ProjectProps[] = [
         overview:
           '모바일, 태블릿, 데스크탑 등 다양한 디바이스에서 **일관되고 최적화된 사용자 경험을 제공**하기 위해 반응형 디자인을 적용했습니다.',
         contributions: [
-          '**다양한 화면 크기에 맞춰 레이아웃과 콘텐츠가 자동으로 조정**되도록 구현하여, 어떤 디바이스에서도 **일관되고 최적화된 UI/UX**를 제공함으로써 **사용자 편의성과 접근성을 개선**했습니다.',
+          '**다양한 화면 크기에 맞춰 레이아웃과 콘텐츠가 자동으로 조정**되도록 구현하여, 어떤 디바이스에서도 **일관되고 최적화된 UI/UX**를 제공함으로써 **사용자 편의성과 접근성을 개선**',
         ],
       },
     ],
+
     troubleShootings: [
       {
         title: '무한 스크롤 기능 구현 시간 제약 문제 해결',
