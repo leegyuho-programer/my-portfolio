@@ -15,13 +15,15 @@ export default function TechStackBadge({ tech, isModal }: TechStackBadgeProps) {
   };
 
   const backgroundColor = isModal
-    ? 'bg-white text-black'
+    ? 'bg-white text-black cursor-pointer border border-neutral-200 hover:shadow-sm hover:translate-y-[2px]'
     : 'bg-lightGray text-white';
 
   const baseStyle = 'shadow-md gap-[8px] rounded-[10px] px-[10px] py-[5px]';
 
+  const handleClick = () => void;
+
   return (
-    <div className={`${baseStyle} ${flexCenter} ${backgroundColor}`}>
+    <div className={`${baseStyle} ${flexCenter} ${backgroundColor}`} onClick={handleClick}>
       {svgSrc && (
         <Image
           className='right-[10px]'
