@@ -7,9 +7,15 @@ interface TechModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
+  children: React.ReactNode;
 }
 
-export default function TechModal({ isOpen, onClose, title }: TechModalProps) {
+export default function TechModal({
+  isOpen,
+  onClose,
+  title,
+  children,
+}: TechModalProps) {
   useEffect(() => {
     if (isOpen) {
       // 모달이 열릴 때 배경 스크롤 방지
@@ -67,9 +73,7 @@ export default function TechModal({ isOpen, onClose, title }: TechModalProps) {
         <div className='px-8 py-6 space-y-6 text-black'>
           <section>
             <h4 className='text-md font-bold mb-2'>🛠 선택한 이유</h4>
-            <p className='text-sm leading-relaxed text-gray-700'>
-              이 기술을 선택한 이유는
-            </p>
+            <p className='text-sm leading-relaxed'>{children}</p>
           </section>
         </div>
       </div>

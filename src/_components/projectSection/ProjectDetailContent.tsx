@@ -132,7 +132,9 @@ export default function ProjectDetailContent({
             isOpen={isModalOpen}
             onClose={handleCloseModal}
             title={TECH_MAP[selectedTech]?.label || selectedTech}
-          />
+          >
+            이 기술을 선택한 이유는
+          </TechModal>
         )}
       </section>
 
