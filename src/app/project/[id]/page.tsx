@@ -1,17 +1,21 @@
-import ProjectDetailContent from '@/_components/projectSection/ProjectDetailContent';
-import { notFound } from 'next/navigation';
-import { projectData } from '../../../_data/projectData';
+'use client';
+
+import { use } from 'react';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import ProjectDetailContent from '@/_components/projectSection/ProjectDetailContent';
+import { projectData } from '../../../_data/projectData';
 import { flexCenter } from '@/app/styles';
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = projectData.find((p) => p.id === params.id);
+  const { id } = use(params);
+  const project = projectData.find((p) => p.id === id);
 
   if (!project) {
     notFound();
@@ -39,4 +43,3 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     </>
   );
 }
-
