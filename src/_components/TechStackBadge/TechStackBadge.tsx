@@ -5,9 +5,14 @@ import { flexCenter } from './../../app/styles';
 interface TechStackBadgeProps {
   tech: TechStackType;
   isModal?: boolean;
+  onClick?: (tech: TechStackType) => void;
 }
 
-export default function TechStackBadge({ tech, isModal }: TechStackBadgeProps) {
+export default function TechStackBadge({
+  tech,
+  isModal,
+  onClick,
+}: TechStackBadgeProps) {
   const { label, svgSrc, alt } = TECH_MAP[tech] as {
     label: string;
     svgSrc?: string;
@@ -20,10 +25,11 @@ export default function TechStackBadge({ tech, isModal }: TechStackBadgeProps) {
 
   const baseStyle = 'shadow-md gap-[8px] rounded-[10px] px-[10px] py-[5px]';
 
-  const handleClick = () => void;
-
   return (
-    <div className={`${baseStyle} ${flexCenter} ${backgroundColor}`} onClick={handleClick}>
+    <div
+      className={`${baseStyle} ${flexCenter} ${backgroundColor}`}
+      onClick={() => onClick?.(tech)}
+    >
       {svgSrc && (
         <Image
           className='right-[10px]'
