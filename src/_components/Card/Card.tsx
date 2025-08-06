@@ -34,7 +34,13 @@ interface CardImageProps {
 Card.Image = function CardImage({ src, alt }: CardImageProps) {
   return (
     <div className='relative w-full h-[200px]'>
-      <Image src={src} alt={alt} className='rounded-t-lg object-cover' fill />
+      <Image
+        src={src}
+        alt={alt}
+        className='rounded-t-lg object-cover'
+        priority
+        fill
+      />
     </div>
   );
 };
