@@ -4,11 +4,16 @@ import { flexColCenter } from './../../app/styles';
 
 interface CardProps {
   children: ReactNode;
+  onMouseEnter?: () => void;
+  onFocus?: () => void;
 }
-
-export default function Card({ children }: CardProps) {
+export default function Card({ children, onMouseEnter, onFocus }: CardProps) {
   return (
-    <div className='group cursor-pointer relative rounded-lg max-w-[400px] w-full h-[410px] bg-lightGray overflow-hidden hover:shadow-black hover:shadow-2xl hover:translate-y-[-5px] hover:bg-[#32323]'>
+    <div
+      onMouseEnter={onMouseEnter}
+      onFocus={onFocus}
+      className='group cursor-pointer relative rounded-lg max-w-[400px] w-full h-[410px] bg-lightGray overflow-hidden hover:shadow-black hover:shadow-2xl hover:translate-y-[-5px] hover:bg-[#32323]'
+    >
       {children}
     </div>
   );
