@@ -14,7 +14,7 @@ export default function ProjectSectionClient({ selectedTag }: ProjectProps) {
 
   const handlePrefetch = (projectId: string) => {
     // 라우트 예열 (Next.js가 라우트 번들/파일을 미리 fetch)
-    router.prefetch(`project/${projectId}`);
+    router.prefetch(`/project/${projectId}`);
 
     // 상세 컴포넌트의 클라이언트 번들 미리 불러오기 (optional)
     import('./ProjectDetailContent'); // 번들 캐시에 올라감 (추가적 예열)
