@@ -1,66 +1,73 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import Card from '@/_components/Card/Card';
-import { projectData } from '@/_data/projectData';
-import { startTransition } from 'react';
+import { projectData, ProjectProps } from '@/_data/projectData';
+import { useRouter } from 'next/navigation';
+import { useEffect, useMemo } from 'react';
 
-interface ProjectProps {
+interface ProjectSectionClientProps {
   selectedTag: 'All' | 'Team' | 'Single';
 }
 
-export default function ProjectSectionClient({ selectedTag }: ProjectProps) {
+export default function ProjectSectionClient({
+  selectedTag,
+}: ProjectSectionClientProps) {
   const router = useRouter();
 
+  const filteredProjects = useMemo(() => {
+    if (selectedTag === 'All') return projectData;
+    return projectData.filter((project) =>
+      project.projectType.includes(selectedTag)
+    );
+  }, [selectedTag]);
+
+  // 개별 프로젝트 프리페치 함수
   const handlePrefetch = (projectId: string) => {
-    // 라우트 예열 (Next.js가 라우트 번들/파일을 미리 fetch)
-    router.prefetch(`/project/${projectId}`);
-
-    // 상세 컴포넌트의 클라이언트 번들 미리 불러오기 (optional)
-    import('./ProjectDetailContent'); // 번들 캐시에 올라감 (추가적 예열)
+    Promise.resolve(router.prefetch(`/project/${projectId}`)).catch(() => {});
   };
 
-  const handleOpenModal = (projectId: string) => {
-    const targetUrl = `/project/${projectId}`;
+  const handleOpenModal = (project: ProjectProps) => {
+    router.push(`/project/${project.id}`);
+  };
 
-    startTransition(() => {
-      router.push(targetUrl);
+  // 마운트 혹은 필터 변경 시 라우트/번들 예열
+  useEffect(() => {
+    // 라우트 예열 (브라우저가 라우트 번들/자원 미리 fetch)
+    filteredProjects.forEach((p) => {
+      // prefetch는 실패해도 치명적이지 않으므로 에러 무시
+      Promise.resolve(router.prefetch(`/project/${p.id}`)).catch(() => {});
     });
-  };
-
-  const filteredProjects = projectData.filter((project) => {
-    if (selectedTag === 'All') return true;
-    return project.projectType.includes(selectedTag);
-  });
+  }, [filteredProjects, router]);
 
   return (
-    <div className='grid grid-cols-3 gap-8 py-8 mx-auto'>
-      {filteredProjects.map((project) => (
-        <Card
-          key={project.id}
-          onMouseEnter={() => handlePrefetch(project.id)}
-          // 마우스 오버 시 예열
-          onFocus={() => handlePrefetch(project.id)}
-          // 접근성: 포커스 시
-        >
-          <Card.Hidden>
-            <Card.Image
-              src={project.imageSrc}
-              alt={`${project.title} 이미지`}
-            />
-            <Card.Content
+    <>
+      <div className='grid grid-cols-3 gap-8 py-8 mx-auto'>
+        {filteredProjects.map((project) => (
+          <Card
+            key={project.id}
+            onMouseEnter={() => handlePrefetch(project.id)}
+            onFocus={() => handlePrefetch(project.id)}
+          >
+            <Card.Hidden>
+              <Card.Image
+                src={project.imageSrc}
+                alt={`${project.title} 이미지`}
+              />
+              <Card.Content
+                title={project.title}
+                description={project.description}
+              />
+              <Card.Tags tags={project.tags} />
+            </Card.Hidden>
+
+            <Card.Hover
               title={project.title}
-              description={project.description}
+              text='자세히 보기'
+              onOpenDetail={() => handleOpenModal(project)}
             />
-            <Card.Tags tags={project.tags} />
-          </Card.Hidden>
-          <Card.Hover
-            title={project.title}
-            text='자세히 보기'
-            onOpenDetail={() => handleOpenModal(project.id)}
-          />
-        </Card>
-      ))}
-    </div>
+          </Card>
+        ))}
+      </div>
+    </>
   );
 }

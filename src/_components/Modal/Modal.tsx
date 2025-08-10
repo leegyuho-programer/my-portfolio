@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
-import React from 'react';
-import CloseIconButton from '../CloseIconButton/CloseIconButton';
 import { flexCenter } from '@/app/styles';
+import React, { useEffect } from 'react';
+import CloseIconButton from '../CloseIconButton/CloseIconButton';
 
 interface ModalProps {
   isOpen: boolean;
