@@ -3,15 +3,19 @@ import { Metadata } from 'next';
 import InterceptedProjectPage from './InterceptedProjectPage';
 
 interface InterceptedProjectServerPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({
   params,
 }: InterceptedProjectServerPageProps): Promise<Metadata> {
-  return getInterceptedProjectMetadata(params.id);
+  const { id } = await params;
+  return getInterceptedProjectMetadata(id);
 }
 
-export default function Page({ params }: InterceptedProjectServerPageProps) {
-  return <InterceptedProjectPage params={Promise.resolve(params)} />;
+export default async function Page({
+  params,
+}: InterceptedProjectServerPageProps) {
+  const resolvedParams = await params;
+  return <InterceptedProjectPage params={resolvedParams} />;
 }

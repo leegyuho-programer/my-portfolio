@@ -1,9 +1,9 @@
-import { projectData } from '@/_data/projectData';
-import { BASE_URL } from '@/constants';
 import { Metadata } from 'next';
+import { BASE_URL } from '@/constants';
+import { projectData } from '@/_data/projectData';
 
-export function getProjectMetadata(id: string): Metadata {
-  const project = projectData.find((p) => p.id === id);
+export function getSiteMetadata(): Metadata {
+  const project = projectData.find((p) => p.id === 'my-portfolio');
 
   if (!project) {
     return {
@@ -15,41 +15,31 @@ export function getProjectMetadata(id: string): Metadata {
 
   const schemaData = {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: project.title,
+    '@type': 'WebSite',
+    name: '이규호 - Frontend Developer 포트폴리오',
     description: project.description,
-    url: `${BASE_URL}/project/${project.id}`,
+    url: BASE_URL,
     image: `${BASE_URL}${project.imageSrc}`,
-    datePublished: project.period?.split('~')[0]?.trim(),
-    applicationCategory: 'Utility',
-    operatingSystem: 'Web',
     author: {
       '@type': 'Person',
       name: '이규호',
     },
-    potentialAction: {
-      '@type': 'ViewAction',
-      target: `${BASE_URL}/project/${project.id}`,
-    },
   };
 
   return {
-    title: `${project.title} | Project`,
+    title: '이규호 - Frontend Developer 포트폴리오',
     description: project.description,
     keywords: [
-      project.title,
-      '프로젝트',
-      'project',
+      '프론트엔드',
+      'Frontend',
       '포트폴리오',
-      'portfolio',
-      'web development',
-      ...(project.techStacksUsed || []),
+      'Portfolio',
+      '웹 개발',
+      'Web Development',
     ],
     authors: [{ name: '이규호' }],
     creator: '이규호',
     publisher: '이규호',
-
-    // SEO 최적화 - 일반 페이지는 완전히 색인
     robots: {
       index: true,
       follow: true,
@@ -62,9 +52,10 @@ export function getProjectMetadata(id: string): Metadata {
       },
     },
     openGraph: {
-      title: project.title,
+      title: '이규호 - Frontend Developer 포트폴리오',
       description: project.description,
-      url: `${BASE_URL}/project/${project.id}`,
+      url: BASE_URL,
+      siteName: '이규호 포트폴리오',
       images: [
         {
           url: `${BASE_URL}${project.imageSrc}`,
@@ -73,17 +64,11 @@ export function getProjectMetadata(id: string): Metadata {
           alt: `${project.title} 대표 이미지`,
         },
       ],
-      type: 'article',
-      siteName: "LEE GYU HO's Portfolio",
       locale: 'ko_KR',
+      type: 'website',
     },
-    alternates: {
-      canonical: `${BASE_URL}/project/${project.id}`,
-    },
-    other: {
-      'application/ld+json': JSON.stringify(schemaData),
-    },
+    alternates: { canonical: BASE_URL },
     category: 'technology',
-    classification: 'Project Portfolio',
+    other: { 'application/ld+json': JSON.stringify(schemaData) },
   };
 }

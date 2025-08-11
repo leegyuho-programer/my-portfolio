@@ -259,12 +259,12 @@ export const projectData: ProjectProps[] = [
     id: 'my-portfolio',
     title: 'MyPortfolio',
     description:
-      'MyPortfolio는 개발자 개인의 이력과 프로젝트를 소개하고, 기술 스택 및 개발 역량을 직관적으로 보여주는 포트폴리오 웹사이트입니다.',
+      '사용자 경험과 성능 최적화에 집중하는 프론트엔드 개발자 이규호의 포트폴리오입니다.',
     imageSrc: '/Images/MyPortfolioImage.png',
     tags: ['개인'],
     period: '2025.07 ~ 2024.08',
     serviceDescription:
-      '**MyPortfolio**는 **프론트엔드 개발자로서의 기술 역량과 프로젝트 경험을 시각적으로 표현하는 웹 기반 포트폴리오입니다.** 방문자는 프로젝트 상세 내용을 확인하고, 사용된 기술 스택과 주요 구현 기능을 이해할 수 있습니다. 실시간으로 연결된 GitHub 및 배포 링크를 통해 프로젝트 코드와 결과물을 직접 확인할 수 있습니다.',
+      'MyPortfolio는 제가 프론트엔드 개발자로서 어떤 기술을 쓰고, 어떤 프로젝트를 해왔는지를 한눈에 볼 수 있도록 만든 웹 포트폴리오입니다. 각 프로젝트마다 사용한 기술과 구현한 기능을 정리했고, GitHub 코드와 실제 배포된 페이지도 바로 확인할 수 있어요. 방문하신 분들이 제 개발 스타일과 결과물을 쉽게 이해할 수 있도록 신경 썼습니다.',
     projectType: 'Single',
     developmentMembers: '개발 인원: 1명',
     deployLink: 'https://leegyuho-portfolio.vercel.app/',

@@ -3,15 +3,17 @@ import { Metadata } from 'next';
 import ProjectPage from './ProjectPage';
 
 interface ProjectServerPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({
   params,
 }: ProjectServerPageProps): Promise<Metadata> {
-  return getProjectMetadata(params.id);
+  const { id } = await params;
+  return getProjectMetadata(id);
 }
 
-export default function Page({ params }: ProjectServerPageProps) {
-  return <ProjectPage params={Promise.resolve(params)} />;
+export default async function Page({ params }: ProjectServerPageProps) {
+  const resolvedParams = await params;
+  return <ProjectPage params={resolvedParams} />;
 }
