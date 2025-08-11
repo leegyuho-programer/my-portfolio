@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
+import {BASE_URL} from '../constants/index.ts';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_HOST;
 
   return {
     rules: {
@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/', // 전체 페이지 접근 허용
       disallow: '',
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }

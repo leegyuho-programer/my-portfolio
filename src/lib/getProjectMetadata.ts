@@ -1,9 +1,8 @@
 import { projectData } from '@/_data/projectData';
+import { BASE_URL } from '@/constants';
 import { Metadata } from 'next';
 
 export function getProjectMetadata(id: string): Metadata {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_HOST;
   const project = projectData.find((p) => p.id === id);
 
   if (!project) {
@@ -19,10 +18,10 @@ export function getProjectMetadata(id: string): Metadata {
     openGraph: {
       title: project.title,
       description: project.description,
-      url: `${baseUrl}/project/${project.id}`,
+      url: `${BASE_URL}/project/${project.id}`,
       images: [
         {
-          url: `${baseUrl}${project.imageSrc}`,
+          url: `${BASE_URL}${project.imageSrc}`,
           width: 1200,
           height: 630,
           alt: `${project.title} 대표 이미지`,
@@ -31,7 +30,7 @@ export function getProjectMetadata(id: string): Metadata {
       type: 'article',
     },
     alternates: {
-      canonical: `${baseUrl}/project/${project.id}`,
+      canonical: `${BASE_URL}/project/${project.id}`,
     },
   };
 }

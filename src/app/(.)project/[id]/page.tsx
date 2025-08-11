@@ -1,4 +1,4 @@
-import { getProjectMetadata } from '@/lib/getProjectMetadata';
+import { getInterceptedProjectMetadata } from '@/lib/getInterceptedProjectMetadata';
 import { Metadata } from 'next';
 import InterceptedProjectPage from './InterceptedProjectPage';
 
@@ -9,7 +9,7 @@ interface InterceptedProjectServerPageProps {
 export async function generateMetadata({
   params,
 }: InterceptedProjectServerPageProps): Promise<Metadata> {
-  return getProjectMetadata(params.id);
+  return getInterceptedProjectMetadata(params.id);
 }
 
 export default function Page({ params }: InterceptedProjectServerPageProps) {
