@@ -1,0 +1,14 @@
+import type { MetadataRoute } from 'next';
+
+export default function robots(): MetadataRoute.Robots {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_HOST;
+
+  return {
+    rules: {
+      userAgent: '*', // 모든 크롤러 허용
+      allow: '/', // 전체 페이지 접근 허용
+      disallow: '',
+    },
+    sitemap: `${baseUrl}/sitemap.xml`,
+  };
+}

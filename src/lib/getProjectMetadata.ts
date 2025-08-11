@@ -1,10 +1,11 @@
 import { projectData } from '@/_data/projectData';
 import { Metadata } from 'next';
 
-const BASE_URL = 'https://leegyuho-portfolio.vercel.app';
-
 export function getProjectMetadata(id: string): Metadata {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_HOST;
   const project = projectData.find((p) => p.id === id);
+
   if (!project) {
     return {
       title: '프로젝트를 찾을 수 없습니다',
@@ -18,10 +19,10 @@ export function getProjectMetadata(id: string): Metadata {
     openGraph: {
       title: project.title,
       description: project.description,
-      url: `${BASE_URL}/project/${project.id}`,
+      url: `${baseUrl}/project/${project.id}`,
       images: [
         {
-          url: `${BASE_URL}${project.imageSrc}`,
+          url: `${baseUrl}${project.imageSrc}`,
           width: 1200,
           height: 630,
           alt: `${project.title} 대표 이미지`,
@@ -30,7 +31,7 @@ export function getProjectMetadata(id: string): Metadata {
       type: 'article',
     },
     alternates: {
-      canonical: `${BASE_URL}/project/${project.id}`,
+      canonical: `${baseUrl}/project/${project.id}`,
     },
   };
 }
