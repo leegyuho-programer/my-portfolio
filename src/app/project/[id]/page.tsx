@@ -19,11 +19,12 @@ export async function generateMetadata({
 }
 
 interface ProjectPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = projectData.find((p) => p.id === params.id);
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { id } = await params;
+const project = projectData.find((p) => p.id === id);
 
   if (!project) notFound();
 
@@ -79,5 +80,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     </>
   );
 }
+
 
 
