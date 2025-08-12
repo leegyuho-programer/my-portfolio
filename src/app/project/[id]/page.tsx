@@ -7,18 +7,22 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { projectData } from '../../../_data/projectData';
 
-interface ProjectPageProps {
+interface GenerateMetadataProps {
   params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({
   params,
-}: ProjectPageProps): Promise<Metadata> {
+}: GenerateMetadataProps): Promise<Metadata> {
   const { id } = await params;
   return getProjectMetadata(id);
 }
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
+interface ProjectPageProps {
+  params: { id: string };
+}
+
+export default function ProjectPage({ params }: ProjectPageProps) {
   const project = projectData.find((p) => p.id === params.id);
 
   if (!project) notFound();
@@ -75,4 +79,5 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     </>
   );
 }
+
 
