@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import LocalFont from 'next/font/local';
 import { ReactNode } from 'react';
-import { getSiteMetadata } from '@/lib/metadata';
+import { getSiteMetadata } from '@/lib/metadata/metadata';
 
 // Noto Sans KR 폰트 정의
 // public 폴더를 기준으로 상대 경로를 지정합니다.

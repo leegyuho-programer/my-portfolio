@@ -5,15 +5,15 @@ import { notFound, useRouter } from 'next/navigation';
 import Modal from '../../../_components/Modal/Modal';
 import { projectData } from '../../../_data/projectData';
 
-interface InterceptedProjectPageProps {
+interface InterceptedPageClientProps {
   params: {
     id: string;
   };
 }
 
-export default function InterceptedProjectPage({
+export default function InterceptedPageClient({
   params,
-}: InterceptedProjectPageProps) {
+}: InterceptedPageClientProps) {
   const { id } = params;
   const router = useRouter();
   const project = projectData.find((p) => p.id === id);

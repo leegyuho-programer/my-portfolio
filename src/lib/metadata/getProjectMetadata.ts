@@ -1,9 +1,9 @@
-import { Metadata } from 'next';
-import { BASE_URL } from '@/constants';
 import { projectData } from '@/_data/projectData';
+import { BASE_URL } from '@/constants';
+import { Metadata } from 'next';
 
-export function getSiteMetadata(): Metadata {
-  const project = projectData.find((p) => p.id === 'my-portfolio');
+export function getProjectMetadata(id: string): Metadata {
+  const project = projectData.find((p) => p.id === id);
 
   if (!project) {
     return {
@@ -13,33 +13,23 @@ export function getSiteMetadata(): Metadata {
     };
   }
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: '이규호 - Frontend Developer 포트폴리오',
-    description: project.description,
-    url: BASE_URL,
-    image: `${BASE_URL}${project.imageSrc}`,
-    author: {
-      '@type': 'Person',
-      name: '이규호',
-    },
-  };
-
   return {
-    title: '이규호 - Frontend Developer 포트폴리오',
+    title: `${project.title} | Project`,
     description: project.description,
     keywords: [
-      '프론트엔드',
-      'Frontend',
+      project.title,
+      '프로젝트',
+      'project',
       '포트폴리오',
-      'Portfolio',
-      '웹 개발',
-      'Web Development',
+      'portfolio',
+      'web development',
+      ...(project.techStacksUsed || []),
     ],
     authors: [{ name: '이규호' }],
     creator: '이규호',
     publisher: '이규호',
+
+    // SEO 최적화 - 일반 페이지는 완전히 색인
     robots: {
       index: true,
       follow: true,
@@ -52,10 +42,9 @@ export function getSiteMetadata(): Metadata {
       },
     },
     openGraph: {
-      title: '이규호 - Frontend Developer 포트폴리오',
+      title: project.title,
       description: project.description,
-      url: BASE_URL,
-      siteName: '이규호 포트폴리오',
+      url: `${BASE_URL}/project/${project.id}`,
       images: [
         {
           url: `${BASE_URL}${project.imageSrc}`,
@@ -64,11 +53,13 @@ export function getSiteMetadata(): Metadata {
           alt: `${project.title} 대표 이미지`,
         },
       ],
+      type: 'article',
+      siteName: "LEE GYU HO's Portfolio",
       locale: 'ko_KR',
-      type: 'website',
     },
-    alternates: { canonical: BASE_URL },
-    category: 'technology',
-    other: { 'application/ld+json': JSON.stringify(schemaData) },
+    alternates: {
+      canonical: `${BASE_URL}/project/${project.id}`,
+    },
+    classification: 'Project Portfolio',
   };
 }
