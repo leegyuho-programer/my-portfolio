@@ -8,9 +8,7 @@ import { notFound } from 'next/navigation';
 import { projectData } from '../../../_data/projectData';
 
 interface ProjectPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({
@@ -20,7 +18,7 @@ export async function generateMetadata({
   return getProjectMetadata(id);
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
+export default function ProjectPage({ params }: { params: { id: string } }) {
   const project = projectData.find((p) => p.id === params.id);
 
   if (!project) notFound();
@@ -77,3 +75,4 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     </>
   );
 }
+
