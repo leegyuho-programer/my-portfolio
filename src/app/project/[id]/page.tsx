@@ -1,28 +1,65 @@
-'use client';
-
-import { use } from 'react';
+import ProjectDetailContent from '@/_components/projectSection/ProjectDetailContent';
+import { flexCenter } from '@/app/styles';
+import { BASE_URL } from '@/constants';
+import { getProjectMetadata } from '@/lib/metadata/getProjectMetadata';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import ProjectDetailContent from '@/_components/projectSection/ProjectDetailContent';
 import { projectData } from '../../../_data/projectData';
-import { flexCenter } from '@/app/styles';
 
-interface ProjectPageProps {
-  params: Promise<{
-    id: string;
-  }>;
+interface GenerateMetadataProps {
+  params: Promise<{ id: string }>;
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const { id } = use(params);
-  const project = projectData.find((p) => p.id === id);
+export async function generateMetadata({
+  params,
+}: GenerateMetadataProps): Promise<Metadata> {
+  const { id } = await params;
+  return getProjectMetadata(id);
+}
 
-  if (!project) {
-    notFound();
-  }
+interface ProjectPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { id } = await params;
+const project = projectData.find((p) => p.id === id);
+
+  if (!project) notFound();
+
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: project.title,
+    description: project.description,
+    url: `${BASE_URL}/project/${project.id}`,
+    image: `${BASE_URL}${project.imageSrc}`,
+    datePublished: project.period?.split('~')[0]?.trim(),
+    applicationCategory: 'WebApplication',
+    operatingSystem: 'Web',
+    author: { '@type': 'Person', name: '이규호' },
+    potentialAction: {
+      '@type': 'ViewAction',
+      target: `${BASE_URL}/project/${project.id}`,
+    },
+    ...(project.techStacksUsed && {
+      programmingLanguage: project.techStacksUsed,
+    }),
+    ...(project.githubLink && { codeRepository: project.githubLink }),
+    ...(project.demoLink && {
+      applicationSubCategory: 'Live Demo',
+      sameAs: project.demoLink,
+    }),
+  };
 
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+
       <div
         className={`w-full bg-black ${flexCenter} flex-col py-15 text-white gap-5`}
       >
@@ -43,3 +80,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     </>
   );
 }
+
+
+

@@ -2,6 +2,9 @@ import { InformationProps } from '@/_components/Information/Information';
 import { MenuItemProps } from '@/_components/NavBar/NavBar';
 import { TechStackType } from '@/_components/TechStackBadge/techMap';
 
+export const BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_HOST;
+
 export const MENU_ITEMS: MenuItemProps[] = [
   { label: 'About me', href: '#aboutMe' },
   { label: 'Archiving', href: '#archiving' },
