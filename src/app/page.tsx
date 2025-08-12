@@ -10,23 +10,12 @@ import {
   ProjectsSection,
   SkillsSection,
 } from '../_components/Sections';
+import { notFound } from 'next/navigation';
 
 export default function Home() {
   const project = projectData.find((p) => p.id === 'my-portfolio');
 
-  if (!project) {
-    return (
-      <div className='bg-mainBlack min-h-screen flex items-center justify-center'>
-        <div className='text-white text-center'>
-          <h1 className='text-2xl font-bold mb-4'>
-            프로젝트를 찾을 수 없습니다
-          </h1>
-          <p>해당 프로젝트가 존재하지 않습니다.</p>
-        </div>
-      </div>
-    );
-    // 404 페이지 만들기
-  }
+  if (!project) notFound();
 
   const schemaData = {
     '@context': 'https://schema.org',
