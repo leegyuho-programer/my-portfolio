@@ -1,38 +1,49 @@
-<!-- 
-<svg
-  width="64"
-  height="64"
-  viewBox="0 0 64 64"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <rect width="64" height="64" rx="12" fill="#5534da" />
-  <path
-    d="M20 20H44V44H20V20Z"
-    stroke="white"
-    strokeWidth="4"
-    strokeLinejoin="round"
-  />
-  <path
-    d="M24 28L30 34L40 24"
-    stroke="white"
-    strokeWidth="4"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
-</svg>
- -->
 <svg
       width="64" height="64" viewBox="0 0 64 64" fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="TaskyTasky Logo"
     >
-      {/* 시계 원형 */}
-      <circle cx="32" cy="32" r="28" stroke="#5534da" strokeWidth="3" fill="#e5e3fb" />
-      {/* 체크박스 */}
-      <rect x="18" y="26" width="12" height="12" rx="2" fill="#5534da" />
-      <path d="M22 32L27 37L36 26" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      {/* 시계 바늘 */}
-      <line x1="32" y1="32" x2="32" y2="18" stroke="#5534da" strokeWidth="3" strokeLinecap="round" />
-      <line x1="32" y1="32" x2="42" y2="32" stroke="#5534da" strokeWidth="3" strokeLinecap="round" />
-    </svg>
+     {/* 배경 */}
+    <rect x="2" y="2" width="44" height="44" rx="8" fill="#5534da"/>
+    
+    {/* 캘린더/플래너 베이스 */}
+    <rect x="8" y="8" width="32" height="32" rx="3" fill="white"/>
+    
+    {/* 캘린더 헤더 */}
+    <rect x="8" y="8" width="32" height="6" rx="3" fill="#6B46C1"/>
+    <rect x="8" y="11" width="32" height="3" fill="#6B46C1"/>
+    
+    {/* 스파이럴 홀 */}
+    <circle cx="12" cy="6" r="1.5" fill="#374151"/>
+    <circle cx="18" cy="6" r="1.5" fill="#374151"/>
+    <circle cx="24" cy="6" r="1.5" fill="#374151"/>
+    <circle cx="30" cy="6" r="1.5" fill="#374151"/>
+    <circle cx="36" cy="6" r="1.5" fill="#374151"/>
+    
+    {/* 캘린더 그리드 */}
+    <g stroke="#E5E7EB" strokeWidth="0.5">
+      <line x1="14" y1="16" x2="34" y2="16"/>
+      <line x1="14" y1="20" x2="34" y2="20"/>
+      <line x1="14" y1="24" x2="34" y2="24"/>
+      <line x1="14" y1="28" x2="34" y2="28"/>
+      <line x1="14" y1="32" x2="34" y2="32"/>
+      
+      <line x1="18" y1="14" x2="18" y2="36"/>
+      <line x1="22" y1="14" x2="22" y2="36"/>
+      <line x1="26" y1="14" x2="26" y2="36"/>
+      <line x1="30" y1="14" x2="30" y2="36"/>
+    </g>
+    
+    {/* 할 일 체크박스들 */}
+    <rect x="15" y="17" width="2" height="2" fill="#5534da" rx="0.5"/>
+    <path d="M15.5 18 L16 18.5 L16.5 17.5" stroke="white" strokeWidth="0.5" fill="none"/>
+    
+    <rect x="15" y="21" width="2" height="2" fill="#E5E7EB" rx="0.5"/>
+    <rect x="15" y="25" width="2" height="2" fill="#5534da" rx="0.5"/>
+    <path d="M15.5 26 L16 26.5 L16.5 25.5" stroke="white" strokeWidth="0.5" fill="none"/>
+    
+    {/* 효율성 표시 (시계/화살표) */}
+    <circle cx="30" cy="30" r="4" fill="#F59E0B" fillOpacity="0.2"/>
+    <circle cx="30" cy="30" r="3" stroke="#F59E0B" strokeWidth="1" fill="none"/>
+    <path d="M30 28 L30 30 L31.5 31.5" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round"/>
+  </svg>
