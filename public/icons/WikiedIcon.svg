@@ -5,33 +5,35 @@
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Wikied Book Logo"
     >
-      {/* 왼쪽 페이지 */}
-      <path
-        d="M32 12C24 10 16 12 12 16V48C16 44 24 42 32 44"
-        fill="#4cbfa4"
-        stroke="#2e8d78"
-        strokeWidth="2"
-      />
-      {/* 오른쪽 페이지 */}
-      <path
-        d="M32 12C40 10 48 12 52 16V48C48 44 40 42 32 44"
-        fill="#4cbfa4"
-        stroke="#2e8d78"
-        strokeWidth="2"
-      />
-      {/* 가운데 책 등 */}
-      <line
-        x1="32"
-        y1="12"
-        x2="32"
-        y2="44"
-        stroke="#1d6a5d"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      {/* 페이지 라인 디테일 */}
-      <line x1="20" y1="20" x2="26" y2="20" stroke="#ffffffaa" strokeWidth="1.5" />
-      <line x1="20" y1="26" x2="28" y2="26" stroke="#ffffffaa" strokeWidth="1.5" />
-      <line x1="38" y1="20" x2="44" y2="20" stroke="#ffffffaa" strokeWidth="1.5" />
-      <line x1="36" y1="26" x2="46" y2="26" stroke="#ffffffaa" strokeWidth="1.5" />
-    </svg>
+    {/* 펼쳐진 책 - 왼쪽 페이지 */}
+    <path d="M6 18 C6 16.8954 6.89543 16 8 16 L22 16 C23.1046 16 24 16.8954 24 18 L24 38 C24 39.1046 23.1046 40 22 40 L8 40 C6.89543 40 6 39.1046 6 38 L6 18 Z" fill="#4cbfa4"/>
+    
+    {/* 펼쳐진 책 - 오른쪽 페이지 */}
+    <path d="M24 18 C24 16.8954 24.8954 16 26 16 L40 16 C41.1046 16 42 16.8954 42 18 L42 38 C42 39.1046 41.1046 40 40 40 L26 40 C24.8954 40 24 39.1046 24 38 L24 18 Z" fill="#4cbfa4"/>
+    
+    {/* 책의 내부 페이지 - 왼쪽 */}
+    <path d="M8 18 L8 36 C8 37.1046 8.89543 38 10 38 L22 38 C23.1046 38 24 37.1046 24 36 L24 18 L8 18 Z" fill="white"/>
+    
+    {/* 책의 내부 페이지 - 오른쪽 */}
+    <path d="M24 18 L24 36 C24 37.1046 24.8954 38 26 38 L38 38 C39.1046 38 40 37.1046 40 36 L40 18 L24 18 Z" fill="white"/>
+    
+    {/* 책의 중앙 바인딩/그림자 */}
+    <rect x="23.5" y="16" width="1" height="24" fill="#3da688"/>
+    
+    {/* 왼쪽 페이지 텍스트 라인들 */}
+    <rect x="10" y="21" width="10" height="1" fill="#4cbfa4"/>
+    <rect x="10" y="24" width="8" height="1" fill="#6B7280"/>
+    <rect x="10" y="27" width="11" height="1" fill="#6B7280"/>
+    <rect x="10" y="30" width="7" height="1" fill="#6B7280"/>
+    <rect x="10" y="33" width="9" height="1" fill="#6B7280"/>
+    
+    {/* 오른쪽 페이지 텍스트 라인들 */}
+    <rect x="26" y="21" width="10" height="1" fill="#4cbfa4"/>
+    <rect x="26" y="24" width="9" height="1" fill="#6B7280"/>
+    <rect x="26" y="27" width="8" height="1" fill="#6B7280"/>
+    <rect x="26" y="30" width="11" height="1" fill="#6B7280"/>
+    <rect x="26" y="33" width="10" height="1" fill="#6B7280"/>
+    
+    {/* 책의 상단 그림자 효과 */}
+    <ellipse cx="24" cy="16" rx="16" ry="2" fill="#4cbfa4" fillOpacity="0.3"/>
+  </svg>
