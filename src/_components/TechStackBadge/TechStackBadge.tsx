@@ -22,10 +22,10 @@ export default function TechStackBadge({
   };
 
   const backgroundColor = isModal
-    ? 'bg-white text-black cursor-pointer border border-neutral-200 hover:shadow-sm hover:translate-y-[2px]'
+    ? 'bg-white text-black border border-neutral-200 shadow-md '
     : 'bg-lightGray text-white';
 
-  const baseStyle = 'shadow-md gap-[8px] rounded-[10px] px-[10px] py-[5px]';
+  const baseStyle = 'gap-[8px] rounded-[10px] px-[10px] py-[5px]';
 
   return (
     <div
