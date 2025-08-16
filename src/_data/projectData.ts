@@ -55,13 +55,13 @@ export const projectData: ProjectProps[] = [
     id: 'wikied',
     title: 'Wikied',
     description:
-      'Wikied는 위키 페이지를 만들고 친구들과 실시간으로 공유·편집할 수 있는 협업 기반 문서 플랫폼입니다.',
+      'Wikied는 위키 페이지를 사용자 정의로 생성하고 편집할 수 있는 플랫폼입니다.',
     imageSrc: '/Images/WikiedImage.png',
     tags: ['개인', '반응형'],
     period:
       '기간: 2024.05 ~ 2024.07 (초기 개발) / 추가 작업 및 리팩토링: 2024.08 ~ 2025.03',
     serviceDescription:
-      '**Wikied**는 **사용자 정의로 위키 페이지를 생성하고 편집할 수 있는 플랫폼**입니다. 생성한 위키 페이지의 링크를 복사하여 친구들과 공유할 수 있으며, 그들이 함께 작성하도록 초대할 수 있습니다. 또한, 자유게시판에서 글을 작성할 수 있으며, 많은 좋아요를 받은 글은 베스트 게시글에 오를 수 있습니다.',
+      '**Wikied**는 사용자들이 **자유롭게 인물에 대한 문서를 생성하고 편집**할 수 있는 플랫폼입니다. 생성한 위키 페이지의 링크를 복사하여 친구들과 공유할 수 있으며, 그들이 함께 작성하도록 초대할 수 있습니다. 또한, 자유게시판에서 글을 작성할 수 있으며, 많은 좋아요를 받은 글은 베스트 게시글에 오를 수 있습니다.',
     projectType: 'Single',
     developmentMembers: '개발 인원: 1명',
     deployLink: 'https://wikied.vercel.app/',
