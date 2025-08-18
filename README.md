@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio
 
-## Getting Started
+사용자 경험과 성능 최적화에 집중하는 프론트엔드 개발자 이규호의 포트폴리오
 
-First, run the development server:
+🌍 배포 링크: https://leegyuho-portfolio.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+> 개발 기간: 2025. 07 ~ 2025. 08 <br/>
+
+## 💁🏻‍♀️ 프로젝트 소개
+
+- My Portfolio는 제가 그동안 쌓아온 기술 역량과 프로젝트 경험을 한눈에 보여드리고자 제작한 개인 포트폴리오입니다.
+- 각 프로젝트는 사용된 기술 스택, 구현 기능, 그리고 해결했던 문제점을 구체적으로 담고 있습니다.
+- GitHub 저장소와 배포 링크를 통해 제 코딩 스타일과 결과물을 직접 확인할 수 있습니다.
+- 데모 링크가 만료된 프로젝트는 데모 영상을 통해 실제 동작을 확인하실 수 있습니다.
+- 방문하시는 분들이 저의 개발 잠재력을 쉽게 파악하고 쾌적한 경험을 할 수 있도록 사용자 경험(UX)에 집중하여 만들었습니다.
+
+## ⚙️ 기술스택
+
+- TypeScript
+- Tailwind CSS
+- React
+- Next.js (App router)
+
+## quick start guide
+
+```jsx
+$ git clone https://github.com/leegyuho-programer/my-portfolio.git
+$ npm install
+$ npm build
+$ npm start
+
+https://localhost:3000 접속
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📄 페이지별 기능 & 스크린샷
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+랜딩페이지 Introduce Section
+<img src="/public/images/README/landingPageIntroduce.png" alt="landingPageIntroduce"/>
+랜딩페이지 AboutMe Section
+<img src="/public/images/README/landingPageAboutMe.png" alt="landingPageAboutMe"/>
+랜딩페이지 Archiving Section
+<img src="/public/images/README/landingPageArchiving.png" alt="landingPageArchiving"/>
+랜딩페이지 Skills Section
+<img src="/public/images/README/landingPageSkills.png" alt="landingPageSkills"/>
+랜딩페이지 Projects Section
+<img src="/public/images/README/landingPageProjects.png" alt="landingPageProjects"/>
+랜딩페이지 Contact Section
+<img src="/public/images/README/landingPageContact.png" alt="landingPageContact"/>
+모달 페이지
+<img src="/public/images/README/modalPage.png" alt="modalPage"/>
+링크로 방문할 때 페이지
+<img src="/public/images/README/fullPage.png" alt="fullPage"/>
