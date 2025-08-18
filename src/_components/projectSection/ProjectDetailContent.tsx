@@ -86,7 +86,7 @@ export default function ProjectDetailContent({
           )}
           {project.demoLink && (
             <Information
-              svgSrc='/icons/YoutubeIcon.svg'
+              svgSrc='/icons/YouTubeIcon.svg'
               alt='Demo Video'
               title='데모 영상'
               content='현재 서버 비용 문제로 서비스가 중단되어 데모 영상을 첨부합니다.'
