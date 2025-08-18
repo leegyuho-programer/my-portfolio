@@ -5,15 +5,12 @@ import {
   borderBottom,
   modalSectionSubTitle,
   modalSectionTitle,
-  unOrderListStyle,
-  subTitle,
   orderListStyle,
+  subTitle,
+  unOrderListStyle,
 } from '@/app/styles';
 import Information from '../Information/Information';
 import TechStackBadge from '../TechStackBadge/TechStackBadge';
-import { TECH_MAP, TechStackType } from '@/_components/TechStackBadge/techMap';
-import { useState } from 'react';
-import TechModal from '../Modal/TechModal';
 
 interface ProjectDetailContentProps {
   project: ProjectProps;
@@ -52,19 +49,6 @@ const renderBoldText = (text: string): React.ReactNode => {
 export default function ProjectDetailContent({
   project,
 }: ProjectDetailContentProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedTech, setSelectedTech] = useState<TechStackType | null>(null);
-
-  const handleBadgeClick = (tech: TechStackType) => {
-    setSelectedTech(tech);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedTech(null);
-  };
-
   return (
     <div className='w-full px-[250px] py-8 text-text-main flex flex-col gap-10'>
       {/* 프로젝트 소개 */}
@@ -118,24 +102,9 @@ export default function ProjectDetailContent({
         <h2 className={modalSectionTitle}>기술 스택</h2>
         <div className='flex flex-row gap-5 flex-wrap'>
           {project.techStacksUsed.map((tech, index) => (
-            <TechStackBadge
-              key={index}
-              tech={tech}
-              isModal={true}
-              onClick={handleBadgeClick}
-            />
+            <TechStackBadge key={index} tech={tech} isModal={true} />
           ))}
         </div>
-
-        {isModalOpen && selectedTech && (
-          <TechModal
-            isOpen={isModalOpen}
-            onClose={handleCloseModal}
-            title={TECH_MAP[selectedTech]?.label || selectedTech}
-          >
-            이 기술을 선택한 이유는
-          </TechModal>
-        )}
       </section>
 
       {/* 주요 작업들 */}

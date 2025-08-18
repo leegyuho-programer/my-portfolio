@@ -45,6 +45,11 @@ export default function PostCard() {
       );
 
       alert('이메일 전송 성공');
+
+      setFormData({
+        email: '',
+        message: '',
+      });
     } catch (error) {
       alert('이메일 전송 실패');
       console.log('이메일 전송 실패:', error);
