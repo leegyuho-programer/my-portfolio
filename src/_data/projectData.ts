@@ -638,7 +638,7 @@ export const projectData: ProjectProps[] = [
     projectType: 'Team',
     developmentMembers: '개발 인원: 5명',
     myContributions:
-      '공통 컴포넌트 개발, 로그인/회원가입 페이지 구현, `proxy` 기능 이용하여 API 연결 함수 제공, 사이드 메뉴 무한스크롤',
+      '공통 컴포넌트 개발, 로그인/회원가입 페이지 구현, proxy 기능 이용하여 API 연결 함수 제공, 사이드 메뉴 무한스크롤',
     deployLink: 'https://taskytasky.netlify.app/',
     githubLink: 'https://github.com/leegyuho-programer/TaskyTasky',
     techStacksUsed: [
