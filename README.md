@@ -35,18 +35,18 @@ https://localhost:3000 접속
 ## 📄 페이지별 기능 & 스크린샷
 
 랜딩페이지 Introduce Section
-<img src="/public/Images/README/landingPageIntroduce.png" alt="landingPageIntroduce"/>
+<img src="/public/Images/landingPageIntroduce.png" alt="landingPageIntroduce"/>
 랜딩페이지 AboutMe Section
-<img src="/public/Images/README/landingPageAboutMe.png" alt="landingPageAboutMe"/>
+<img src="/public/Images/landingPageAboutMe.png" alt="landingPageAboutMe"/>
 랜딩페이지 Archiving Section
-<img src="/public/Images/README/landingPageArchiving.png" alt="landingPageArchiving"/>
+<img src="/public/Images/landingPageArchiving.png" alt="landingPageArchiving"/>
 랜딩페이지 Skills Section
-<img src="/public/Images/README/landingPageSkills.png" alt="landingPageSkills"/>
+<img src="/public/Images/landingPageSkills.png" alt="landingPageSkills"/>
 랜딩페이지 Projects Section
-<img src="/public/Images/README/landingPageProjects.png" alt="landingPageProjects"/>
+<img src="/public/Images/landingPageProjects.png" alt="landingPageProjects"/>
 랜딩페이지 Contact Section
-<img src="/public/Images/README/landingPageContact.png" alt="landingPageContact"/>
+<img src="/public/Images/landingPageContact.png" alt="landingPageContact"/>
 모달 페이지
-<img src="/public/Images/README/modalPage.png" alt="modalPage"/>
+<img src="/public/Images/modalPage.png" alt="modalPage"/>
 링크로 방문할 때 페이지
-<img src="/public/Images/README/fullPage.png" alt="fullPage"/>
+<img src="/public/Images/fullPage.png" alt="fullPage"/>
