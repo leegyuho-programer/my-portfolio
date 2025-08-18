@@ -305,7 +305,7 @@ export const projectData: ProjectProps[] = [
         overview:
           'Next.js 앱에서 이미지 지연 로딩 및 깜빡임 현상을 해결하고, Vercel CDN 캐시 활용을 통해 **LCP를 약 48% 단축**하는 등의 성능 최적화를 달성했습니다.',
         contributions: [
-          '**vercel.json**을 통해 **`public`** 폴더 내 정적 이미지에 대한 강력한 **CDN 캐시 정책**을 적용',
+          '**vercel.json**을 통해 **public** 폴더 내 정적 이미지에 대한 강력한 **CDN 캐시 정책**을 적용',
           '모달 전후 이미지 재로딩 이슈를 해결하여 **모달 전환 시 이미지 깜빡임 제거**',
           '이미지 로딩 시간을 **약 86.7% 단축**(450ms → 59.73ms)하고, **LCP 약 48% 개선** (2.3s → 1.2s), 그리고 **CDN 캐시 HIT율을 90% 이상**으로 향상',
         ],
