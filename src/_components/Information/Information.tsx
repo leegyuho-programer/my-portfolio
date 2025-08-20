@@ -44,7 +44,9 @@ export default function Information({
 
   const imageSize = isArchiving ? 'w-[80px] h-[80px]' : 'w-[60px] h-[60px]';
 
-  const titleStyle = isArchiving ? 'text-md font-bold' : 'text-sm font-bold';
+  const titleStyle = isArchiving
+    ? 'text-custom-md font-bold'
+    : 'text-custom-sm font-bold';
 
   return (
     <button className={containerStyle} onClick={handleClick}>
@@ -53,7 +55,9 @@ export default function Information({
       </div>
       <div>
         <div className={`mb-[4px] ${titleStyle}`}>{title}</div>
-        {content && <div className='text-sm font-regular'>{content}</div>}
+        {content && (
+          <div className='text-custom-sm font-regular'>{content}</div>
+        )}
       </div>
     </button>
   );

@@ -6,7 +6,7 @@ interface MenuIconProps {
 export default function MenuIcon({ scrolled, onClick }: MenuIconProps) {
   return (
     <button
-      className={`pc:hidden transition-colors duration-300`}
+      className={`lg:hidden transition-colors duration-300`}
       onClick={onClick}
       aria-label='Toggle menu'
     >

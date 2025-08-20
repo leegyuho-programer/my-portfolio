@@ -35,10 +35,10 @@ export default function NavBar({ menuItems }: NavBarProps) {
         ${scrolled ? 'bg-white shadow-light-mild' : 'bg-mainBlack'}
       `}
     >
-      <nav className='flex justify-between w-full px-[50px] pc:px-[80px]'>
+      <nav className='flex justify-between w-full px-[50px] lg:px-[80px]'>
         <Link
           href='/'
-          className={`text-lg font-bold transition-colors duration-300
+          className={`md:text-lg text-md font-bold transition-colors duration-300
             ${
               scrolled
                 ? 'text-black hover:text-accent'
@@ -49,7 +49,7 @@ export default function NavBar({ menuItems }: NavBarProps) {
           LEE GYU HO&#39;s Portfolio
         </Link>
 
-        <ul className='pc:flex hidden text-sm font-regular gap-[40px]'>
+        <ul className='lg:flex hidden text-sm font-regular gap-[40px]'>
           {menuItems.map((item) => (
             <li key={item.href}>
               <Link

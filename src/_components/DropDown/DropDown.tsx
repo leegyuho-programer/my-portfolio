@@ -34,21 +34,23 @@ export default function DropDown({
   return (
     <div
       ref={dropdownRef}
-      className={`pc:hidden fixed top-[72px] left-0 w-full ${
+      className={`lg:hidden fixed top-[72px] left-0 w-full ${
         scrolled ? 'bg-white shadow-light-mild' : 'bg-mainBlack'
       } shadow-lg py-6 z-40`}
     >
       <ul className='flex flex-col gap-6 text-sm font-regular'>
         {menuItems.map((item) => (
-          <Link key={item.href} href={item.href} onClick={onIconClick}>
-            <li
-              className={`${
+          <li key={item.href} className='w-full'>
+            <Link
+              href={item.href}
+              onClick={onIconClick}
+              className={`block w-full px-4 py-2 text-center ${
                 scrolled ? 'text-black' : 'text-white'
-              } hover:text-accent transition-colors duration-300 px-4 py-2 block w-full text-center`}
+              } hover:text-accent transition-colors duration-300`}
             >
               {item.label}
-            </li>
-          </Link>
+            </Link>
+          </li>
         ))}
       </ul>
     </div>

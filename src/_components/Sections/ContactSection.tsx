@@ -12,7 +12,9 @@ export function ContactSection() {
           >
             CONTACT ✉
           </h1>
-          <p className='text-lg md:text-xl text-gray-700 mb-2'>Thank You</p>
+          <p className='text-custom-lg md:text-custom-xl text-gray-700 mb-2'>
+            Thank You
+          </p>
         </div>
         <PostCard />
       </div>
