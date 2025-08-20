@@ -55,6 +55,9 @@
   --shadow-light-mild: 0 2px 8px hsla(0, 0%, 80%, 0.8);
   --shadow-dark-offset: 1rem 1rem 1rem 0 rgba(68, 68, 68, 0.2);
   --shadow-dark-soft: 0 0 0.5rem 0 rgba(68, 68, 68, 0.4);
+
+  /* Break Point */
+  --breakpoint-pc: 768px;
 }
 
 /* Tailwind의 기본 유틸리티 레이어에 스타일 추가 */
