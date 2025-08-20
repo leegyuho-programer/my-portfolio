@@ -57,7 +57,8 @@
   --shadow-dark-soft: 0 0 0.5rem 0 rgba(68, 68, 68, 0.4);
 
   /* Break Point */
-  --breakpoint-pc: 768px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-pc: 1024px;
 }
 
 /* Tailwind의 기본 유틸리티 레이어에 스타일 추가 */
