@@ -72,9 +72,9 @@ export default function Modal({
           <div className='absolute top-[40px] right-[40px] w-[55px] h-[55px]'>
             <CloseIconButton onClick={onClose} />
           </div>
-          <h3 className='text-custom-2xl font-bold'>{title}</h3>
-          <p className='text-custom-sm'>{period}</p>
-          <p className='text-custom-sm'>{developmentMembers}</p>
+          <h3 className='.text-2xl font-bold'>{title}</h3>
+          <p className='text-sm'>{period}</p>
+          <p className='text-sm'>{developmentMembers}</p>
         </div>
         {children}
       </div>

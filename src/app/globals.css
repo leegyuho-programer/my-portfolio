@@ -6,6 +6,7 @@
   --font-family-heading: 'Pretendard', sans-serif;
 
   /* Font Size */
+  --font-size-xxs: 12px;
   --font-size-xs: 14px;
   --font-size-sm: 16px;
   --font-size-md: 20px;
@@ -90,6 +91,10 @@
 }
 
 @layer utilities {
+  .text-xxs {
+    font-size: var(--font-size-xxs);
+    line-height: var(--line-height-xs);
+  }
   .text-xs {
     font-size: var(--font-size-xs);
     line-height: var(--line-height-xs);
@@ -106,7 +111,7 @@
     font-size: var(--font-size-lg);
     line-height: var(--line-height-lg);
   }
-  .text-custom-wlg {
+  .text-wlg {
     font-size: var(--font-size-wlg);
     line-height: var(--line-height-lg);
   }
@@ -114,13 +119,17 @@
     font-size: var(--font-size-xl);
     line-height: var(--line-height-xl);
   }
-  .text-custom-2xl {
+  .text-2xl {
     font-size: var(--font-size-2xl);
     line-height: var(--line-height-2xl);
   }
 
   /* 반응형 변형 - md */
   @media (min-width: 768px) {
+    .md\:text-xxs {
+      font-size: var(--font-size-xxs);
+      line-height: var(--line-height-xs);
+    }
     .md\:text-xs {
       font-size: var(--font-size-xs);
       line-height: var(--line-height-xs);
@@ -137,7 +146,7 @@
       font-size: var(--font-size-lg);
       line-height: var(--line-height-lg);
     }
-    .md\:text-custom-wlg {
+    .md\:text-wlg {
       font-size: var(--font-size-wlg);
       line-height: var(--line-height-lg);
     }
@@ -145,7 +154,7 @@
       font-size: var(--font-size-xl);
       line-height: var(--line-height-xl);
     }
-    .md\:text-custom-2xl {
+    .md\:.text-2xl {
       font-size: var(--font-size-2xl);
       line-height: var(--line-height-2xl);
     }
@@ -153,6 +162,10 @@
 
   /* 반응형 변형 - lg */
   @media (min-width: 1024px) {
+    .lg\:text-xxs {
+      font-size: var(--font-size-xxs);
+      line-height: var(--line-height-xs);
+    }
     .lg\:text-xs {
       font-size: var(--font-size-xs);
       line-height: var(--line-height-xs);
@@ -169,7 +182,7 @@
       font-size: var(--font-size-lg);
       line-height: var(--line-height-lg);
     }
-    .lg\:text-custom-wlg {
+    .lg\:text-wlg {
       font-size: var(--font-size-wlg);
       line-height: var(--line-height-lg);
     }
@@ -177,7 +190,7 @@
       font-size: var(--font-size-xl);
       line-height: var(--line-height-xl);
     }
-    .lg\:text-custom-2xl {
+    .lg\:.text-2xl {
       font-size: var(--font-size-2xl);
       line-height: var(--line-height-2xl);
     }
