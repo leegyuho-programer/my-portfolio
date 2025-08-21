@@ -9,7 +9,7 @@ interface ModalProps {
   onClose: () => void;
   children: React.ReactNode;
   title?: string;
-  period: string;
+  period: string | string[];
   developmentMembers: string;
 }
 
@@ -89,3 +89,4 @@ export default function Modal({
     </div>
   );
 }
+
