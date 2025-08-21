@@ -5,7 +5,7 @@ export const flexRowCenter = `${flexRow} items-center justify-center`;
 export const flexColCenter = `${flexCol} items-center justify-center`;
 export const sectionStyle =
   'md:scroll-mt-16 scroll-mt-24 md:px-32 px-16 md:py-32 py-16 mx-auto';
-export const sectionTitle = `lg:justify-start ${flexRowCenter} md:text-xl text-wlg font-bold text-white mb-50`;
+export const sectionTitle = `lg:justify-start ${flexRowCenter} md:text-xl text-wlg font-bold text-white md:mb-50 mb-20`;
 export const modalSectionTitle = 'md:text-xl text-wlg font-semibold mb-10';
 export const modalSectionSubTitle =
   'md:text-lg text-sm font-bold text-text-main mb-10 bg-mainGray p-3';
