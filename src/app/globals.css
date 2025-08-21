@@ -154,7 +154,7 @@
       font-size: var(--font-size-xl);
       line-height: var(--line-height-xl);
     }
-    .md\:.text-2xl {
+    .md\:text-2xl {
       font-size: var(--font-size-2xl);
       line-height: var(--line-height-2xl);
     }
@@ -190,7 +190,7 @@
       font-size: var(--font-size-xl);
       line-height: var(--line-height-xl);
     }
-    .lg\:.text-2xl {
+    .lg\:text-2xl {
       font-size: var(--font-size-2xl);
       line-height: var(--line-height-2xl);
     }

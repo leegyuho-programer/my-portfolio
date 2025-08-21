@@ -50,11 +50,11 @@ export default function ProjectDetailContent({
   project,
 }: ProjectDetailContentProps) {
   return (
-    <div className='w-full px-[250px] py-8 text-text-main flex flex-col gap-10'>
+    <div className='w-full lg:px-[20%] px-[5%] py-8 text-text-main flex flex-col gap-10'>
       {/* 프로젝트 소개 */}
       <section className={`flex flex-col gap-5 pb-20 ${borderBottom}`}>
         <h2 className={modalSectionTitle}>프로젝트 소개</h2>
-        <p className='text-sm font-normal'>
+        <p className='md:text-sm text-xs font-normal'>
           {renderBoldText(project.serviceDescription)}
         </p>
         {project.myContributions && (
@@ -65,7 +65,7 @@ export default function ProjectDetailContent({
             </p>
           </div>
         )}
-        <div className='grid grid-cols-2 gap-5 mx-auto w-fit'>
+        <div className='grid md:grid-cols-2 grid-cols-1 gap-5 mx-auto w-fit'>
           <Information
             svgSrc='/icons/GitHubIcon.svg'
             alt='GitHub'
@@ -117,7 +117,7 @@ export default function ProjectDetailContent({
                 {renderBoldText(work.title)}
               </h3>
               {work.overview && (
-                <p className='text-sm mb-3 text-gray-700'>
+                <p className='md:text-sm text-xs mb-3 text-gray-700'>
                   {renderBoldText(work.overview)}
                 </p>
               )}
@@ -147,7 +147,7 @@ export default function ProjectDetailContent({
 
               <div className='mb-5'>
                 <p className={subTitle}>📌 문제 배경</p>
-                <p className='text-sm text-gray-700'>
+                <p className='md:text-sm text-xs text-gray-700'>
                   {renderBoldText(item.background)}
                 </p>
               </div>
@@ -190,7 +190,7 @@ export default function ProjectDetailContent({
 
               <div>
                 <p className={subTitle}>🧠 배운 점</p>
-                <p className='text-sm text-gray-700'>
+                <p className='md:text-sm text-xs text-gray-700'>
                   {renderBoldText(item.learnings)}
                 </p>
               </div>

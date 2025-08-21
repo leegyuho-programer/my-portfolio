@@ -65,13 +65,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       >
         <Link
           href='/#projects'
-          className='absolute top-[30px] left-[30px] text-md text-white hover:text-blue-300 transition'
+          className='absolute lg:top-[30px] top-[10px] left-[30px] lg:text-md text-sm text-white hover:text-blue-300 transition'
         >
           ← 포트폴리오로 돌아가기
         </Link>
-        <h1 className='text-2xl font-bold'>{project.title}</h1>
-        <p className='text-sm'>{project.period}</p>
-        <p className='text-sm'>{project.developmentMembers}</p>
+        <h1 className='lg:text-2xl text-xl font-bold'>{project.title}</h1>
+        <p className='md:text-sm text-xs px-[10px]'>{project.period}</p>
+        <p className='md:text-sm text-xs'>{project.developmentMembers}</p>
       </div>
 
       <div className='p-8'>
