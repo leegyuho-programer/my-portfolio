@@ -42,9 +42,13 @@ export default function Information({
     .filter(Boolean)
     .join(' ');
 
-  const imageSize = isArchiving ? 'w-[80px] h-[80px]' : 'w-[60px] h-[60px]';
+  const imageSize = isArchiving
+    ? 'w-[80px] h-[80px]'
+    : 'md:w-[60px] w-[30px] md:h-[60px] h-[30px]';
 
-  const titleStyle = isArchiving ? 'text-md font-bold' : 'text-sm font-bold';
+  const titleStyle = isArchiving
+    ? 'lg:text-md text-sm font-bold'
+    : 'lg:text-sm text-xs font-bold';
 
   return (
     <button className={containerStyle} onClick={handleClick}>
@@ -53,7 +57,9 @@ export default function Information({
       </div>
       <div>
         <div className={`mb-[4px] ${titleStyle}`}>{title}</div>
-        {content && <div className='text-sm font-regular'>{content}</div>}
+        {content && (
+          <div className='lg:text-sm text-xxs font-regular'>{content}</div>
+        )}
       </div>
     </button>
   );

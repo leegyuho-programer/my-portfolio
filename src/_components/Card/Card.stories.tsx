@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Card>
+    <Card onOpenDetail={() => alert('자세히 보기 클릭됨')}>
       <Card.Hidden>
         <Card.Image src='/images/WikiedImage.png' alt='Wikied 이미지' />
         <Card.Content

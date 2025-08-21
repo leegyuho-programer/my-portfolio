@@ -59,22 +59,22 @@ export default function Modal({
 
   return (
     <div
-      className='fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-10 px-50'
+      className={`fixed inset-0 bg-black/80 ${flexCenter} z-50 lg:p-10 lg:px-50`}
       onClick={handleBackdropClick}
     >
       <div
-        className='relative bg-white rounded-lg w-full max-h-[90vh] overflow-y-auto'
+        className='relative bg-white lg:rounded-lg w-full lg:max-h-[90vh] max-h-[100vh] overflow-y-auto'
         onClick={(e) => e.stopPropagation()}
       >
         <div
           className={`w-full bg-black ${flexCenter} flex-col py-15 text-white gap-5`}
         >
-          <div className='absolute top-[40px] right-[40px] w-[55px] h-[55px]'>
+          <div className='absolute lg:top-[40px] top-[20px] lg:right-[40px] right-[20px] lg:w-[55px] w-[40px] lg:h-[55px] h-[40px]'>
             <CloseIconButton onClick={onClose} />
           </div>
-          <h3 className='text-2xl font-bold'>{title}</h3>
-          <p className='text-sm'>{period}</p>
-          <p className='text-sm'>{developmentMembers}</p>
+          <h3 className='lg:text-2xl text-xl font-bold'>{title}</h3>
+          <p className='md:text-sm text-xs px-[10px]'>{period}</p>
+          <p className='md:text-sm text-xs'>{developmentMembers}</p>
         </div>
         {children}
       </div>

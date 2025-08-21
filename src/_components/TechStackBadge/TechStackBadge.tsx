@@ -41,7 +41,7 @@ export default function TechStackBadge({
           height={25}
         />
       )}
-      <span className='text-sm font-medium'>{label}</span>
+      <span className='md:text-sm text-xs font-medium'>{label}</span>
     </div>
   );
 }

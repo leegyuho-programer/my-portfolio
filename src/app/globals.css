@@ -6,10 +6,12 @@
   --font-family-heading: 'Pretendard', sans-serif;
 
   /* Font Size */
+  --font-size-xxs: 12px;
   --font-size-xs: 14px;
   --font-size-sm: 16px;
   --font-size-md: 20px;
   --font-size-lg: 24px;
+  --font-size-wlg: 35px;
   --font-size-xl: 48px;
   --font-size-2xl: 64px;
 
@@ -35,7 +37,7 @@
 
   /* Colors */
   --color-text-main: #333333;
-  --color-text-secondary: #666666;
+  --color-text-custom-secondary: #666666;
   --color-accent: #2b7fff;
 
   --color-background-main: #f8f9fa;
@@ -89,34 +91,109 @@
 }
 
 @layer utilities {
+  .text-xxs {
+    font-size: var(--font-size-xxs);
+    line-height: var(--line-height-xs);
+  }
   .text-xs {
-    font-size: theme(--font-size-xs);
-    line-height: theme(--line-height-xs);
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-xs);
   }
-
   .text-sm {
-    font-size: theme(--font-size-sm);
-    line-height: theme(--line-height-sm);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-sm);
   }
-
   .text-md {
-    font-size: theme(--font-size-md);
-    line-height: theme(--line-height-md);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-md);
   }
-
   .text-lg {
-    font-size: theme(--font-size-lg);
-    line-height: theme(--line-height-lg);
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-lg);
   }
-
+  .text-wlg {
+    font-size: var(--font-size-wlg);
+    line-height: var(--line-height-lg);
+  }
   .text-xl {
-    font-size: theme(--font-size-xl);
-    line-height: theme(--line-height-xl);
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+  }
+  .text-2xl {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-2xl);
   }
 
-  .text-2xl {
-    font-size: theme(--font-size-2xl);
-    line-height: theme(--line-height-2xl);
+  /* 반응형 변형 - md */
+  @media (min-width: 768px) {
+    .md\:text-xxs {
+      font-size: var(--font-size-xxs);
+      line-height: var(--line-height-xs);
+    }
+    .md\:text-xs {
+      font-size: var(--font-size-xs);
+      line-height: var(--line-height-xs);
+    }
+    .md\:text-sm {
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-sm);
+    }
+    .md\:text-md {
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-md);
+    }
+    .md\:text-lg {
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-lg);
+    }
+    .md\:text-wlg {
+      font-size: var(--font-size-wlg);
+      line-height: var(--line-height-lg);
+    }
+    .md\:text-xl {
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-xl);
+    }
+    .md\:text-2xl {
+      font-size: var(--font-size-2xl);
+      line-height: var(--line-height-2xl);
+    }
+  }
+
+  /* 반응형 변형 - lg */
+  @media (min-width: 1024px) {
+    .lg\:text-xxs {
+      font-size: var(--font-size-xxs);
+      line-height: var(--line-height-xs);
+    }
+    .lg\:text-xs {
+      font-size: var(--font-size-xs);
+      line-height: var(--line-height-xs);
+    }
+    .lg\:text-sm {
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-sm);
+    }
+    .lg\:text-md {
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-md);
+    }
+    .lg\:text-lg {
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-lg);
+    }
+    .lg\:text-wlg {
+      font-size: var(--font-size-wlg);
+      line-height: var(--line-height-lg);
+    }
+    .lg\:text-xl {
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-xl);
+    }
+    .lg\:text-2xl {
+      font-size: var(--font-size-2xl);
+      line-height: var(--line-height-2xl);
+    }
   }
 
   .shadow-light-mild {
@@ -145,14 +222,16 @@
   }
 }
 
-@media (max-width: 768px) {
-  html {
-    font-size: 14px; /* 모바일에서 기본 폰트 크기 조정 */
-  }
+/* @media (max-width: 768px) {
+  html { */
+/* font-size: 14px;  */
+/* 모바일에서 기본 폰트 크기 조정 */
+/* } */
 
-  body {
+/* body {
     padding: 0;
     margin: 0;
-    overflow-x: hidden; /* 가로 스크롤 방지 */
-  }
-}
+    overflow-x: hidden;  */
+/* 가로 스크롤 방지 */
+/* }
+} */

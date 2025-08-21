@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import DropDown from '../DropDown/DropDown';
+import MenuIcon from '../Menu/MenuIcon';
 import { flexRowCenter } from './../../app/styles';
 
 export interface MenuItemProps {
@@ -15,6 +17,7 @@ interface NavBarProps {
 
 export default function NavBar({ menuItems }: NavBarProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,10 +35,10 @@ export default function NavBar({ menuItems }: NavBarProps) {
         ${scrolled ? 'bg-white shadow-light-mild' : 'bg-mainBlack'}
       `}
     >
-      <nav className='flex justify-between px-[120px] w-full'>
+      <nav className='flex justify-between w-full px-[50px] lg:px-[80px]'>
         <Link
           href='/'
-          className={`text-lg font-bold transition-colors duration-300
+          className={`md:text-lg text-md font-bold transition-colors duration-300
             ${
               scrolled
                 ? 'text-black hover:text-accent'
@@ -46,7 +49,7 @@ export default function NavBar({ menuItems }: NavBarProps) {
           LEE GYU HO&#39;s Portfolio
         </Link>
 
-        <ul className='flex text-sm font-regular gap-[40px]'>
+        <ul className='lg:flex hidden text-sm font-regular gap-[40px]'>
           {menuItems.map((item) => (
             <li key={item.href}>
               <Link
@@ -64,7 +67,20 @@ export default function NavBar({ menuItems }: NavBarProps) {
             </li>
           ))}
         </ul>
+
+        <MenuIcon
+          scrolled={scrolled}
+          onClick={() => setMenuOpen((prev) => !prev)}
+        />
       </nav>
+
+      {menuOpen && (
+        <DropDown
+          menuItems={menuItems}
+          scrolled={scrolled}
+          onIconClick={() => setMenuOpen(false)}
+        />
+      )}
     </header>
   );
 }
