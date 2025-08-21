@@ -5,23 +5,29 @@ import { useEffect, useRef } from 'react';
 interface DropDownProps {
   menuItems: MenuItemProps[];
   scrolled: boolean;
-  onIconClick: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export default function DropDown({
   menuItems,
   scrolled,
-  onIconClick,
+  isOpen,
+  onClose,
 }: DropDownProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // 외부 클릭 감지
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        onIconClick();
+      const target = event.target as HTMLElement;
+
+      if (target.closest('button[aria-label="Toggle menu"]')) return;
+
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
+        onClose();
       }
     };
 
@@ -29,7 +35,9 @@ export default function DropDown({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [onIconClick]);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
 
   return (
     <div
@@ -43,7 +51,7 @@ export default function DropDown({
           <li key={item.href} className='w-full'>
             <Link
               href={item.href}
-              onClick={onIconClick}
+              onClick={onClose}
               className={`block w-full px-4 py-2 text-center ${
                 scrolled ? 'text-black' : 'text-white'
               } hover:text-accent transition-colors duration-300`}
