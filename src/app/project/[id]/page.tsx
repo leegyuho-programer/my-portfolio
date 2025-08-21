@@ -35,7 +35,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     description: project.description,
     url: `${BASE_URL}/project/${project.id}`,
     image: `${BASE_URL}${project.imageSrc}`,
-    datePublished: project.period?.split('~')[0]?.trim(),
+    datePublished: Array.isArray(project.period)
+      ? project.period[0]?.split('~')[0]?.trim()
+      : project.period?.split('~')[0]?.trim(),
     applicationCategory: 'WebApplication',
     operatingSystem: 'Web',
     author: { '@type': 'Person', name: '이규호' },

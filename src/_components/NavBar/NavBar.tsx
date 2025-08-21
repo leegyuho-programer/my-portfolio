@@ -78,7 +78,8 @@ export default function NavBar({ menuItems }: NavBarProps) {
         <DropDown
           menuItems={menuItems}
           scrolled={scrolled}
-          onIconClick={() => setMenuOpen(false)}
+          isOpen={menuOpen}
+          onClose={() => setMenuOpen(false)}
         />
       )}
     </header>

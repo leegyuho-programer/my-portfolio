@@ -65,7 +65,7 @@ export default function ProjectDetailContent({
             </p>
           </div>
         )}
-        <div className='grid md:grid-cols-2 grid-cols-1 gap-5 mx-auto w-fit'>
+        <div className='grid md:grid-cols-2 grid-cols-1 gap-5 mx-auto mt-5 w-fit'>
           <Information
             svgSrc='/icons/GitHubIcon.svg'
             alt='GitHub'

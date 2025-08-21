@@ -36,7 +36,7 @@ export interface ProjectProps {
   imageSrc: string; // 카드 이미지
   tags: string[]; // 카드에 표시될 태그
   // --- 모달에 표시될 상세 정보 ---
-  period: string; // 진행 기간
+  period: string | string[]; // 진행 기간
   serviceDescription: string; // 서비스 상세 소개
   projectType: ProjectType; // 개인/팀 여부
   developmentMembers: string; // 개발 인원
@@ -58,8 +58,10 @@ export const projectData: ProjectProps[] = [
       'Wikied는 위키 페이지를 사용자 정의로 생성하고 편집할 수 있는 플랫폼입니다.',
     imageSrc: '/Images/WikiedImage.png',
     tags: ['개인', '반응형'],
-    period:
-      '기간: 2024.05 ~ 2024.07 (초기 개발) / 추가 작업 및 리팩토링: 2024.08 ~ 2025.03',
+    period: [
+      '기간: 2024.05 ~ 2024.07 (초기 개발)',
+      '추가 작업 및 리팩토링: 2024.08 ~ 2025.03',
+    ],
     serviceDescription:
       '**Wikied**는 사용자들이 **자유롭게 인물에 대한 문서를 생성하고 편집**할 수 있는 플랫폼입니다. 생성한 위키 페이지의 링크를 복사하여 친구들과 공유할 수 있으며, 그들이 함께 작성하도록 초대할 수 있습니다. 또한, 자유게시판에서 글을 작성할 수 있으며, 많은 좋아요를 받은 글은 베스트 게시글에 오를 수 있습니다.',
     projectType: 'Single',
@@ -279,7 +281,7 @@ export const projectData: ProjectProps[] = [
     description:
       '사용자 경험과 성능 최적화에 집중하는 프론트엔드 개발자 이규호의 포트폴리오입니다.',
     imageSrc: '/Images/MyPortfolioImage.png',
-    tags: ['개인'],
+    tags: ['개인', '반응형'],
     period: '2025.07 ~ 2024.08',
     serviceDescription:
       'MyPortfolio는 제가 프론트엔드 개발자로서 쌓아온 **기술 역량과 프로젝트 성과**를 한눈에 보여주기 위해 제작되었습니다. 각 프로젝트는 사용된 **기술 스택, 구현 기능, 그리고 해결했던 문제**를 구체적으로 담고 있습니다. **GitHub 저장소와 배포 링크**를 통해 제 코딩 스타일과 결과물을 직접 확인할 수 있으며, 도메인이 만료된 프로젝트는 **데모 영상**을 통해 실제 동작을 확인하실 수 있습니다. 사용자(방문자)가 제 개발 스타일을 쉽게 파악하고, 포트폴리오를 통해 저의 잠재력을 느낄 수 있도록 **사용자 경험(UX)**에 집중했습니다.',
