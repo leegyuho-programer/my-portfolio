@@ -73,9 +73,6 @@ export default function Modal({
             <CloseIconButton onClick={onClose} />
           </div>
           <h3 className='lg:text-2xl text-xl font-bold'>{title}</h3>
-          {/* <p className='md:text-sm text-xs px-[10px]'>
-            {period}
-          </p> */}
           {Array.isArray(period) ? (
             period.map((line, idx) => (
               <p key={idx} className='md:text-sm text-xs px-[10px]'>
