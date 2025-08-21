@@ -41,7 +41,7 @@ export default function ProjectSectionClient({
 
   return (
     <>
-      <div className='grid grid-cols-3 gap-8 py-8 mx-auto'>
+      <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 py-8 mx-auto'>
         {filteredProjects.map((project) => (
           <Card
             key={project.id}

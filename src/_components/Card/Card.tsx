@@ -52,7 +52,7 @@ interface CardContentProps {
 Card.Content = function CardContent({ title, description }: CardContentProps) {
   return (
     <div className='p-6'>
-      <h3 className='text-custom-lg font-bold text-white'>{title}</h3>
+      <h3 className='text-lg font-bold text-white'>{title}</h3>
       <p className='text-xs font-normal text-[#A6A6A6] py-4'>{description}</p>
     </div>
   );
@@ -88,7 +88,7 @@ Card.Hover = function CardHover({ title, text, onOpenDetail }: CardHoverProps) {
     <div
       className={`absolute inset-0 ${flexColCenter} transition-opacity gap-10 duration-300 opacity-0 group-hover:opacity-100 z-10 bg-[#32323] bg-opacity-90`}
     >
-      <h3 className='text-custom-xl font-bold text-white'>{title}</h3>
+      <h3 className='text-xl font-bold text-white'>{title}</h3>
       <button
         onClick={onOpenDetail}
         className='py-3 px-8 border-[1px] cursor-pointer border-solid border-white text-sm text-white rounded-lg transition hover:bg-white hover:text-text-main' // text-mainBlack -> text-text-main (globals.css 참조)
