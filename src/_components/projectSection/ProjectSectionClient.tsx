@@ -47,6 +47,7 @@ export default function ProjectSectionClient({
             key={project.id}
             onMouseEnter={() => handlePrefetch(project.id)}
             onFocus={() => handlePrefetch(project.id)}
+            onOpenDetail={() => handleOpenModal(project)}
           >
             <Card.Hidden>
               <Card.Image

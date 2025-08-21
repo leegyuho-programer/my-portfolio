@@ -6,12 +6,19 @@ interface CardProps {
   children: ReactNode;
   onMouseEnter?: () => void;
   onFocus?: () => void;
+  onOpenDetail: () => void;
 }
-export default function Card({ children, onMouseEnter, onFocus }: CardProps) {
+export default function Card({
+  children,
+  onMouseEnter,
+  onFocus,
+  onOpenDetail,
+}: CardProps) {
   return (
     <div
       onMouseEnter={onMouseEnter}
       onFocus={onFocus}
+      onClick={onOpenDetail}
       className='group cursor-pointer relative rounded-lg max-w-[400px] w-full h-[410px] bg-lightGray overflow-hidden hover:shadow-black hover:shadow-2xl hover:translate-y-[-5px] hover:bg-[#32323]'
     >
       {children}
