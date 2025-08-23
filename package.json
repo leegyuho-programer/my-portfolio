@@ -29,6 +29,7 @@
     "@storybook/addon-docs": "^9.0.16",
     "@storybook/nextjs": "^9.0.16",
     "@storybook/test-runner": "^0.23.0",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
