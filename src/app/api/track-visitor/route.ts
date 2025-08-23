@@ -1,8 +1,9 @@
-import { supabase } from '@/lib/supabase/supabase';
+import { getSupabaseClient } from '@/lib/supabase/supabase';
 import { NextResponse } from 'next/server';
 
 export async function POST() {
   try {
+    const supabase = getSupabaseClient();
     const today = new Date().toISOString().split('T')[0];
 
     // 오늘 날짜의 방문 기록이 있는지 확인

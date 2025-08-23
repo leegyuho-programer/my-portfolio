@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase/supabase';
+import { getSupabaseClient } from '@/lib/supabase/supabase';
 
 export async function GET() {
   try {
+    const supabase = getSupabaseClient();
     const today = new Date().toISOString().split('T')[0];
 
     // 오늘 방문자 수 조회
