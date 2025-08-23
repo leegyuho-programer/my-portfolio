@@ -4,6 +4,7 @@ import LocalFont from 'next/font/local';
 import { ReactNode } from 'react';
 import { getSiteMetadata } from '@/lib/metadata/metadata';
 import Script from 'next/script';
+import VisitorCounter from '@/_components/VisitorCounter/VisitorCounter';
 
 // Noto Sans KR 폰트 정의
 // public 폴더를 기준으로 상대 경로를 지정합니다.
@@ -74,7 +75,10 @@ export const metadata: Metadata = getSiteMetadata();
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='ko' className={`${notoSansKr.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <VisitorCounter />
+      </body>
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
