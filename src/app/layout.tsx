@@ -75,7 +75,10 @@ export const metadata: Metadata = getSiteMetadata();
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='ko' className={`${notoSansKr.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <VisitorCounter />
+      </body>
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
@@ -88,7 +91,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
         `}
       </Script>
-      <VisitorCounter />
     </html>
   );
 }
