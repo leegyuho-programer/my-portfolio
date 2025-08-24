@@ -70,7 +70,13 @@ const notoSansKr = LocalFont({
   variable: '--font-noto-sans-kr', // Tailwind CSS에서 사용할 CSS 변수 이름
 });
 
-export const metadata: Metadata = getSiteMetadata();
+const BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_URL || 'https://leegyuho-portfolio.vercel.app';
+
+export const metadata: Metadata = {
+  ...getSiteMetadata(),
+  metadataBase: new URL(BASE_URL),
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
