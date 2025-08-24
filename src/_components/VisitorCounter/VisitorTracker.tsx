@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import Cookies from 'js-cookie';
-import getTodayKSTDate from '@/app/api/track-visitor/route';
+import { getTodayKSTDate } from '@/utils/date';
 
 export default function VisitorTracker() {
   useEffect(() => {
