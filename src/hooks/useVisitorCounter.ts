@@ -13,7 +13,7 @@ export const useVisitorCounter = () => {
     today: 0,
     total: 0,
   });
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const trackVisitor = async () => {
@@ -46,12 +46,13 @@ export const useVisitorCounter = () => {
       } catch (error) {
         console.error('방문자 추적 오류:', error);
       } finally {
-        setIsLoading(false);
+        // setIsLoading(false);
       }
     };
 
     trackVisitor();
   }, []);
 
-  return { visitorCount, isLoading };
+  // return { visitorCount, isLoading };
+  return { visitorCount };
 };

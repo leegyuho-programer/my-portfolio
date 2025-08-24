@@ -1,9 +1,10 @@
-import { flexCenter } from '@/app/styles';
+import { flexColCenter } from '@/app/styles';
 import PostCard from '../PostCard/PostCard';
+import VisitorCounter from '../VisitorCounter/VisitorCounter';
 
 export function ContactSection() {
   return (
-    <div className={`${flexCenter} min-h-screen bg-gray-100 p-4`}>
+    <div className={`${flexColCenter} min-h-screen bg-gray-100 gap-20 p-4`}>
       <div className='max-w-4xl w-full text-center'>
         <div className='mb-12'>
           <h1
@@ -16,6 +17,7 @@ export function ContactSection() {
         </div>
         <PostCard />
       </div>
+      <VisitorCounter />
     </div>
   );
 }
