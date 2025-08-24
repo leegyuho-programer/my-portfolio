@@ -18,7 +18,7 @@ export default function Information({
   isModal,
 }: InformationProps) {
   const handleClick: React.MouseEventHandler = () => {
-    window.open(link, '_blank');
+    if (link) window.open(link, '_blank');
   };
 
   const isArchiving = !!link;
@@ -50,8 +50,8 @@ export default function Information({
     ? 'lg:text-md text-sm font-bold'
     : 'lg:text-sm text-xs font-bold';
 
-  return (
-    <button className={containerStyle} onClick={handleClick}>
+  const Content = (
+    <>
       <div className={`relative ${imageSize}`}>
         <Image src={svgSrc} alt={`${alt} logo`} fill />
       </div>
@@ -61,6 +61,14 @@ export default function Information({
           <div className='lg:text-sm text-xxs font-regular'>{content}</div>
         )}
       </div>
+    </>
+  );
+
+  return isArchiving ? (
+    <button className={containerStyle} onClick={handleClick}>
+      {Content}
     </button>
+  ) : (
+    <div className={containerStyle}>{Content}</div>
   );
 }

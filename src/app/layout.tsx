@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import LocalFont from 'next/font/local';
-import { ReactNode } from 'react';
 import { getSiteMetadata } from '@/lib/metadata/metadata';
+import type { Metadata } from 'next';
+import LocalFont from 'next/font/local';
 import Script from 'next/script';
-import VisitorCounter from '@/_components/VisitorCounter/VisitorCounter';
+import { ReactNode } from 'react';
+import './globals.css';
+import VisitorTracker from '@/_components/VisitorCounter/VisitorTracker';
 
 // Noto Sans KR 폰트 정의
 // public 폴더를 기준으로 상대 경로를 지정합니다.
@@ -70,14 +70,20 @@ const notoSansKr = LocalFont({
   variable: '--font-noto-sans-kr', // Tailwind CSS에서 사용할 CSS 변수 이름
 });
 
-export const metadata: Metadata = getSiteMetadata();
+const BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_URL || 'https://leegyuho-portfolio.vercel.app';
+
+export const metadata: Metadata = {
+  ...getSiteMetadata(),
+  metadataBase: new URL(BASE_URL),
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='ko' className={`${notoSansKr.variable}`}>
       <body>
         {children}
-        <VisitorCounter />
+        <VisitorTracker />
       </body>
       <Script
         async

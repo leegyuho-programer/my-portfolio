@@ -11,7 +11,7 @@ export function getSupabaseClient(): SupabaseClient {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
-    throw new Error('Supabase environment variables are not configured');
+    throw new Error('Supabase 환경변수 없음');
   }
 
   supabaseInstance = createClient(supabaseUrl, supabaseKey);
