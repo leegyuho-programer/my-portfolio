@@ -2,16 +2,21 @@
 
 import { useEffect } from 'react';
 import Cookies from 'js-cookie';
+import getTodayKSTDate from '@/app/api/track-visitor/route';
 
 export default function VisitorTracker() {
   useEffect(() => {
     const trackVisitor = async () => {
-      const today = new Date().toISOString().split('T')[0];
+      const today = getTodayKSTDate();
       const lastVisitDate = Cookies.get('lastVisit');
 
       if (!lastVisitDate || lastVisitDate !== today) {
-        await fetch('/api/track-visitor', { method: 'POST' });
-        Cookies.set('lastVisit', today, { expires: 1 });
+        try {
+          await fetch('/api/track-visitor', { method: 'POST' });
+          Cookies.set('lastVisit', today, { expires: 1 }); // 1일 후 만료
+        } catch (err) {
+          console.error('Failed to track visitor:', err);
+        }
       }
     };
 

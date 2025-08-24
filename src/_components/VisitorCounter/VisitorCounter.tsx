@@ -1,23 +1,9 @@
-// 'use client';
-
-// import { useVisitorCounter } from '@/hooks/useVisitorCounter';
-
-// export default function VisitorCounter() {
-//   const { visitorCount } = useVisitorCounter();
-
-//   return (
-//     <div className='w-full py-4 text-center md:text-sm text-xs text-gray-400'>
-//       © 2025 GYUHO LEE — Visitors: {visitorCount.today.toLocaleString()} /
-//       {visitorCount.total.toLocaleString()}
-//     </div>
-//   );
-// }
-
+import getTodayKSTDate from '@/app/api/track-visitor/route';
 import { getSupabaseClient } from '@/lib/supabase/supabase';
 
 async function getVisitorCount() {
   const supabase = getSupabaseClient();
-  const today = new Date().toISOString().split('T')[0];
+  const today = getTodayKSTDate();
 
   // 오늘 방문자 수 조회
   const { data: todayData } = await supabase

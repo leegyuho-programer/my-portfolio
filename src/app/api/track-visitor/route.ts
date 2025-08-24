@@ -1,10 +1,18 @@
 import { getSupabaseClient } from '@/lib/supabase/supabase';
 import { NextResponse } from 'next/server';
 
+// 한국 시간(KST, UTC+9) 기준 오늘 날짜 반환 (YYYY-MM-DD)
+export default function getTodayKSTDate(): string {
+  const now = new Date();
+  // UTC → KST (9시간 더하기)
+  const kst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+  return kst.toISOString().split('T')[0];
+}
+
 export async function POST() {
   try {
     const supabase = getSupabaseClient();
-    const today = new Date().toISOString().split('T')[0];
+    const today = getTodayKSTDate();
 
     // 오늘 날짜의 방문 기록이 있는지 확인
     const { data: existingRecord } = await supabase
