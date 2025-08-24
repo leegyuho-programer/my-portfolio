@@ -1,6 +1,9 @@
 import { getSupabaseClient } from '@/lib/supabase/supabase';
 import { getTodayKSTDate } from '@/utils/date';
 
+// 페이지 새로고침 시마다 새로운 데이터 가져오기
+export const dynamic = 'force-dynamic';
+
 async function getVisitorCount() {
   try {
     // 환경변수가 없으면 기본값 반환
