@@ -353,6 +353,16 @@ export const projectData: ProjectProps[] = [
         ],
       },
       {
+        title: 'Supabase 기반 방문자 수 카운터 구현',
+        overview:
+          'Google Analytics 같은 외부 분석 도구를 사용하지 않고, Supabase를 활용해 **방문자 수를 자체적으로 집계·표시**할 수 있는 기능을 구현했습니다.',
+        contributions: [
+          'Supabase DB와 연동하여 **하루 1회 단위 사용자 방문 수를 기록**하는 로직 구축',
+          'App Router 서버 컴포넌트 기반으로 데이터를 초기 렌더링 단계에서 가져와 **빠른 응답 속도와 UX 개선**',
+          '외부 API/서비스 의존도를 낮추고 **운영 효율성과 서비스 독립성 강화**',
+        ],
+      },
+      {
         title: 'EmailJS 연동을 통한 피드백 폼 구현',
         overview:
           '방문자가 포트폴리오에 대해 피드백을 남길 수 있도록 **서버리스** 메일 전송 기능 구현했습니다.',
