@@ -3,6 +3,7 @@ import { getTodayKSTDate } from '@/utils/date';
 
 // 페이지 새로고침 시마다 새로운 데이터 가져오기
 export const dynamic = 'force-dynamic';
+export const revalidate = 0; // 캐싱 완전 비활성화
 
 async function getVisitorCount() {
   try {
