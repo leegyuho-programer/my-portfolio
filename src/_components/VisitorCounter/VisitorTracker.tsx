@@ -1,27 +1,19 @@
-'use client';
+// 'use client';
 
-import { useEffect } from 'react';
-import Cookies from 'js-cookie';
-import { getTodayKSTDate } from '@/utils/date';
+// import { useEffect } from 'react';
 
-export default function VisitorTracker() {
-  useEffect(() => {
-    const trackVisitor = async () => {
-      const today = getTodayKSTDate();
-      const lastVisitDate = Cookies.get('lastVisit');
+// export default function VisitorTracker() {
+//   useEffect(() => {
+//     const trackVisitor = async () => {
+//       try {
+//         await fetch('/api/track-visitor', { method: 'POST' });
+//       } catch (err) {
+//         console.error('Failed to track visitor:', err);
+//       }
+//     };
 
-      if (!lastVisitDate || lastVisitDate !== today) {
-        try {
-          await fetch('/api/track-visitor', { method: 'POST' });
-          Cookies.set('lastVisit', today, { expires: 1 }); // 1일 후 만료
-        } catch (err) {
-          console.error('Failed to track visitor:', err);
-        }
-      }
-    };
+//     trackVisitor();
+//   }, []);
 
-    trackVisitor();
-  }, []);
-
-  return null;
-}
+//   return null;
+// }
