@@ -81,17 +81,24 @@ function createResponseWithCookie(today: string) {
 
   response.cookies.set(COOKIE_NAME, today, {
     path: '/',
-    expires: getTomorrowMidnight(),
+    expires: getTomorrowMidnightKST(),
     httpOnly: true,
   });
 
   return response;
 }
 
-// 다음날 자정 시간 계산
-function getTomorrowMidnight(): Date {
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  tomorrow.setHours(0, 0, 0, 0);
-  return tomorrow;
+// KST 자정 기준으로 쿠키 만료 시간 계산
+function getTomorrowMidnightKST(): Date {
+  const now = new Date();
+
+  // 현재 시간 UTC → KST(+9시간) 변환
+  const kstNow = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+
+  // KST 기준 내일 자정으로 설정
+  kstNow.setDate(kstNow.getDate() + 1);
+  kstNow.setHours(0, 0, 0, 0);
+
+  // 다시 UTC로 변환해서 반환 (쿠키는 UTC 만료 시간만 받음)
+  return new Date(kstNow.getTime() - 9 * 60 * 60 * 1000);
 }
