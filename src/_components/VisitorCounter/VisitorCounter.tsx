@@ -20,7 +20,7 @@ export default function VisitorCounter() {
         await fetch('/api/track-visitor', { method: 'POST' });
 
         // 2. 그 다음 최신 방문자 수 조회 (GET)
-        const res = await fetch('/api/visitor-count', { cache: 'no-store' });
+        const res = await fetch('/api/visitor-count', { cache: 'force-cache' });
         if (!res.ok) throw new Error('visitor count fetch 실패');
         const data: VisitorCount = await res.json();
 
