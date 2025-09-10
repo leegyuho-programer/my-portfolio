@@ -14,8 +14,12 @@ export default function VisitorCounter() {
   });
 
   useEffect(() => {
-    const fetchVisitorCount = async () => {
+    const trackAndFetchVisitorCount = async () => {
       try {
+        // 1. 먼저 방문 추적 (POST)
+        await fetch('/api/track-visitor', { method: 'POST' });
+
+        // 2. 그 다음 최신 방문자 수 조회 (GET)
         const res = await fetch('/api/visitor-count', { cache: 'no-store' });
         if (!res.ok) throw new Error('visitor count fetch 실패');
         const data: VisitorCount = await res.json();
@@ -43,11 +47,22 @@ export default function VisitorCounter() {
         if (data.today > 0) animateFromOne(data.today, 'today');
         if (data.total > 0) animateFromOne(data.total, 'total');
       } catch (err) {
-        console.error(err);
+        console.error('방문자 추적 및 조회 실패:', err);
+
+        // 에러 발생시 방문자 수만이라도 조회 시도
+        try {
+          const res = await fetch('/api/visitor-count', { cache: 'no-store' });
+          if (res.ok) {
+            const data: VisitorCount = await res.json();
+            setDisplayCount(data);
+          }
+        } catch (fallbackErr) {
+          console.error('방문자 수 조회 실패:', fallbackErr);
+        }
       }
     };
 
-    fetchVisitorCount();
+    trackAndFetchVisitorCount();
   }, []);
 
   const formattedNumbers = useMemo(
