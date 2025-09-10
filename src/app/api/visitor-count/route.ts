@@ -21,10 +21,19 @@ export async function GET() {
       .eq('id', 1)
       .single();
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       today: todayData?.visitor_count || 0,
       total: totalData?.total_count || 0,
     });
+
+    // Vercel CDN 캐시 적용
+    response.headers.set(
+      'Cache-Control',
+      // CDN에 캐시 30초 유지, 30초동안 캐시된 데이터 사용하면서 백그라운드에서 갱신
+      's-maxage=30, stale-while-revalidate=30'
+    );
+
+    return response;
   } catch (error) {
     console.error('방문자 수 조회 오류:', error);
     return NextResponse.json({ today: 0, total: 0 }, { status: 500 });
