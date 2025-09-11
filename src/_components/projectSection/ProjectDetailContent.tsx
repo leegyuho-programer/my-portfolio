@@ -194,6 +194,30 @@ export default function ProjectDetailContent({
                   {renderBoldText(item.learnings)}
                 </p>
               </div>
+
+              <div>
+                <ul className='md:text-sm text-xs mt-5 text-gray-800'>
+                  {item.link?.map((l, idx) => {
+                    const isUrl = l.startsWith('http');
+                    return (
+                      <li key={idx}>
+                        {isUrl ? (
+                          <a
+                            href={l}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='text-accent underline'
+                          >
+                            {l}
+                          </a>
+                        ) : (
+                          renderBoldText(l)
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
