@@ -26,6 +26,7 @@ export interface TroubleShootingProps {
   };
   results: string[]; // 결과 및 성능 개선
   learnings: string; // 해당 경험을 통해 알게된 점
+  link?: string[];
 }
 
 // 단일 프로젝트 데이터의 타입 정의
@@ -54,8 +55,7 @@ export const projectData: ProjectProps[] = [
   {
     id: 'wikied',
     title: 'Wikied',
-    description:
-      'Wikied는 위키 페이지를 사용자 정의로 생성하고 편집할 수 있는 플랫폼입니다.',
+    description: '위키 페이지를 사용자 정의로 생성하고 편집할 수 있는 플랫폼',
     imageSrc: '/Images/WikiedImage.png',
     tags: ['개인', '반응형'],
     period: [
@@ -279,10 +279,10 @@ export const projectData: ProjectProps[] = [
     id: 'my-portfolio',
     title: 'MyPortfolio',
     description:
-      '사용자 경험과 성능 최적화에 집중하는 프론트엔드 개발자 이규호의 포트폴리오입니다.',
+      '사용자 경험과 성능 최적화에 집중하는 프론트엔드 개발자 이규호의 포트폴리오',
     imageSrc: '/Images/MyPortfolioImage.png',
     tags: ['개인', '반응형'],
-    period: '2025.07 ~ 2024.08',
+    period: '2025.07 ~ 2025.08',
     serviceDescription:
       'MyPortfolio는 제가 프론트엔드 개발자로서 쌓아온 **기술 역량과 프로젝트 성과**를 한눈에 보여주기 위해 제작되었습니다. 각 프로젝트는 사용된 **기술 스택, 구현 기능, 그리고 해결했던 문제**를 구체적으로 담고 있습니다. **GitHub 저장소와 배포 링크**를 통해 제 코딩 스타일과 결과물을 직접 확인할 수 있으며, 도메인이 만료된 프로젝트는 **데모 영상**을 통해 실제 동작을 확인하실 수 있습니다. 사용자(방문자)가 제 개발 스타일을 쉽게 파악하고, 포트폴리오를 통해 저의 잠재력을 느낄 수 있도록 **사용자 경험(UX)**에 집중했습니다.',
     projectType: 'Single',
@@ -467,7 +467,7 @@ export const projectData: ProjectProps[] = [
     id: 'arttalktalk',
     title: 'ArtTalkTalk',
     description:
-      '신진 작가의 작품을 자유롭게 공유하고 소통할 수 있는 온라인 아트 커뮤니티 플랫폼입니다.',
+      '신진 작가의 작품을 자유롭게 공유하고 소통할 수 있는 온라인 아트 커뮤니티 플랫폼',
     imageSrc: '/Images/ArtTalkTalkImage.png',
     tags: ['팀', '반응형'],
     period: '기간: 2024.01 ~ 2024.02',
@@ -619,10 +619,6 @@ export const projectData: ProjectProps[] = [
                   description:
                     'GitHub Discussions 기능을 활용해 비동기적으로도 진행상황을 확인할 수 있도록 환경 구성',
                 },
-                {
-                  description:
-                    'https://github.com/ArtTalkTalk/ArtTalkTalk_frontend/discussions',
-                },
               ],
             },
           ],
@@ -634,6 +630,10 @@ export const projectData: ProjectProps[] = [
         ],
         learnings:
           '이 경험을 통해 **팀 간 소통의 중요성을 실감**했습니다. **코어타임을 활용한 실시간 피드백** 덕분에 의사결정이 신속하게 이루어졌고, **데일리 스크럼을 통해 개발 진행 상황을 명확하게 공유**하면서 협업의 효율성이 향상되었습니다. 이러한 경험을 바탕으로 **앞으로도 효과적인 협업 환경을 구축하는 데 집중**하고, **팀워크를 극대화할 수 있는 소통 방식을 지속적으로 적용**할 계획입니다.',
+        link: [
+          'GitHub의 Discussions를 이용하여 데일리 스크럼을 진행했습니다.',
+          'https://github.com/ArtTalkTalk/ArtTalkTalk_frontend/discussions',
+        ],
       },
     ],
   },
@@ -642,7 +642,7 @@ export const projectData: ProjectProps[] = [
   {
     id: 'taskytasky',
     title: 'TaskyTasky',
-    description: '일상의 업무를 효율적으로 계획할 수 있는 웹사이트입니다.',
+    description: '일상의 업무를 효율적으로 계획할 수 있는 플랫폼',
     imageSrc: '/Images/TaskyTaskyImage.png',
     tags: ['팀', '반응형'],
     period: '2023.12 ~ 2024.01',
