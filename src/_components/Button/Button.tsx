@@ -1,19 +1,28 @@
-import { flexCenter } from '@/app/styles';
-import Link from 'next/link';
-
 interface ButtonProps {
-  children: string;
+  children: React.ReactNode;
+  className: string;
+  isLoading?: boolean;
+  disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-export default function Button({ children }: ButtonProps) {
+export default function Button({
+  children,
+  className = '',
+  isLoading = false,
+  disabled,
+  onClick,
+  type,
+}: ButtonProps) {
   return (
-    <Link
-      role='button'
-      tabIndex={0}
-      href='#aboutMe'
-      className={`bg-accent hover:bg-blue-400 w-[130px] h-[50px] text-sm font-regular text-white rounded-primary-button ${flexCenter}`}
+    <button
+      type={type}
+      className={className}
+      disabled={disabled || isLoading}
+      onClick={onClick}
     >
-      {children}
-    </Link>
+      {isLoading ? '로딩중...' : children}
+    </button>
   );
 }
