@@ -15,6 +15,28 @@ const meta = {
       description: '버튼 text',
       defaultValue: 'Button',
     },
+    className: {
+      control: 'text',
+      description: '추가적인 Tailwind',
+    },
+    isLoading: {
+      control: 'boolean',
+      description: '로딩 상태일 경우 버튼 텍스트 대신 "로딩중..." 표시',
+    },
+    disabled: {
+      control: 'boolean',
+      description: '버튼 활성화 여부',
+    },
+    type: {
+      control: { type: 'radio' },
+      options: ['button', 'submit', 'reset'],
+      description: '버튼 타입',
+      defaultValue: 'button',
+    },
+    onClick: {
+      action: 'clicked',
+      description: '버튼 클릭 이벤트',
+    },
   },
 } satisfies Meta<typeof Button>;
 
@@ -23,6 +45,28 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: '더 알아보기 ↓',
+    children: '기본 버튼',
+    type: 'button',
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    children: '로딩 버튼',
+    isLoading: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    children: '비활성화 버튼',
+    disabled: true,
+  },
+};
+
+export const Submit: Story = {
+  args: {
+    children: '폼 제출',
+    type: 'submit',
   },
 };

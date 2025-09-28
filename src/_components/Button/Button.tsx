@@ -1,6 +1,6 @@
 interface ButtonProps {
   children: React.ReactNode;
-  className: string;
+  className?: string;
   isLoading?: boolean;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;

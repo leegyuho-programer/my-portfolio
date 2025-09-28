@@ -3,40 +3,28 @@ import Button from './Button';
 
 describe('Button 컴포넌트', () => {
   test('자식 요소가 올바르게 렌더링된다.', () => {
-    render(<Button className=''>클릭</Button>);
+    render(<Button>클릭</Button>);
 
     expect(screen.getByText('클릭')).toBeInTheDocument();
   });
 
   // 로딩 상태
   test('로딩 상태일 때 로딩 텍스트를 보여준다.', () => {
-    render(
-      <Button className='' isLoading={true}>
-        제출하기
-      </Button>
-    );
+    render(<Button isLoading={true}>제출하기</Button>);
 
     expect(screen.getByText('로딩중...')).toBeInTheDocument();
     expect(screen.queryByText('제출하기')).not.toBeInTheDocument();
   });
 
   test('로딩 상태일 때 버튼이 비활성화된다', () => {
-    render(
-      <Button className='' isLoading={true}>
-        버튼
-      </Button>
-    );
+    render(<Button isLoading={true}>버튼</Button>);
 
     expect(screen.getByRole('button')).toBeDisabled();
   });
 
   // 비활성화 상태
   test('disabled가 true일 때 버튼이 비활성화 된다.', () => {
-    render(
-      <Button className='' disabled={true}>
-        버튼
-      </Button>
-    );
+    render(<Button disabled={true}>버튼</Button>);
 
     expect(screen.getByRole('button')).toBeDisabled();
   });
@@ -45,11 +33,7 @@ describe('Button 컴포넌트', () => {
   test('버튼 클릭 시 onClick 핸들러가 호출된다.', () => {
     const mockOnClick = jest.fn();
 
-    render(
-      <Button className='' onClick={mockOnClick}>
-        클릭
-      </Button>
-    );
+    render(<Button onClick={mockOnClick}>클릭</Button>);
     fireEvent.click(screen.getByRole('button'));
 
     expect(mockOnClick).toHaveBeenCalledTimes(1);
@@ -59,7 +43,7 @@ describe('Button 컴포넌트', () => {
     const mockOnClick = jest.fn();
 
     render(
-      <Button className='' disabled={true} onClick={mockOnClick}>
+      <Button disabled={true} onClick={mockOnClick}>
         클릭
       </Button>
     );
@@ -73,7 +57,7 @@ describe('Button 컴포넌트', () => {
     const mockOnClick = jest.fn();
 
     render(
-      <Button className='' isLoading={true} onClick={mockOnClick}>
+      <Button isLoading={true} onClick={mockOnClick}>
         클릭
       </Button>
     );
@@ -89,9 +73,7 @@ describe('Button 컴포넌트', () => {
 
     render(
       <form onSubmit={mockSubmit}>
-        <Button className='' type='submit'>
-          제출
-        </Button>
+        <Button type='submit'>제출</Button>
       </form>
     );
 
