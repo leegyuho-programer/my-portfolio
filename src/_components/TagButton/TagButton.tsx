@@ -1,3 +1,5 @@
+import Button from '../Button/Button';
+
 interface TagButtonProps {
   children: string;
   isChecked: boolean;
@@ -14,11 +16,11 @@ export default function TagButton({
     : 'bg-lightGray text-white hover:bg-[#4e4e4e]';
 
   return (
-    <button
-      className={`text-sm font-bold rounded-primary-button p-5 py-3 cursor-pointer ${buttonStyle}`}
+    <Button
       onClick={onClick}
+      className={`text-sm font-bold rounded-primary-button p-5 py-3 cursor-pointer ${buttonStyle}`}
     >
       {children}
-    </button>
+    </Button>
   );
 }

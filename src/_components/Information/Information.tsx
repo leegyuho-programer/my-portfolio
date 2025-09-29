@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Button from '../Button/Button';
 
 export interface InformationProps {
   svgSrc: string;
@@ -65,9 +66,9 @@ export default function Information({
   );
 
   return isArchiving ? (
-    <button className={containerStyle} onClick={handleClick}>
+    <Button className={containerStyle} onClick={handleClick}>
       {Content}
-    </button>
+    </Button>
   ) : (
     <div className={containerStyle}>{Content}</div>
   );

@@ -2,6 +2,7 @@
 
 import emailjs from '@emailjs/browser';
 import { useState } from 'react';
+import Button from '../Button/Button';
 import Input from '../Input/Input';
 import { flexColCenter } from './../../app/styles';
 
@@ -101,19 +102,20 @@ export default function PostCard() {
         isError={!formData.message.trim()}
         onChange={handleChange}
       />
-      <button
+      <Button
         type='submit'
+        isLoading={isLoading}
         disabled={messageError}
         className={`mt-4 text-white py-3 px-4 text-sm font-semibold w-full transition rounded-sm
-            ${
-              messageError || isLoading
-                ? 'bg-gray-300 cursor-not-allowed'
-                : 'bg-accent hover:bg-[#002f80] cursor-pointer'
-            }
-          `}
+    ${
+      messageError || isLoading
+        ? 'bg-gray-300 cursor-not-allowed'
+        : 'bg-accent hover:bg-[#002f80] cursor-pointer'
+    }
+  `}
       >
-        {isLoading ? '전송중...' : '피드백 보내기'}
-      </button>
+        피드백 보내기
+      </Button>
     </form>
   );
 }

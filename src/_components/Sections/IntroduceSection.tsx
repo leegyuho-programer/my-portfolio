@@ -1,5 +1,5 @@
-import Button from '@/_components/Button/Button';
-import { flexColCenter, sectionStyle } from '@/app/styles';
+import { flexCenter, flexColCenter, sectionStyle } from '@/app/styles';
+import Link from 'next/link';
 
 export function IntroduceSection() {
   return (
@@ -50,7 +50,12 @@ export function IntroduceSection() {
         </div>
 
         <div className='mt-20'>
-          <Button>더 알아보기 ↓</Button>
+          <Link
+            href='#aboutMe'
+            className={`bg-accent hover:bg-blue-400 w-[130px] h-[50px] text-sm font-regular text-white rounded-primary-button ${flexCenter}`}
+          >
+            더 알아보기 ↓
+          </Link>
         </div>
       </div>
     </section>
