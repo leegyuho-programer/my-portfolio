@@ -3,7 +3,7 @@
 import Card from '@/_components/Card/Card';
 import { projectData, ProjectProps } from '@/_data/projectData';
 import { useRouter } from 'next/navigation';
-import { useEffect, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 
 interface ProjectSectionClientProps {
   selectedTag: 'All' | 'Team' | 'Single';
@@ -23,9 +23,12 @@ export default function ProjectSectionClient({
   }, [selectedTag]);
 
   // 개별 프로젝트 프리페치 함수
-  const handlePrefetch = (projectId: string) => {
-    Promise.resolve(router.prefetch(`/project/${projectId}`)).catch(() => {});
-  };
+  const handlePrefetch = useCallback(
+    (projectId: string) => {
+      Promise.resolve(router.prefetch(`/project/${projectId}`)).catch(() => {});
+    },
+    [router]
+  );
 
   const handleOpenModal = (project: ProjectProps) => {
     router.push(`/project/${project.id}`);
@@ -62,7 +65,7 @@ export default function ProjectSectionClient({
     return () => {
       observerRef.current?.disconnect();
     };
-  }, [filteredProjects]);
+  }, [filteredProjects, handlePrefetch]);
 
   return (
     <>
