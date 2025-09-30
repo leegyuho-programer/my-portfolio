@@ -70,7 +70,8 @@ export default function ProjectSectionClient({
         {filteredProjects.map((project) => (
           <Card
             key={project.id}
-            data-project-id={project.id} // observer에서 식별용
+            data-project-id={project.id} // ✅ IntersectionObserver 용
+            data-testid={`card-${project.id}`} // ✅ 테스트용
             onMouseEnter={() => handlePrefetch(project.id)} // 보조 전략
             onFocus={() => handlePrefetch(project.id)} // 보조 전략
             onOpenDetail={() => handleOpenModal(project)}
