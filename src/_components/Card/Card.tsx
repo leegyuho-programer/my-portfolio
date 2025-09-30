@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { flexColCenter } from './../../app/styles';
-import Button from '../Button/Button';
 
 interface CardProps {
   children: ReactNode;
@@ -14,12 +13,14 @@ export default function Card({
   onMouseEnter,
   onFocus,
   onOpenDetail,
+  ...rest
 }: CardProps) {
   return (
     <div
       onMouseEnter={onMouseEnter}
       onFocus={onFocus}
       onClick={onOpenDetail}
+      {...rest} // data-project-id 전달됨
       className='group cursor-pointer relative rounded-lg max-w-[400px] w-full h-[410px] bg-lightGray overflow-hidden hover:shadow-black hover:shadow-2xl hover:translate-y-[-5px] hover:bg-[#32323]'
     >
       {children}
@@ -97,12 +98,12 @@ Card.Hover = function CardHover({ title, text, onOpenDetail }: CardHoverProps) {
       className={`absolute inset-0 ${flexColCenter} transition-opacity gap-10 duration-300 opacity-0 group-hover:opacity-100 z-10 bg-[#32323] bg-opacity-90`}
     >
       <h3 className='text-xl font-bold text-white'>{title}</h3>
-      <Button
+      <button
         onClick={onOpenDetail}
-        className='py-3 px-8 border-[1px] cursor-pointer border-solid border-white text-sm text-white rounded-lg transition hover:bg-white hover:text-text-main'
+        className='py-3 px-8 border-[1px] cursor-pointer border-solid border-white text-sm text-white rounded-lg transition hover:bg-white hover:text-text-main' // text-mainBlack -> text-text-main (globals.css 참조)
       >
         {text}
-      </Button>
+      </button>
     </div>
   );
 };

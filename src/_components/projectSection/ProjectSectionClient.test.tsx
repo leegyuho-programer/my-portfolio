@@ -3,6 +3,16 @@ import ProjectSectionClient from './ProjectSectionClient';
 import { projectData } from '@/_data/projectData';
 import { mockPush, mockPrefetch } from '@/__mocks__/nextNavigationMock';
 
+// IntersectionObserver mock (JSDOM에는 없음)
+beforeAll(() => {
+  class MockIntersectionObserver {
+    observe = jest.fn();
+    unobserve = jest.fn();
+    disconnect = jest.fn();
+  }
+  (window as any).IntersectionObserver = MockIntersectionObserver;
+});
+
 describe('ProjectSectionClient (통합 테스트)', () => {
   beforeEach(() => {
     jest.clearAllMocks();
@@ -69,11 +79,9 @@ describe('ProjectSectionClient (통합 테스트)', () => {
     render(<ProjectSectionClient selectedTag='All' />);
     const targetProject = projectData[0];
 
-    // 제목을 기준으로 카드 가져오기
-    const headings = await screen.findAllByRole('heading', {
-      name: targetProject.title,
-    });
-    fireEvent.mouseEnter(headings[0]); // 첫 번째 heading 기준으로 hover
+    // data-testid로 Card 요소 가져오기
+    const card = await screen.findByTestId(`card-${targetProject.id}`);
+    fireEvent.mouseEnter(card);
 
     expect(mockPrefetch).toHaveBeenCalledWith(`/project/${targetProject.id}`);
   });
