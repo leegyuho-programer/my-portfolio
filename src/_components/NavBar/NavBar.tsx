@@ -80,6 +80,7 @@ export default function NavBar({ menuItems }: NavBarProps) {
           scrolled={scrolled}
           isOpen={menuOpen}
           onClose={() => setMenuOpen(false)}
+          data-testid='dropdown'
         />
       )}
     </header>

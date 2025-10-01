@@ -7,6 +7,7 @@ interface DropDownProps {
   scrolled: boolean;
   isOpen: boolean;
   onClose: () => void;
+  'data-testid'?: string;
 }
 
 export default function DropDown({
@@ -14,6 +15,7 @@ export default function DropDown({
   scrolled,
   isOpen,
   onClose,
+  'data-testid': dataTestId,
 }: DropDownProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -42,6 +44,7 @@ export default function DropDown({
   return (
     <div
       ref={dropdownRef}
+      data-testid={dataTestId}
       className={`lg:hidden fixed top-[72px] left-0 w-full shadow-lg py-6 z-40 ${
         scrolled ? 'bg-white shadow-light-mild' : 'bg-mainBlack'
       }`}
@@ -50,6 +53,7 @@ export default function DropDown({
         {menuItems.map((item) => (
           <li key={item.href} className='w-full'>
             <Link
+              data-testid={item.label}
               href={item.href}
               onClick={onClose}
               className={`block w-full px-4 py-2 text-center hover:text-accent transition-colors duration-300 ${
