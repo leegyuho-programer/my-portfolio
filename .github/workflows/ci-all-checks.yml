@@ -18,6 +18,17 @@ jobs:
       - run: npm run build
       - run: npm run typecheck
 
+  tests:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-node@v4
+          with:
+            node-version: 20.13.1
+        - run: npm ci
+        - name: Run Unit & Integration Tests
+          run: npm test -- --ci --coverage
+
   chromatic:
     runs-on: ubuntu-latest
     steps:
