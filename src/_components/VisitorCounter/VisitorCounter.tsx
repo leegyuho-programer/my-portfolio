@@ -24,6 +24,12 @@ export default function VisitorCounter() {
         if (!res.ok) throw new Error('visitor count fetch 실패');
         const data: VisitorCount = await res.json();
 
+        // 테스트 환경에서는 애니메이션 없이 바로 값 세팅
+        if (process.env.NODE_ENV === 'test') {
+          setDisplayCount(data);
+          return;
+        }
+
         // 0부터 목표값까지 애니메이션
         const animateFromOne = (to: number, key: 'today' | 'total') => {
           let current = 0; // 항상 0부터 시작
@@ -74,7 +80,10 @@ export default function VisitorCounter() {
   );
 
   return (
-    <div className='w-full py-4 text-center md:text-sm text-xs text-gray-400'>
+    <div
+      data-testid='visitor-counter'
+      className='w-full py-4 text-center md:text-sm text-xs text-gray-400'
+    >
       © 2025 GYUHO LEE — Visitors: {formattedNumbers.today} /{' '}
       {formattedNumbers.total}
     </div>
