@@ -1,5 +1,6 @@
 'use client';
 
+import { Route } from 'next';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import DropDown from '../DropDown/DropDown';
@@ -8,7 +9,7 @@ import { flexRowCenter } from './../../app/styles';
 
 export interface MenuItemProps {
   label: string;
-  href: string;
+  href: Route;
 }
 
 interface NavBarProps {
