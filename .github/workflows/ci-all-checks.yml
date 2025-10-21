@@ -1,4 +1,4 @@
-name: CI Full Checks, accessibility-test, visual-test
+name: CI & CD Pipeline
 
 on:
   pull_request:
@@ -6,30 +6,37 @@ on:
       - main
 
 jobs:
+  # 코드 품질 및 빌드 검사
   lint-build-typecheck:
+    name: Lint, Build, and Type Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20.13.1
+          cache: 'npm'
       - run: npm ci
       - run: npm run lint
       - run: npm run build
       - run: npm run typecheck
 
+  # 유닛 & 통합 테스트
   tests:
+    name: Run Unit & Integration Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20.13.1
+          cache: 'npm'
       - run: npm ci
-      - name: Run Unit & Integration Tests
-        run: npm test -- --ci --coverage
+      - run: npm test -- --ci --coverage
 
+  # 시각 회귀 테스트 (Chromatic)
   chromatic:
+    name: Chromatic Visual Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +45,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20.13.1
+          cache: 'npm'
       - run: npm ci
       - uses: chromaui/action@latest
         with:
@@ -45,7 +53,9 @@ jobs:
           autoAcceptChanges: false
           exitOnceUploaded: true
 
+  # 접근성 테스트 (활성화 가능)
   accessibility:
+    name: Accessibility Tests
     if: false # 이 줄 하나로 accessibility job은 실행되지 않음
     runs-on: ubuntu-latest
     steps:
