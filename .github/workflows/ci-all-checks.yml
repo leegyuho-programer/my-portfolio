@@ -1,5 +1,5 @@
 name: CI & CD Full Pipeline
-
+CI & CD Full Pipeline / Run Unit & Integration Tests (pull_request)
 on:
   pull_request:
     branches:
@@ -32,8 +32,7 @@ jobs:
           node-version: 20.13.1
           cache: 'npm'
       - run: npm ci
-      - name: Run Unit & Integration Tests
-        run: npm test -- --ci --coverage
+      - run: npm test -- --ci --coverage
 
   # 시각 회귀 테스트 (Chromatic)
   chromatic:
